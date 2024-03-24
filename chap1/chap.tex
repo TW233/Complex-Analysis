@@ -1,0 +1,1394 @@
+\ifx\allfiles\undefined
+\input{../config/config}
+\begin{document}
+	% \input{../config/cover} 
+	\else
+	\fi
+	%  ############################ 正文部分
+
+\chapter{课程要求}
+	\begin{itemize}
+		\item \textbf{任课教师}：林明华
+		
+		\item \textbf{辅导时间}：周一$9a.m. - 11a.m.$
+		
+		\item \textbf{办公室}：数学楼$210$
+		
+		\item \textbf{$Email$}：$mh.lin@xjtu.edu.cn$
+		
+		\item \textbf{总评成绩组成}：阅读报告及汇报$20\%$ + 期末考试$80\%$
+	\end{itemize}
+
+\chapter{$Week \,\, 1$}
+\section{复数的引入}
+\paragraph{引入}
+	\begin{center}
+		下面从代数结构($Group , \,\, Ring , \,\, Field$)的角度引入复数的概念.
+	\end{center}
+	$Consider \,\, the \,\, set \,\, \R^2 . \,\, Define \,\, two \,\, operations . \,\, \forall (a , b) , (c , d) \in \R^2 , $
+	\begin{align}
+		(a , b) + (c , d) &\coloneqq (a + c , b + d)\\
+		(a , b) \cdot (c , d) &\coloneqq (ac - bd , bc + ad)
+	\end{align}
+	$"\cdot" \,\, is \,\, commutative.$\\
+	$"+" , \,\, "\cdot" \,\, satisfy \,\, associative \,\, and \,\, distributive \,\, laws.$
+	\begin{align}
+		(0 , 0) &: The \,\, additive \,\, identity \\
+		(1 , 0) &: The \,\, multiplicative \,\, identity
+	\end{align}
+	$\Rightarrow (\R^2 , \,\, + , \,\, \cdot) \,\, is \,\, a \,\, communicative \,\, ring.$
+	
+	\vspace*{2em}
+	$\forall (a , b) \in \R^2 , \,\, (a , b) \neq (0 , 0) , \,\, if$
+	\begin{align}
+		&(a , b) \cdot (x , y) = (1 , 0) \\
+		&\Rightarrow x = \frac{a}{a^2 + b^2} , \,\, y = \frac{-b}{a^2 + b^2}
+	\end{align}
+	$Therefore , \,\, (\R^2 , \,\, + , \,\, \cdot) \,\, is \,\, a \,\, field , \,\, renoted \,\, as \,\, \C.$
+	
+\vspace*{2em}
+\paragraph{复数的乘法}
+	在上述对$\C$ 的定义中，唯一非平凡的点便是乘法运算$"\cdot"$ 的定义.
+\begin{center}
+	下面我们从代数的方法，从另一个角度理解复数的乘法.
+\end{center}
+	$We \,\, may \,\, ask \,\, a \,\, question \,\, : \,\, \uwave{Can \,\, we \,\, define \,\, a \,\, "\cdot" \,\, and  \,\, let \,\, (\R^3 , \,\, + , \,\, \cdot) \,\, be \,\, a \,\, field?}$\\
+	$However , \,\, the \,\, answer \,\, is \,\, certainly \,\, not !$
+	
+	\vspace*{2em}
+		$Consider \,\, M_2 = 
+		\left\{ 
+		\begin{pmatrix}
+			a \,\, &-b\\
+			b \,\, &a
+		\end{pmatrix} \,\, \Bigg| \,\, a , b \in \R
+		\right\}
+		\,\, equipped \,\, with \,\, the \,\, usual \,\, matrix \,\, addition \,\, and \,\, multiplication.$\\
+		
+	$Define \,\, a \,\, map \,\, \sigma.$
+	\begin{align}
+		\sigma : \R^2 &\longrightarrow M_2 \\
+		(a , b) &\longmapsto 
+		\begin{pmatrix}
+			a \,\, &-b\\
+			b \,\, &a
+		\end{pmatrix}
+	\end{align}
+	$Then , \,\, \sigma \,\, is \,\, bijective.$
+	\begin{align}
+		\sigma(a , b) \cdot \sigma(c , d) = 
+		\begin{pmatrix}
+			a \,\, &-b\\
+			b \,\, &a
+		\end{pmatrix} 
+		\begin{pmatrix}
+			c \,\, &-d\\
+			d \,\, &c
+		\end{pmatrix}
+		= 
+		\begin{pmatrix}
+			ac - bd \,\, &-(bc + ad)\\
+			bc + ad \,\, &ac - bd
+		\end{pmatrix}
+		= 
+		\sigma((a , b) \cdot (c , d))
+	\end{align}
+	$\Rightarrow \sigma \,\, is \,\, an \,\, isomorphism(\text{同构映射}).$ \\
+	于是复数乘法可视作复平面上带伸缩的旋转.	
+	
+\newpage
+\section{复数的基本性质}
+\paragraph{$Some \,\, Facts$}
+	\begin{align}
+		\left| Rez \right| \leq \left| z \right| &, \,\, \left| Imz \right| \leq \left| z \right| \\
+		Rez = \frac{z + \bar{z}}{2} &, \,\, Imz = \frac{z - \bar{z}}{2i}
+	\end{align}
+
+\vspace*{2em}
+\paragraph{性质}
+	下面给出一些命题.
+	\begin{enumerate}
+		\item 三角不等式.
+		\begin{proposition}[$Triangle \,\, Inequality$]
+			$Let \,\, z , w \in \C . \,\, Then$
+			\begin{align}
+				\left| z + w \right| \leq \left| z \right| + \left| w \right|
+			\end{align}
+			
+			\begin{proof}
+				$Let \,\, z = a + bi , \,\, w = c + di . \,\, Then$
+				\begin{align}
+					&\Leftrightarrow \sqrt{(a + c)^2 + (b + d)^2} \leq \sqrt{a^2 + b^2} + \sqrt{c^2 + d^2} \\
+					&\Leftrightarrow ac + bd \leq \sqrt{(a^2 + b^2)(c^2 + d^2)} = \sqrt{(ac)^2 + (bd)^2 + a^2 d^2 + b^2 c^2}
+				\end{align}
+			\end{proof}
+		\end{proposition}
+	
+		\begin{corollary}
+			$If \,\, z , w \in \C , \,\, then$
+			\begin{align}
+				\left| \left| z \right| - \left| w \right| \right| \leq \left| z - w \right|
+			\end{align}
+		
+			\begin{proof}
+				\begin{align}
+					\left| z \right| &= \left| z - w + w \right| \leq \left| z - w \right| + \left| w \right| \\
+					\left| w \right| &= \left| z - w - z \right| \leq \left| z - w \right| + \left| z \right| \\
+					\Rightarrow \left| z - w \right| 
+					&\geq max\left\{ \left| z \right| - \left| w \right| , \,\, \left| w \right| - \left| z \right| \right\} 
+					= \left| \left| z \right| - \left| w \right| \right|
+				\end{align}
+			\end{proof}
+		\end{corollary}
+	
+		\item $Cauchy - Schwarz$ 不等式.
+		\begin{proposition}[$Cauchy - Schwarz$]
+			$Let \,\, z_1 , \cdots , z_n , w_1 , \cdots , w_n \in\C . \,\, Then$
+			\begin{align}
+				\left| \sum_{k = 1}^{n}{z_k w_k} \right|^2 \leq 
+				\left( \sum_{k = 1}^{n}{\left| z_k \right|^2} \right)
+				\left( \sum_{k = 1}^{n}{\left| w_k \right|^2} \right)
+			\end{align}
+		
+			\begin{proof}
+				$\forall \lambda \in \R , \,\, \vartheta \in \R ,$
+				\begin{align}
+					0 \leq 
+					\sum_{k = 1}^{n}{\left| z_k - \lambda e^{i\vartheta} \overline{w_k} \right|^2} 
+					&= \sum_{k = 1}^{n}
+					{(z_k - \lambda e^{i\vartheta} \overline{w_k}) (\overline{z_k} - \lambda e^{-i\vartheta} w_k)}\\
+					&= \sum_{k = 1}^{n}{\left| z_k \right|^2} - 2\left( Re \,\, e^{-i\vartheta} 
+					\sum_{k = 1}^{n}{z_k w_k} \right) \lambda + \lambda^2 \sum_{k = 1}^{n}{\left| w_k \right|^2}\\
+					&= a \lambda^2 - 2b \lambda + c \\
+					&\Rightarrow b^2 \leq ac
+				\end{align}
+				$Then$
+				\begin{align}
+					\left( Re \,\, e^{-i\vartheta} \sum_{k = 1}^{n}{z_k w_k} \right)^2 \leq 
+					\left( \sum_{k = 1}^{n}{\left| z_k \right|^2} \right)
+					\left( \sum_{k = 1}^{n}{\left| w_k \right|^2} \right) 
+				\end{align}
+				$Suppose \,\, z = \sum_{k = 1}^{n}{z_k w_k} = \left| z \right| e^{i \varphi} \in \C , \,\, let \,\, \vartheta = \varphi . \,\, Then$
+				\begin{align}
+					Re \,\, e^{-i\vartheta} \sum_{k = 1}^{n}{z_k w_k} &= \left| \sum_{k = 1}^{n}{z_k w_k} \right| \\
+					\left| \sum_{k = 1}^{n}{z_k w_k} \right|^2 &\leq 
+					\left( \sum_{k = 1}^{n}{\left| z_k \right|^2} \right)
+					\left( \sum_{k = 1}^{n}{\left| w_k \right|^2} \right)
+				\end{align}
+			\end{proof}
+		\end{proposition}
+	\end{enumerate}
+
+\newpage
+\section{课堂例题$2024-02-26$}
+	\begin{enumerate}
+		\item $Let \,\, z_1 , z_2 \in \C , \,\, \left| z_1 \right| \leq 1 , \,\, \left| z_2 \right| \leq 1 . \,\, If \,\, \left| z_1 - z_2 \right| \geq 1 , \,\, show \,\, that$
+		\begin{align}
+			\left| z_1 + z_2 \right| \leq \sqrt{3}
+		\end{align}
+	
+	\vspace*{2em}
+	\begin{proof}
+		(平行四边形对角线的平方和等于四边的平方和.)
+		\begin{align}
+			\left| z_1 - z_2 \right|^2 
+			&= (z_1 - z_2)(\overline{z_1} - \overline{z_2})
+			= \left| z_1 \right|^2 + \left| z_2 \right|^2 - z_1 \overline{z_2} - \overline{z_1} z_2\\
+			\left| z_1 + z_2 \right|^2 
+			&= (z_1 + z_2)(\overline{z_1} + \overline{z_2})
+			= \left| z_1 \right|^2 + \left| z_2 \right|^2 + z_1 \overline{z_2} + \overline{z_1} z_2
+		\end{align}
+		$\Rightarrow$
+		\begin{align}
+			\left| z_1 - z_2 \right|^2 + \left| z_1 + z_2 \right|^2 
+			&= 2(\left| z_1 \right|^2 + \left| z_2 \right|^2) \\
+			\left| z_1 + z_2 \right|^2 
+			&= 2(\left| z_1 \right|^2 + \left| z_2 \right|^2) - \left| z_1 - z_2 \right|^2 
+			\leq 3
+		\end{align}
+	\end{proof}
+
+	\vspace*{3em}
+
+	\item $Let \,\, z_1 , \cdots , z_n \in \C , \,\, and \,\, let \,\, e_0 , e_1 , \cdots , e_{n + 1} \in \C \,\, be \,\, the \,\, coefficients \,\, of \,\, (z + 1) \overset{n}{\underset{k = 1}{\prod}}{(z + z_k)} , $\\
+	$i.e.$
+	\begin{align}
+		(z + 1) \prod_{k = 1}^{n}{(z + z_k)} = \sum_{k = 0}^{n + 1}{e_k z^{n + 1 - k}}
+	\end{align}
+	$Show \,\, that \,\, \overset{n + 1}{\underset{k = 0}{\sum}}{(k + 1) e_k z^{n + 1 - k}} = 0 \,\, has \,\, a \,\, root \,\, of \,\, modulus \,\, \geq 1 .$
+	
+	\vspace*{2em}
+	$Specifically , \,\, try \,\, to \,\, show \,\, n = 1 \,\, case . $\\
+	$\Leftrightarrow (Let \,\, c \in \C , \,\, show \,\, z^2 + 2(1 + c)z + 3c = 0 \,\, has \,\, a \,\, root \,\, of \,\, modulus \,\, \geq 1 .)$
+	
+	\vspace*{2em}
+	\begin{proof}
+		下面对方程$z^2 + 2(1 + c)z + 3c = 0$ 的根的情况进行分类(事实上同时对$c \in \C$ 的取值进行了分类).
+		\begin{enumerate}
+			\item[(1)]若方程存在实根$z_0 \in \R$，下面可以证明，事实上$(1) \Leftrightarrow c \in \R$.
+			\begin{align}
+				&z_{0}^2 + 2(1 + c)z_{0} + 3c = 0 \\
+				&\Rightarrow (2z_{0} + 3)c = -z_{0}^2 - 2z_0 \\
+				&\Rightarrow c = \frac{-z_{0}^2 - 2z_0}{2z_{0} + 3} \in \R \,\, 
+				\text{或} \,\, z_0 = \frac{3}{2}(\textbf{此时$-z_{0}^2 - 2z_0 \neq 0$ 矛盾})
+			\end{align}
+			于是$c \in \R , \,\, z^2 + 2(1 + c)z + 3c = 0$ 为实系数一元二次方程.
+			\begin{align}
+				\Delta &= 4(1 + c)^2 - 12c = 4(c^2 - c + 1) > 0 , \,\, \forall c \in \R \\
+				z &= - 1 - c \pm \sqrt{c^2 - c + 1} \in \R
+			\end{align}
+			下面再对实数$c \in \R$ 的范围分类讨论.
+			\begin{enumerate}
+				\item[\rmnum{1}).]$c \geq 0$，则其中一根$z = - 1 - c - \sqrt{c^2 - c + 1} < - 1 , \,\, \left| z \right| > 1$.
+				
+				\item[\rmnum{2}).]$c < 0$，考虑其中一根
+				\begin{align}
+					z &= - 1 - c - \sqrt{c^2 - c + 1} \\
+					&= - 1 - (\sqrt{c^2 - c + 1} + c)
+				\end{align}
+				由于$c < 0$，因此$1 - c > 0$.
+				\begin{align}
+					\sqrt{c^2 - c + 1} = \sqrt{c^2 + (1 - c)} &> \sqrt{c^2} = \left| c \right| \\
+					\sqrt{c^2 - c + 1} + c &> 0 \\
+					z = - 1 - (\sqrt{c^2 - c + 1} + c) &< - 1 \\
+					\left| z \right| &> 1
+				\end{align}
+			\end{enumerate}
+			于是对于$\forall c \in \R$，都有$\left| z \right| > 1$.从而得证.\\
+			事实上，根据上述证明过程可知，若$c \in \R$，则原方程必有实根，且两根均为实根，从而
+			\begin{align}
+				(1) : \text{方程存在实根} \Leftrightarrow c \in \R \Leftrightarrow \text{两根均为实根}
+			\end{align}
+		
+			\vspace*{2em}
+			\item[(2)]若方程无实根，即$c \in \C$
+		\end{enumerate}
+	\end{proof}
+	\end{enumerate}
+
+\newpage
+\section{复数域$\C$ 上的拓扑概念$\&$ 性质}
+	$Let \,\, \alpha \in \C , \,\, open \,\, disc \,\, of \,\, radius \,\, r \,\, centered \,\, at \,\, \alpha$
+	\begin{align}
+		D_r (\alpha) &\coloneqq \{ z \in \C \mid \left| z - \alpha \right| < r \} \\
+		D_{r}^{*} (\alpha) &\coloneqq \{ z \in \C \mid 0 < \left| z - \alpha \right| < r \}
+	\end{align}
+	$closed \,\, disc \,\, of \,\, radius \,\, r \,\, centered \,\, at \,\, \alpha$
+	\begin{align}
+		\overline{D}_r (\alpha) &\coloneqq \{ z \in \C \mid \left| z - \alpha \right| \leq r \}
+	\end{align}
+	$unit \,\, disc:$
+	\begin{align}
+		\mathbb{D} \coloneqq D_1 (0)
+	\end{align}
+
+\vspace*{2em}
+	$Let \,\, \Omega \subseteq \C$
+	\begin{defn}
+		$\alpha \in \Omega \,\, is \,\, an \,\, \underline{interior \,\, point \,\, of \,\, \Omega} \,\, if \,\, \exists r > 0 , \,\, \st D_{r}(\alpha) \subseteq \Omega.$
+		
+		\begin{rmk}
+			$The \,\, set \,\, of \,\, all \,\, interior \,\, points \,\, of \,\, \Omega \,\, is \,\, called \,\, \underline{the \,\, interior \,\, of \,\, \Omega} , \,\, denoted \,\, by \,\, Int(\Omega).$
+		\end{rmk}
+	\end{defn}
+
+\vspace*{2em}
+	
+	\begin{defn}
+		$\Omega \,\, is \,\, open \,\, if \,\, \Omega = Int(\Omega).$
+		\begin{rmk}
+			$\C \,\, is \,\, open . \,\, \varnothing \,\, is \,\, open . \,\,(by \,\, convention)$
+		\end{rmk}
+	\end{defn}
+
+\vspace*{2em}
+
+	\begin{defn}
+		$\Omega \,\, is \,\, closed \,\, if \,\, \Omega^c \coloneqq \C \backslash \Omega \,\, is \,\, open.$
+	\end{defn}
+
+\vspace*{2em}
+
+	\begin{thm}
+		$Every \,\, Cauchy \,\, sequence \,\, in \,\, \C \,\, has \,\, a \,\, limit \,\, in \,\, \C . \,\, That \,\, is , \,\, \C \,\, is \,\, Complete.$
+	\end{thm}
+
+
+
+
+\newpage
+\section{课堂例题$2024-03-01$}
+	\begin{enumerate}
+		\item 
+		\begin{align}
+			\lim_{n \to +\infty}{z_n} = w \Leftrightarrow \lim_{n \to +\infty}{Re z_n} = Re w , \,\, \lim_{n \to +\infty}{Im z_n} = Im w
+		\end{align}
+		
+		\vspace*{2em}
+		\begin{proof}
+			\begin{enumerate}
+				\item[$\Rightarrow$]：$\left| Re z_n - Re w \right| = \left| Re (z_n - w) \right| \leq \left| z_n - w \right|$
+				
+				\item[$\Leftarrow$]：$\left| z_n - w \right| 
+				\leq \left| Re (z_n - w) \right| + \left| Im (z_n - w) \right|
+				= \left| Re z_n - Re w \right| + \left| Im z_n - Im w \right|$
+			\end{enumerate}
+		\end{proof}
+	
+		\vspace*{2em}
+		\item $z \,\, is \,\, a \,\, limit \,\, point \,\, of \,\, \Omega \,\,\Leftrightarrow \,\, z \,\, is \,\, an \,\, accumulation \,\, point \,\, of \,\, \Omega$
+		
+		\vspace*{2em}
+		\begin{proof}
+			\begin{enumerate}
+				\item[$\Rightarrow$]：$\forall r > 0 , \,\, \exists N_r , \,\, \st n > N , \,\, where \,\, z_n \in \Omega , \,\, z_n \neq z$.\\
+				$z_n \in D_{r}^{*}(z) , \,\, z_n \in \Omega , \,\, \forall n > N_r$.\\
+				$Hence \,\, z_n \in D_{r}^{*}(z) \cap \Omega \neq \varnothing , \,\, \forall r > 0 , \,\, n > N_r , \,\, i.e. \,\,$\\
+				$z \,\, is \,\, an \,\, accumulation \,\, point \,\, of \,\, \Omega$
+				
+				\item[$\Leftarrow$]：$Take \,\, a \,\, point \,\, z_n \,\, from \,\, D_{\frac{1}{n}}^{*}(z) \cap \Omega \,\, which \,\, is \,\, not \,\, empty.$\\
+				$Then \,\, \{ z_n \} \,\, is \,\, a \,\, Cauchy \,\, sequence \,\, which \,\, converges \,\, to \,\, z.$\\
+				$Hence \,\, z \,\, is \,\, a \,\, limit \,\, point \,\, of \,\, \Omega.$
+			\end{enumerate}
+		\end{proof}
+		\begin{rmk}
+			$A \,\, limit \,\, point \,\, of \,\, \Omega \,\, may \,\, not \,\, belong \,\, to \,\, \Omega.$
+		\end{rmk}
+	
+		\vspace{2em}
+		
+		\item 课本第一章练习$T3 , T5 , T7$.
+	\end{enumerate}
+
+\chapter{$Week \,\, 2 \,\, -- \,\, Functions \,\, on \,\, \C$}
+\section{连续函数和极值}
+	\begin{defn}\label{def 2.1.1}
+		$Let \,\, \Omega \subseteq \C \,\, be \,\, open. \,\, We \,\, say \,\, f : \Omega \longrightarrow \C \,\, is \,\, continuous \,\, at \,\, z_0 \in \Omega \,\, $\\
+		$if \,\, \forall \epsilon > 0 , \exists \delta > 0 , \st$
+		\begin{align}
+			whenever \,\, \left| z - z_0 \right| < \delta , \,\, z \in \Omega , \,\, then \,\, \left| f(z) - f(z_0) \right| < \epsilon
+		\end{align}
+		$To \,\, say \,\, it \,\, another \,\, way , \,\, \forall \epsilon > 0 , \exists \delta > 0 , \st \,\, f(D_{\delta}(z_0) \cap \Omega) \subseteq D_{\epsilon}(f(z_0))$
+		
+		\begin{rmk}
+			$We \,\, say \,\, f \,\, is \,\, continuous \,\, on \,\, \Omega \,\, if \,\, f \,\, is \,\, continuous \,\, at \,\, every \,\, point \,\, of \,\, \Omega.$
+		\end{rmk}
+	\end{defn}
+	
+	\vspace*{2em}
+	$Here \,\, are \,\, some \,\, facts.$
+	\begin{enumerate}
+		\item[$Fact \,\, 1.$] $If \,\, f \,\, is \,\, continuous \,\, on \,\, \Omega , \,\, then \,\, so \,\, are \,\, \overline{f} , \,\, \left| f \right| , \,\, \frac{1}{f} \,\, (if \,\, f(z) \neq 0 \,\, for \,\, all \,\, z \in \Omega).$
+		\begin{proof}
+			$For \,\, \left| f \right| , \,\, use \,\, \left| \left| f(z) \right| - \left| f(z_0) \right| \right| \leq \left| f(z) - f(z_0) \right|$
+		\end{proof}
+	
+		\item[$Fact \,\, 2.$]$f \,\, is \,\, continuous \,\, iff \,\, Ref \,\, and \,\, Imf \,\, are \,\, continuous.$
+	\end{enumerate}
+
+	\vspace*{2em}
+	\begin{proposition}\label{prop 2.1.1}
+		$Let \,\, \Omega \subseteq \C \,\, and \,\, let \,\, f \,\, be \,\, continuous \,\, on \,\, \Omega . \,\, Then$
+		\begin{enumerate}
+			\item[(1)]$For \,\, every \,\, open \,\, set \,\, S \subseteq \C , \,\, f^{-1}(S) = \{ z \in \Omega \mid f(z) \in S \} \,\, is \,\, open.$
+			
+			\item[(2)]$For \,\, every \,\, compact \,\, set \,\, K \subseteq \C , \,\, f(K) \,\, is \,\, compact.$
+		\end{enumerate}
+	
+		\vspace*{2em}
+		\begin{proof}
+			\begin{enumerate}
+				\item[(1)]$If \,\, f^{-1}(S) = \varnothing , \,\, true.$\\
+				$Assume \,\, f^{-1}(S) \neq \varnothing \,\, and \,\, let \,\, z_0 \in f^{-1}(S) . \,\, Write \,\, w_0 = f(z_0) \in S.$\\
+				$Since \,\, S \,\, is \,\, open , \,\, \exists \epsilon > 0 , \st \,\, D_{\epsilon}(w_0) \subseteq S$\\
+				$Since \,\, f \,\, is \,\, continuous , \,\, taking \,\, \epsilon \,\, in \,\, the \,\, definition , \,\, we \,\, get \,\, a \,\, \delta > 0 , \st$
+				\begin{align}
+					D_{\delta}(z_0) \subseteq \Omega \,\, and \,\, f(D_{\delta}(z_0)) \subseteq D_{\epsilon}(f(z_0)) = D_{\epsilon}(w_0) \subseteq S
+				\end{align}
+				$Thus \,\, D_{\delta}(z_0) \subseteq f^{-1}(S) , \,\, and \,\, so \,\, f^{-1}(S) \,\, is \,\, open.$
+				
+				\vspace*{2em}
+				
+				\item[(2)]$Let \,\, \{ \Omega_j \}_{j \in J} \,\, be \,\, an \,\, open \,\, cover \,\, of \,\, f(K) , \,\, i.e.$
+				\begin{align}
+					f(K) \subseteq \bigcup_{j \in J}{\Omega_j}
+				\end{align}
+				$Then$
+				\begin{align}
+					K \subseteq f^{-1}(\bigcup_{j \in J}{\Omega_j}) = \bigcup_{j \in J}{f^{-1}(\Omega_j)}
+				\end{align}
+				$By \,\, (1) , \,\, f^{-1}(\Omega_j) \,\, is \,\, open \,\, for \,\, all \,\, j \in J. \,\, Thus \,\, \{ f^{-1}(\Omega_j) \}_{j \in J} \,\, is \,\, an \,\, open \,\, cover \,\, of \,\, K.$\\
+				$Since \,\, K \,\, is \,\, compact , \,\, \exists j_1 , \cdots , j_n \in J , \st $
+				\begin{align}
+					&k \subseteq \bigcup_{k = 1}^{n}{f^{-1}(\Omega_{j_k})} = f^{-1}(\bigcup_{k = 1}^{n}{\Omega_{j_k}}) \\
+					&\Rightarrow f(K) \subseteq \bigcup_{k = 1}^{n}{\Omega_{j_k}}
+				\end{align}
+			\end{enumerate}
+		\end{proof}
+	\end{proposition}
+
+	\vspace*{2em}
+	$We \,\, say \,\, that \,\, f \,\, contains \,\, a \,\, maximum \,\, at \,\, z_0 \in \Omega \,\, if $
+	\begin{align}
+		\left| f(z) \right| \leq \left| f(z_0) \right| , \,\, \forall z \in \Omega
+	\end{align}
+
+	\begin{proposition}\label{prop 2.1.2}
+		$A \,\, continuous \,\, function \,\, on \,\, a \,\, compact \,\, set \,\, \Omega \,\, is \,\, bounded \,\, and \,\, attains \,\, a \,\, maximum $\\ 
+		$and \,\, a \,\, minimum \,\, on \,\, \Omega.$
+		
+		\vspace*{2em}
+		\begin{proof}
+			$use \,\, \left| f \right|^2 = (Ref)^2 + (Imf)^2$.
+		\end{proof}
+	\end{proposition}
+
+\newpage
+\section{复变函数的极限，全纯函数}
+	\begin{defn}\label{def 2.2.1}
+		$Assume \,\, \Omega \subseteq \C , \,\, \Omega \neq \varnothing \,\, and \,\, \alpha \in Acc(\Omega) , \,\, f : \Omega \longrightarrow \C , \,\, \underset{z \to \alpha , \, z \in \Omega}{\lim}{f(z)} = w \,\, means$
+		\begin{align}
+			\forall \epsilon > 0 , \exists \delta > 0 , \st \,\, 0 < \left| z - z_0 \right| < \delta \,\, \Rightarrow \,\, \left| f(z) - w \right| < \epsilon
+		\end{align}
+	
+		\begin{rmk}
+			容易证明若极限存在，则极限唯一.
+		\end{rmk}
+	\end{defn}
+
+	\vspace*{2em}
+	\begin{defn}\label{def 2.2.2}
+		$Let \,\, \Omega \subseteq \C \,\, be \,\, open , \,\, f : \Omega \longrightarrow \C . \,\, We \,\, say \,\, f(z) \,\, is \,\, \underline{\textbf{$Complex \,\, differentiable \,\, at \,\, z_0 \in \Omega$}}$\\
+		$if \,\, \underset{h \to 0}{\lim}{\frac{f(z_0 + h) - f(z_0)}{h}} \,\, exists. \,\, If \,\, f \,\, is \,\, complex \,\, differentiable at \,\, z_0 , \,\, we \,\, denote \,\, the \,\, limit \,\, of \,\, the \,\, quotient $\\ 
+		$by \,\, f^{'}(z_0) . \,\, i.e.$
+		\begin{align}
+			f^{'}(z_0) = \lim_{h \to 0}{\frac{f(z_0 + h) - f(z_0)}{h}}
+		\end{align}
+		$f^{'}(z_0) \,\, is \,\, called \,\, \underline{\textbf{$the \,\, derivative \,\, of \,\, f \,\, at \,\, z_0$}}$.
+		
+		\begin{rmk}
+			$If \,\, f \,\, is \,\, complex \,\, differentiable \,\, at \,\, every \,\, point \,\, of \,\, \Omega , \,\, then \,\, we \,\, say \,\, f \,\, is \,\, \underline{\textbf{$holomorphic$}} \,\, on \,\,  \Omega.$
+		\end{rmk}
+	\end{defn}
+
+	\vspace*{2em}
+	\begin{example}\label{ex 2.2.1}
+		\begin{itemize}
+			\item $f(z) = \frac{1}{z} \,\, is \,\, holomorphic \,\, on \,\, \C \backslash \{ 0 \}.$
+			
+			\item $f(z) = \bar{z} \,\, is \,\, not \,\, complex \,\, differentiable \,\, at \,\, any \,\, point \,\, of \,\, \C.$
+			
+			\item $f(z) = \left| z \right|^2 \,\, is \,\, only \,\, complex \,\, differentiable \,\, at \,\, z = 0.$
+		\end{itemize}
+	\end{example}
+
+	\vspace*{2em}
+	\begin{align}
+		\lim_{h \to 0}{\frac{f(z_0 + h) - f(z_0)}{h}} = f^{'}(z_0) \,\, \Leftrightarrow \,\, \lim_{h \to 0}{\frac{f(z_0 + h) - f(z_0) - hf^{'}(z_0)}{h}} = 0
+	\end{align}
+	$Let \,\, \underline{\textbf{$\circ(h)$}} \,\, denote \,\, \underline{\textbf{$any \,\, complexed \,\, valued \,\, function$}} \,\, with \,\, the \,\, property \,\, \frac{\circ(h)}{h} \to 0 , \,\, as \,\, h \to 0$\\
+	$Then \,\, f \,\, is \,\, complex \,\, differentiable \,\, at \,\, z_0 \,\, iff \,\, \exists a \in \C , \st$
+	\begin{align}
+		f(z_0 + h) - f(z_0) - ha = \circ(h) , \,\, where \,\, a = f^{'}(z_0)
+	\end{align}
+	\begin{rmk}
+		$According \,\, to \,\, equation(2.11) , \,\, holomorphic \,\, \Rightarrow \,\, continuity.$
+	\end{rmk}
+
+	\newpage
+	\begin{proposition}\label{prop 2.2.1}
+		$If \,\, f , \,\, g \,\, are \,\, holomorphic \,\, on \,\, an \,\, open \,\, set \,\, \Omega \subseteq \C , \,\, then$
+		\begin{align}
+			(f + g)^{'} = f^{'} + g^{'} , \,\, (fg)^{'} = f^{'}g + fg^{'}
+		\end{align}
+		$If \,\, g(z_0) \neq 0 , \,\, then \,\, \frac{f}{g} \,\, is \,\, complex \,\, differentiable \,\, at \,\, z_0 \,\, and$
+		\begin{align}
+			\left( \frac{f}{g} \right)^{'}_{z = z_0} = \frac{f^{'}g - fg^{'}}{g^2}\Big|_{z = z_0}
+		\end{align}
+		$If \,\, f : \Omega \longrightarrow U \,\, and \,\, g : U \longrightarrow \C \,\, are \,\, holomorphic , \,\, then \,\, \underline{\textbf{$the \,\, chain \,\, rule$}} \,\, holds$
+		\begin{align}
+			(g \circ f)^{'}(z) = g^{'}(f(z)) \, f^{'}(z) , \,\, \forall z \in \Omega
+		\end{align}
+	\end{proposition}
+
+\newpage
+\section{$Cauchy - Riemann \,\, Equations$}
+	\begin{align}
+		f(z) = f(x + iy) = u(x , y) + iv(x , y)
+	\end{align}
+	$Assume \,\, \underset{h \to 0}{\lim}{\frac{f(z_0 + h) - f(z_0)}{h}} \,\, exists , \,\, we \,\, may \,\, let \,\, h \to 0 \,\, in \,\, whichever \,\, manner \,\, we \,\, please. $\\
+	$(let \,\, z_0 = x_0 + iy_0)$
+	\begin{itemize}
+		\item $Let \,\, h = t \in \R , $
+		\begin{align}
+			f^{'}(z_0) = \lim_{t \to 0 , \,\, t \in \R}{\frac{f(z_0 + h) - f(z_0)}{h}} &= u_x (x_0 , y_0) + i v_x (x_0 , y_0) \\
+			&= \frac{\partial u}{\partial x}(x_0 , y_0) + i\frac{\partial v}{\partial x}(x_0 , y_0)
+		\end{align}
+	
+		\item $Let \,\, h = it , t \in \R ,$
+		\begin{align}
+			f^{'}(z_0) = \lim_{t \to 0 , \,\, t \in \R}{\frac{f(z_0 + h) - f(z_0)}{it}} &= v_y(x_0 , y_0) - iu_y(x_0 , y_0) \\
+			&= \frac{\partial v}{\partial y}(x_0 , y_0) - i\frac{\partial u}{\partial y}(x_0 , y_0)
+		\end{align}
+	\end{itemize}
+	$Thus , \,\, we \,\, conclude \,\, f = u + iv \,\, is \,\, holomorphic \,\, \Rightarrow \,\, u , \,\, v \,\, satisfy$
+	\begin{align}
+		\begin{cases}
+			u_x = v_x\\
+			u_y = - v_y
+		\end{cases}
+	\end{align}
+	$The \,\, equations(2.20) \,\, is \,\, called \,\, \underline{\textbf{$Cauthy - Riemann \,\, Equations$}}$.
+	
+	\vspace*{2em}
+	\begin{example}\label{ex 2.3.1}
+		$f(x + iy) = x^2 - y^2 - 2xyi , \,\, x , y \in \R \,\, is \,\, not \,\, holomorphic \,\, on \,\, \C \backslash \{ 0 \}.$
+	\end{example}
+
+\newpage
+\section{全纯条件}
+	Let $f = u + i v : \Omega \longrightarrow \C$ be holomorphic. Then
+	\begin{align}
+		\begin{cases}
+			u_x = v_y \\
+			u_y = - v_x
+		\end{cases} \,\, on \,\, \Omega
+	\end{align}
+
+	\vspace{2em}
+	下面给出函数$holomorphic$ 的充分条件.
+	\begin{thm}\label{thm 2.4.1}
+		Let $\Omega \subset \C$ be open, $f = u + iv : \Omega \longrightarrow \C$. If $u , v$ are differentiable on $\Omega$ and satisfy the $Cauchy-Riemann \,\, equations$, then $f$ is holomorphic on $\Omega$.
+		
+		\vspace{2em}
+		\begin{proof}
+			(Goal : $\forall z_0 = x_0 + i y_0 \in \Omega , \,\, h = h_1 + i h_2 \in \C , \,\, z_0 + h \in \Omega , \,\, \left| h \right| \,\, small \,\, enough , $\\
+			$f(z_0+  h) - f(z_0) = ah + \circ(h)$)\\
+			
+			\vspace{1em}
+			Since $u(x , y)$ is differentiable on $\Omega$, 
+			\begin{align}
+				u(x_0 + h_1 , y_0 + h_2) - u(x_0 , y_0) = h_1 u_x(x_0 , y_0) + h_2 u_y(x_0 , y_0) + \circ(h_1 , h_2)
+			\end{align}
+			Here $\circ(h_1 , h_2)$ is any expression with the property that $\frac{\circ(h_1 , h_2)}{\sqrt{h_{1}^2 + h_{2}^2}} \to 0$ , as $(h_1 , h_2) \to 0$.\\
+			Similarly, 
+			\begin{align}
+				v(x_0 + h_1 , y_0 + h_2) - v(x_0 , y_0) = h_1 v_x(x_0 , y_0) + h_2 v_y(x_0 , y_0) + \circ(h_1 , h_2)
+			\end{align}
+			Then
+			\begin{align}
+				f(z_0 + h) - f(z_0) 
+				&= h_1 u_x + h_2 u_y + i (h_1 v_x + h_2 v_y) + \circ(h_1 , h_2) \\
+				&= h_1 u_x - h_2 v_x + i (h_1 v_x + h_2 u_x) + \circ(h_1 , h_2) \\
+				&= (u_x + i v_x)(h_1 + i h_2) + \circ(h_1 , h_2)
+			\end{align}
+			Note that we may write $\circ(h)$ instead of $\circ(h_1 , h_2)$, since
+			\begin{align}
+				(h_1 , h_2) \to 0 \Leftrightarrow h \to 0 \Leftrightarrow \left| h \right| \to 0
+			\end{align}
+			Then the previous expression is equal to $f^{'}(z_0)h + \circ(h)$.\\
+			Since $z_0$ is arbitrary, $f$ is holomorphic on $\Omega$.
+		\end{proof}
+	\end{thm}
+	
+	\newpage
+	$f = u + iv$ can be seen as a mapping
+	\begin{align}
+		F : \R^2 &\longrightarrow \R^2 \\
+		(x , y) &\longmapsto (u(x , y) , v(x , y))
+	\end{align}
+	F is said to be differentiable at a point $P_0 = (x_0 , y_0)$, if $\exists$ a linear transformation $J : \R^2 \longrightarrow \R^2 , \,\, \st$
+	\begin{align}
+		F(P_0 + H) - F(P_0) = J(H) + \left| H \right| \psi(H) , \,\, with \,\, \left| \psi(H) \right| \to 0 \,\, as \,\, \left| H \right| \to 0
+	\end{align}
+	
+	\vspace{2em}
+	\begin{proposition}\label{prop 2.4.1}
+		If $f$ is complex differentiable at $z_0 = x_0 + i y_0$, then $F$ is differentiable at $(x_0 , y_0)$.
+		
+		\vspace{2em}
+		\begin{proof}
+			Since $f$ is complex differentiable at $z_0 = x_0 + i y_0$, we have
+			\begin{align}
+				f(z_0 + h) - f(z_0) 
+				&= f^{'}(z_0)h + \circ(h) \\
+				&= (u_x + i v_x)(h_1 + i h_2) + \circ(h) \\
+				&= u_x h_1 - v_x h_2 + i (v_x h_1 + u_x h_2) + \circ(h) \\
+				&= u_x h_1 + u_y h_2 + i (v_x h_1 + v_y h_2) + \circ(h)
+			\end{align}
+			Thus, $F(P_0 + H) - F(P_0) = J(H) + \circ(H)$, where $J = 
+			\begin{pmatrix}
+				u_x \,\, &u_y \\
+				v_x &v_y
+			\end{pmatrix}$ and $H = (h_1 , h_2)$.
+		\end{proof}
+	\end{proposition}
+
+\newpage
+\section{复变函数微分}
+	\begin{center}
+			$z = x + i y , \,\, \overline{z} = x - i y \,\, \Leftrightarrow \,\, x = \frac{z + \overline{z}}{2} , \,\, y = \frac{z - \overline{z}}{2i}$
+	\end{center}
+	A given function $f : \Omega \longrightarrow \C$ can be expressed either in variables $x , y$ or $z , \overline{z}$. That is, for the given $f$, we may write $f(x , y)$ or $f(z , \overline{z})$.
+	\begin{rmk}
+		可视作复平面上可建立两个坐标系$xOy$ 和$zO\overline{z}$，即$\C$ 中存在两组基.由于将复数$z$ 转化为$x + i y$ 后再进行计算常常会产生不便，因此下面通过这两组基之间的转化，探讨不同形式下函数微分的表达方式.
+	\end{rmk}
+	
+	\vspace{2em}
+	Suppose the relevant derivatives exist.
+	\begin{align}
+		\frac{\partial f}{\partial z} &= \frac{\partial f}{\partial x} \cdot \frac{\partial x}{\partial z} + \frac{\partial f}{\partial y} \cdot \frac{\partial y}{\partial z} = \frac{1}{2} \left( \frac{\partial}{\partial x} - i \frac{\partial}{\partial y} \right) f \\
+		\frac{\partial f}{\partial \overline{z}} &= \frac{\partial f}{\partial x} \cdot \frac{\partial x}{\partial \overline{z}} + \frac{\partial f}{\partial y} \cdot \frac{\partial y}{\partial \overline{z}} = \frac{1}{2} \left( \frac{\partial}{\partial x} + i \frac{\partial}{\partial y} \right) f
+	\end{align}
+	Define two operations.$\left( Wirtinger \,\, operations , \,\, 1927 \right)$
+	\begin{align}
+		\frac{\partial}{\partial z} \coloneqq \frac{1}{2} \left( \frac{\partial}{\partial x} - i \frac{\partial}{\partial y} \right) \\
+		\frac{\partial}{\partial \overline{z}} \coloneqq \frac{1}{2} \left( \frac{\partial}{\partial x} + i \frac{\partial}{\partial y} \right)
+	\end{align}
+
+	\vspace{2em}
+	\begin{proposition}\label{prop 2.5.1}
+		$Cauchy - Riemann \,\, equations$ are equivalent to
+		\begin{align}
+			\frac{\partial f}{\partial \overline{z}} = 0
+		\end{align}
+	
+		\vspace{2em}
+		\begin{proof}
+			Let $f = u + i v$. Then 
+			\begin{align}
+				\frac{\partial f}{\partial \overline{z}} = \frac{1}{2} \left( \frac{\partial f}{\partial x} + i \frac{\partial f}{\partial y} \right) = \frac{1}{2} \left( u_x + v_x + i (u_y + v_y) \right) = \frac{1}{2} \left( u_x - v_y + i (u_y + v_x) \right)
+			\end{align}
+			\begin{align}
+				\frac{\partial f}{\partial \overline{z}} = 0 \Leftrightarrow 
+				\begin{cases}
+					u_x = v_y \\
+					u_y = - v_x
+				\end{cases}
+			\end{align}
+		\end{proof}
+	\end{proposition}
+
+	\begin{rmk}
+		We note that $f^{'}(z) = u_x + i v_x = u_x - i u_y = 2 \frac{\partial u}{\partial z}$.
+	\end{rmk}
+
+\newpage
+\paragraph{调和算子 / 拉普拉斯算子}
+	Define the \underline{$Laplacian$}(or the \underline{$Laplace \,\, operator$}).
+	\begin{align}
+		\Delta = \frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2}
+	\end{align}
+	
+	\begin{rmk}
+		$C^{k}(\Omega)$ denotes the set of all k times continuously differentiable functions on $\Omega$.
+	\end{rmk}
+	
+	\vspace{2em}
+	下面给出调和函数的定义.
+	\begin{defn}\label{def 2.5.1}
+		Let $\Omega \subset \C$ be an open set. $g : \Omega \longrightarrow \C$ is called \underline{$harmonic$} if $g \in C^{2}(\Omega)$ and $\Delta g = 0$.
+	\end{defn}
+	
+	\vspace{2em}
+	下面的命题说明了全纯函数的实部和虚部均调和.(全纯的必要条件)
+	\begin{proposition}\label{prop 2.5.2}
+		Let $f = u + i v : \Omega \longrightarrow \C$ be holomorphic. Assume $u , v \in C^{2}(\Omega)$. Then $u , v$ are harmonic.
+		
+		\begin{rmk}
+			事实上后面会证明此处无需$u , v \in C^{2}(\Omega)$.
+		\end{rmk}
+		
+		\vspace{2em}
+		\begin{proof}
+			The $Cauchy - Riemann \,\, equations$ tell $
+			\begin{cases}
+				u_x = v_y \\
+				u_y = - v_x
+			\end{cases}$
+			\begin{align}
+					\frac{\partial^2 u}{\partial x^2} &= \frac{\partial^2 v}{\partial x \partial y} \\
+					\frac{\partial^2 u}{\partial y^2} &= -\frac{\partial^2 v}{\partial y \partial x}
+			\end{align}
+			Since $v \in C^{2}(\Omega)$, 
+			\begin{align}
+				\frac{\partial^2 v}{\partial x \partial y} = \frac{\partial^2 v}{\partial y \partial x}
+			\end{align}
+			Therefore, $u_{xx} + u_{yy} = 0$. Similarly we can proof that $v_{xx} + v_{yy} = 0$.
+		\end{proof}
+	\end{proposition}
+	
+	\vspace{2em}
+	A holomorphic function is necessarily harmonic, so is $\overline{f}$.
+	\begin{proposition}\label{prop 2.5.3}
+		Let $\Omega \subset \C$ be a region, $f : \Omega \longrightarrow \C$. Then
+		\begin{center}
+			$f$ is consistant iff $f^{'}(z) = 0 , \forall z \in \Omega$.
+		\end{center}
+		
+		\vspace{2em}
+		\begin{proof}
+			\begin{enumerate}
+				\item[$\Rightarrow:$]clear
+				
+				\item[$\Leftarrow:$]Let $f = u + i v$, then
+				\begin{align}
+					f^{'}(z) = 0 \Rightarrow u_x + i v_x = 0 &\Rightarrow u_x = 0 , v_x = 0 \\
+					&\overset{C-R}{\Rightarrow} v_y = 0 , u_y = 0 \\
+					&\Rightarrow u = c_1 , v = c_2 \,\, (by \,\, mean \,\, value \,\, theorem) \\
+					&(\text{区域连通，利用中值定理})
+				\end{align}
+			\end{enumerate}
+		\end{proof}
+	\end{proposition}
+
+\newpage
+\section{课堂例题$2024-03-08$}
+	\begin{enumerate}
+		\item $f(x + i y) = x^2 - y^2 + 2xy i$ is holomorphic.
+		
+		\vspace{2em}
+		
+		\item Is $f(z) = z^2 \overline{z} + \frac{1}{z} + \frac{1}{z^2}$ holomorphic on $\C \backslash \{ 0 \}$?
+		
+		\vspace{2em}
+		
+		\item Let $f = u + i v$ be holomorphic on a region $\Omega$. Assume $au + bv + c = 0$ for some $a , b , c \in \R$ and $a , b$ are not all zero. Show $f$ is consistant.
+		
+		\vspace{2em}
+		
+		\item Find a holomorphic function $f$ on $\C$ $\st$
+		\begin{align}
+			Re f = x^2 - y^2 + xy , \,\, f(0) = 0
+		\end{align}
+	
+		\vspace{2em}
+		
+		\item Let $\Omega = \C \backslash \{ 0 \}$ and $u : \Omega \longrightarrow \R$ be given by $u(x , y) = \frac{1}{2} \ln(x^2 + y^2)$.\\
+		Is there a holomorphic function $f : \Omega \longrightarrow \C$, $\st$ $Ref = u$ ?
+		
+		\vspace{2em}
+		\begin{solution}
+			Suppose $f = u + i v$ is holomorphic on $\Omega$. Then
+			\begin{align}
+				\begin{cases}
+					v_x = -u_y = -\frac{y}{x^2 + y^2} \\
+					v_y = u_x = \frac{x}{x^2 + y^2}
+				\end{cases}
+			\end{align}
+			By $v_y = \frac{x}{x^2 + y^2}$,
+			\begin{align}
+				v = \arctan{\frac{y}{x}} + c(x)
+			\end{align}
+			Then by $v_x = -\frac{y}{x^2 + y^2}$, $c(x) = c$ is constant. $\Rightarrow$ $v = \arctan{\frac{y}{x}} + c$.\\
+			However, $\arctan{\frac{y}{x}} : \R^2 \longrightarrow (-\pi , \pi]$ is not continuous on $\R_{\leq 0} = \{ x \leq 0 \mid x \in \R \}$.
+			\begin{center}
+				(Let $z = x + iy$, then $\arctan{\frac{y}{x}}$ is an argument of z.)
+			\end{center}
+			Therefore, there is no function satisfying the conditions.
+			\begin{rmk}
+				If the region $\Omega = \C \backslash \{ 0 \}$ is replaced by $\Omega = \C \backslash \R_{\leq 0}$, then the answer is yes.
+			\end{rmk}
+		\end{solution}
+		
+		\vspace{2em}
+		
+		\item 课本第一章练习$T8 , T9 , T10 , T13$.
+	\end{enumerate}
+
+\chapter{$Week \,\, 3$}
+\section{幂级数，解析函数，复对数}
+	与数学分析中的概念一致，下面相当于来复习一下有关\textbf{幂级数}的概念.
+	\begin{itemize}
+		\item 幂级数$\overset{\infty}{\underset{n = 0}{\sum}}{z_n}$ converges $\Leftrightarrow$ 部分和$\{ S_N = \overset{N}{\underset{n = 0}{\sum}}{z_n} \}$ converges.
+		
+		\item $\overset{\infty}{\underset{n = 0}{\sum}}{\left| z_n \right|}$ converges $\Rightarrow$ The series converges absolutely(绝对收敛).
+		
+		\item \textbf{Absolutely convergent} $\Rightarrow$ \textbf{convergent}
+		
+		\item If $\overset{\infty}{\underset{n = 0}{\sum}}{z_n}$ converges, then $\underset{n \to \infty}{\lim}{z_n} = 0$.
+	\end{itemize}
+
+	\vspace{2em}
+	A power series (with center 0) is an expansion of the form $\overset{\infty}{\underset{n = 0}{\sum}}{a_n z^n}$, where $a_n \in \C$ are fixed and $z$ varies in $\C$.(下面通常讨论形式为$\overset{\infty}{\underset{n = 0}{\sum}}{a_n z^n}$ 的幂级数)
+	
+	\vspace{2em}
+	下面给出复幂级数的\textbf{收敛半径}的定义及\textbf{收敛圆盘}.
+	\begin{thm}\label{thm 3.1.1}
+		Given a power series $\overset{\infty}{\underset{n = 0}{\sum}}{a_n z^n}$, define
+		\begin{align}
+			R = \varliminf_{n \to \infty}{\left| a_n \right|^{-\frac{1}{n}}} = \frac{1}{\underset{n \to \infty}{\varlimsup}{\left| a_n \right|^{\frac{1}{n}}}} 
+			\,\,\,\, (\textbf{Hardamard's Formula})
+		\end{align}
+		(Here we use the convertion $\frac{1}{\infty} = 0$, $\frac{1}{0} = \infty$.) Then
+		\begin{enumerate}
+			\item[(1)]If $\left| z \right| < R$, the series converges absolutely.
+			
+			\item[(2)]If $\left| z \right| > R$, the series diverges.
+		\end{enumerate}
+	
+		\begin{rmk}
+			The number $R$ is called the \underline{\textcolor{blue}{\textbf{radius of convergence}}} of the power series, \\
+			and the region $\left| z \right| < R$ is called the \underline{\textcolor{blue}{\textbf{disc of convergence}}}.
+		\end{rmk}
+	\end{thm}
+
+	\newpage
+	\begin{example}\label{ex 3.1.1}
+		下面给出一些用\uwave{幂级数定义}的常见函数的例子.
+		\begin{itemize}
+			\item Exponential function
+			\begin{align}
+				e^z \coloneqq \sum_{n = 0}^{\infty}{\frac{z^n}{n!}} , \,\, z \in \C
+			\end{align}
+		
+			\item Trigonometric function
+			\begin{align}
+				\cos{z} \coloneqq \sum_{n = 0}^{\infty}{(-1)^{n} \frac{z^{2n}}{(2n)!}} \,\, , \,\, \sin{z} \coloneqq \sum_{n = 0}^{\infty}{(-1)^{n} \frac{z^{2n + 1}}{(2n + 1)!}}
+			\end{align}
+		
+			\item 双曲余弦、正弦
+			\begin{align}
+				\cosh{z} \coloneqq \sum_{n = 0}^{\infty}{\frac{z^{2n}}{(2n)!}} \,\, , \,\, \sinh{z} \coloneqq \sum_{n = 0}^{\infty}{\frac{z^{2n + 1}}{(2n + 1)!}}
+			\end{align}
+		\end{itemize}
+		
+		\begin{rmk}
+			由定义容易得到，$e^{iz} = \cos{z} + i\sin{z}$ $\Rightarrow$ 将$z$ 限制到$\R$ 上则有：$e^{i\vartheta} = \cos{\vartheta} + i\sin{\vartheta}$.
+			\begin{align}
+				\cos{z} = \frac{e^{iz} + e^{-iz}}{2} , \,\, \sin{z} = \frac{e^{iz} - e^{-iz}}{2}
+			\end{align}
+		\end{rmk}
+	\end{example}
+
+	\vspace{2em}
+	下面这个定理说明了幂级数在收敛圆盘内解析. 并给出了幂级数的导数.
+	\begin{thm}\label{thm 3.1.2}
+		The power series $f(z) = \overset{\infty}{\underset{n = 0}{\sum}}{a_n z^n}$ defines a holomorphic function in its disc of convergence. Moreover, $f^{'}(z) = \overset{\infty}{\underset{n = 0}{\sum}}{n a_n z^{n - 1}}$, which has the same radius of convergence.
+		
+		\vspace{2em}
+		\begin{proof}
+			\textbf{Hadamard's formula} tells $\overset{\infty}{\underset{n = 0}{\sum}}{a_n z^n}$ and $\overset{\infty}{\underset{n = 0}{\sum}}{n a_n z^{n - 1}}$ have the same $R$.\\
+			Let $g(z) = \overset{\infty}{\underset{n = 0}{\sum}}{n a_n z^{n - 1}}$, $\forall z$ with $\left| z \right| < R$, we can find $r$, $\st \left| z \right| < r < R$.\\
+			For $\forall h \in \C$ $\st \left| h \right| < r - \left| z \right|$, we estimate
+			\begin{align}
+				\left| f(z + h) - f(z) - hg(z) \right| 
+				&= \left| \sum_{n = 0}^{\infty}{a_n \left( (z + h)^n - z^n - nhz^{n - 1} \right)} \right| \\
+				&= \left| \sum_{n = 2}^{\infty}{\left( a_n \sum_{k = 2}^{n}{\tbinom{n}{k} h^k z^{n - k}} \right)} \right| \\
+				&\leq \left| h \right|^2 \sum_{n = 2}^{\infty}{\left| a_n \right|} \sum_{k = 0}^{n - 2}{\tbinom{n}{k + 2} \left| h^k z^{n - 2 - k} \right|}
+			\end{align}
+			\newpage
+			Since $\tbinom{n}{k + 2} \leq n(n - 1)\tbinom{n - 2}{k}$, then
+			\begin{align}
+				\left| f(z + h) - f(z) - hg(z) \right| 
+				&\leq \left| h \right|^2 \sum_{n = 2}^{\infty}{\left| a_n \right| n(n - 1)} \sum_{k = 0}^{n - 2}{\tbinom{n - 2}{k} \left| h \right|^k \left| z \right|^{n - 2 - k}} \\
+				&= \left| h \right|^2 \sum_{n = 2}^{\infty}{\left| a_n \right| n(n - 1) \left( \left| z \right| + \left| h \right| \right)^{n - 2}} \\
+				&< \left| h \right|^2 \sum_{n = 2}^{\infty}{\left| a_n \right| n(n - 1) r^{n - 2}} = \left| h \right|^2 \cdot c 
+			\end{align}
+			Thus
+			\begin{align}
+				\left| \frac{f(z + h) - f(z)}{h} - g(z) \right| < \left| h \right| \cdot c
+			\end{align}
+			Therefore, the result follows.
+		\end{proof}
+	\end{thm}
+
+	\begin{corollary}\label{cor 3.1.3}
+		A power series is infinitely differentiable in its disc of convergence.
+		
+		\begin{rmk}
+			Thm \ref{thm 3.1.2} 即说明了幂级数在收敛圆盘内解析.
+		\end{rmk}
+	\end{corollary}
+
+	\vspace{2em}
+	下面给出推广到更一般的幂级数的导数，即中心不一定在原点的情形.\\
+	A power series centered at $z_0 \in \C$ is an expression of the form
+	\begin{align}
+		f(z) = \sum_{n = 0}^{\infty}{(z - z_0)^n}
+	\end{align}
+	Let $g(z) = \overset{\infty}{\underset{n = 0}{\sum}}{a_n z^n}$, then $f(z) = g(w)$, where $w = z - z_0$.\\
+	According to the \textbf{Chain Rule}(链式法则), $f^{'}(z) = \overset{\infty}{\underset{n = 0}{\sum}}{n a_n (z - z_0)^{n - 1}}$
+	
+	\vspace{2em}
+	下面严格地给出\textbf{解析}的定义.
+	\begin{defn}\label{def 3.1.1}
+		A function $f$ defined on an open set $\Omega$ is said to be \underline{\textcolor{blue}{\textbf{analytic}}} at $z_0 \in \C$ if there is a power series $\overset{\infty}{\underset{n = 0}{\sum}}{a_n (z - z_0)^n}$ with positive radius of convergence, $\st$
+		\begin{align}
+			f(z) = \sum_{n = 0}^{\infty}{a_n (z - z_0)^n} \,\, &for \,\, all \,\, z \,\, in \,\, a \,\, neighbourhood \,\, of \,\, z_0 \\
+			&(i.e. \,\, \forall z \in D_{r}(z_0) , \,\, for \,\, some \,\, r > 0)
+		\end{align}
+		If $f$ is analytic at every point of $\Omega$, then we say f is \underline{\textcolor{blue}{\textbf{analytic on $\Omega$}}}.
+	\end{defn}
+
+	\newpage
+	下面给出有关指数函数$e^z$ 的一些等式(命题).\\
+	在此之前，先给出\textbf{Cauchy Multiplication Theorem}.
+	\begin{lemma}\label{lemma 3.1.4}
+		If $\sum{a_n}$, $\sum{b_n}$ are absolutely convergent, then
+		\begin{align}
+			\sum_{n = 0}^{\infty}{\left( \sum_{k = 0}^{n}{a_k b_{n - k}} \right)} = \left( \sum{a_n} \right) \left( \sum{b_n} \right)
+		\end{align}
+	\end{lemma}
+	
+	\vspace{2em}
+	\begin{proposition}\label{prop 3.1.1}
+		For $z_1 , z_2 \in \C$, $e^{(z_1 + z_2)} = e^{z_1} \cdot e^{z_2}$.
+	\end{proposition}
+	
+	\vspace{2em}
+	\begin{corollary}\label{cor 3.1.5}
+		If $z = x + iy$, $x , y \in \R$, then
+		\begin{align}
+			e^z = e^x (\cos{y} + i\sin{y})
+		\end{align}
+	\end{corollary}
+	
+	\vspace{2em}
+	\begin{corollary}\label{cor 3.1.6}
+		\textbf{De Moire's Formula}.\\
+		For $\vartheta \in \R$,
+		\begin{align}
+			(\cos{\vartheta} + i\sin{\vartheta})^n = \cos{n\vartheta} + i\sin{n\vartheta}
+		\end{align}
+	\end{corollary}
+
+	\vspace{2em}
+	下面来引入复数域上的\textbf{对数函数(Complex Logarithm)}.\\
+	$\forall z \in \C \backslash \{ 0 \}$, write $z = r e^{i\vartheta}$. Then $e^w = z$ can be solved.\\
+	If $w = u + iv$, $u , v \in \R$, then
+	\begin{align}
+		e^u \cdot e^{iv} = r e^{i\vartheta} \,\, \Rightarrow \,\, u = \log{r} , \,\, v = \vartheta + 2k\pi , k \in \Z
+	\end{align}
+
+	Let $Log(z)$ be the set of above, then we get Complex Logarithm.
+	
+	\begin{defn}\label{def 3.1.2}
+		$\forall z \in \C \backslash \{ 0 \}$. Define
+		\begin{align}
+			Log(z) \coloneqq \log{\left| z \right|} + i(\arg{z} + 2k\pi) , k \in \Z
+		\end{align}
+		Here $\arg{z}$ is an argument of $z$ satisfying $-\pi < \arg{z} \leq \pi$.
+		\begin{center}
+			(We call $\arg{z}$ the \textcolor{blue}{\textbf{principal argument}} of $z$.) 
+		\end{center}
+	\end{defn}
+
+	\newpage
+	下面介绍复对数的\textbf{主值支}的概念.
+	\begin{defn}\label{def 3.1.3}
+		Define the \underline{\textcolor{blue}{\textbf{principal branch}}} of the logarithm on a "cut plane"
+		\begin{align}
+			\log : \C \backslash \R_{\leq 0} &\longrightarrow \C \\
+			z &\longmapsto \log{\left| z \right|} + i\arg{z} , \,\, -\pi < \arg{z} < \pi
+		\end{align}
+	\end{defn}
+
+	\vspace{2em}
+	\begin{example}\label{ex 3.1.2}
+		\begin{align}
+			Log(-1) &= (2k + 1)\pi i \\
+			Log(i) &= (2k + \frac{1}{2})\pi i \\
+			\log{i} &= \frac{\pi}{2}i \\
+			\log{(1 + i)} &= \frac{1}{2}\log{2} + \frac{\pi}{4}i
+		\end{align}
+	\end{example}
+
+	\vspace{2em}
+	\begin{proposition}
+		\begin{align}
+			e^{Log(z)} &= z , \,\, z \neq 0 \\
+			Log(z_1 z_2) &= Log(z_1) + Log(z_2) \\
+			\log{z_1 z_2} &\neq \log{z_1} + \log{z_2} \,\, in \,\, general
+		\end{align}
+	\end{proposition}
+
+\newpage
+\section{课堂例题$2024-03-11$}
+	\begin{enumerate}
+		\item Let $z \neq 0$. Then $\exists n$ different $z_0 , \cdots , z_{n - 1}$, $\st$
+		\begin{align}
+			z_{k}^{n} = z , \,\, k = 0 , \cdots , n - 1
+		\end{align}
+	
+		\vspace{2em}
+		\begin{solution}
+			Let $z = \left| z \right| e^{i\vartheta}$, $w = r e^{it}$, $r > 0$, $t \in \R$. Then
+			\begin{align}
+				w^n = z \,\, \Rightarrow \,\, r^n e^{int} = \left| z \right| e^{i\vartheta} \,\, \Rightarrow \,\, 
+				\begin{cases}
+					r = \left| z \right|^{\frac{1}{n}} \\
+					nt = \vartheta + 2k\pi , k \in \Z
+				\end{cases}
+			\end{align}
+		\end{solution}
+	
+		\vspace{2em}
+		
+		\item Proof
+		\begin{align}
+			\left| \sum_{k = 0}^{n}{e^{ikx}}  \right| \leq \left| \frac{1}{\sin{\frac{x}{2}}} \right| , \,\, \forall x \in \R \backslash \{ 2k\pi \mid k \in \Z \}
+		\end{align}
+		
+		\vspace{2em}
+		
+		\item 课本第一章练习$T16 , T19$
+	\end{enumerate}
+
+\newpage
+\section{复对数的性质}
+	Let $\alpha \in \C$. We may define
+	\begin{align}
+		z^\alpha = e^{\alpha \log{z}} , \,\, z \neq 0
+	\end{align}
+	
+	\vspace{2em}
+	\begin{proposition}\label{prop 3.3.1}
+		The function $f(z) = \log{z}$, $z \in \C \backslash \R_{\leq 0}$ is holomorphic.
+		
+		\vspace{2em}
+		\begin{proof}
+			$\forall z_0 \in \C \backslash \R_{\leq 0}$, let $w = \log{z}$, $w_0 = \log{z_0}$. Then
+			\begin{align}
+				\lim_{z \to z_0}{\frac{\log{z} - \log{z_0}}{z - z_0}} = \lim_{w \to w_0}{\frac{w - w_0}{e^w - e^{w_0}}} = \frac{1}{e^{w_0}} = \frac{1}{z_0}
+			\end{align}
+			Therefore, $(\log{z})^{'} = \frac{1}{z}$.
+		\end{proof}
+	\end{proposition}
+
+	\vspace{2em}
+	\begin{proposition}\label{prop 3.3.2}
+		Show
+		\begin{align}
+			\log{(1 + z)} = \sum_{n = 1}^{\infty}{(-1)^{n - 1}\frac{z^n}{n}} \,\, on \,\, \mathcal{D}
+		\end{align}
+	
+		\vspace{2em}
+		\begin{proof}
+			Let $f(z) = \log{(1 + z)}$, $g(z) = \overset{\infty}{\underset{n = 1}{\sum}}{(-1)^n \frac{z^{n - 1}}{n}}$. Both are holomorphic on $\mathcal{D}$ and
+			\begin{align}
+				f^{'}(z) = \frac{1}{1 + z} \,\, , \,\, g^{'}(z) = \sum_{n = 1}^{\infty}{(-1)^n z^{n - 1}} = \frac{1}{1 + z}
+			\end{align}
+			And so $(f - g)^{'} = 0$ on $\mathcal{D}$. Therefore, $f - g = c$. Taking $z = 0$, $f(0) = g(0)$ $\Rightarrow$ $c = 0$.
+		\end{proof}
+	\end{proposition}
+
+\newpage
+\section{道路}
+	先给出\textbf{道路(path)} 的定义.
+	\begin{defn}\label{def 3.4.1}
+		A continuous function $z(t) = x(t) + i y(t)$ from $[a , b] \subset \R$ to $\C$ is called a \underline{\textcolor{blue}{\textbf{path}}} (or a parametric curve) connecting $z(a)$ and $z(b)$.($z(a)$ is called the starting point, $z(b)$ the end point)\\
+		The path is \underline{\textcolor{blue}{\textbf{closed}}} if $z(a) = z(b)$.\\
+		The path is \underline{\textcolor{blue}{\textbf{simple}}} if $z(t) \neq z(s)$ unless 
+		$\begin{cases}
+			(1) t = s\\
+			(2) t = a , s = b
+		\end{cases}$
+	\end{defn}
+	
+	\vspace{2em}
+	下面给出道路\textbf{光滑性}的描述.
+	\begin{defn}\label{def 3.4.2}
+		We say that a path $z(t) = x(t) + i y(t)$, $t \in [a , b]$ is \underline{\textcolor{blue}{\textbf{smooth}}} if $x(t) , y(t)$ are continuously differentiable and $z^{'}(t) = x^{'}(t) + i y^{'}(t) \neq 0$, $t \in [a , b]$. Here $z^{'}(a) , z^{'}(b)$ are understood as one-sided derivative.
+	\end{defn}
+
+	\vspace{2em}
+	下面给出两条道路\textbf{等价}的定义.
+	\begin{defn}
+		Two paths $z : [a , b] \longrightarrow \C$, $\widetilde{z} : [c, d] \longrightarrow \C$ are \underline{\textcolor{blue}{\textbf{equivalent}}} if $\exists$ bijection and differential
+		\begin{align}
+			t : [c , d] &\longrightarrow [a , b] \\
+			s &\longmapsto t(s)
+		\end{align}
+		$\st \widetilde{z}(s) = z(t(s))$ and $t^{'}(s) > 0$.
+	\end{defn}
+
+	\vspace{2em}
+	下面给出\textbf{道路反向}的定义.
+	\begin{defn}\label{def 3.4.4}
+		Given a path $z$, we can define a path $\widetilde{z}$ obtained from $z$ by reversing the orietation
+		\begin{align}
+			z(t) &: [a , b] \longrightarrow \C \\
+			\widetilde{z}(t) = z(a + b - t) &: [a , b] \longrightarrow \C
+		\end{align}
+	\end{defn}
+	
+	\newpage
+	这里我们规定一下道路的\textbf{正向 / 逆向}(逆时针为正向).
+	\begin{defn}\label{def 3.4.5}
+		A path has \underline{\textcolor{blue}{\textbf{positive orientation}}} if it travels counterclockwisely.\\
+		($\cdots$ \underline{\textcolor{blue}{\textbf{negative orientation}}} $\cdots$ clockwisely.)
+	\end{defn}
+
+	\vspace{2em}
+	下面我们给出\textbf{分段光滑}的定义.
+	\begin{defn}\label{def 3.4.6}
+		A path $z(t) : [a , b] \longrightarrow \C$ is \underline{\textcolor{blue}{\textbf{piecewise smooth}}} if $\exists$ a partion $a = a_0 < a_1 < \cdots < a_n = b$, $\st$ $z(t)$ is smooth in each $[a_k , a_{k + 1}]$, $k = 0 , \cdots , n - 1$.
+	\end{defn}
+
+	\vspace{2em}
+	下面说明两条道路的\textbf{连接}.\\
+	Paths can be concatenated. If $z : [a , b] \longrightarrow \C$, $\widetilde{z} : [b , c] \longrightarrow \C$ and $z(b) = \widetilde{z}(b)$, we can define $w : [a , c] \longrightarrow \C$ as $w(t) = 
+	\begin{cases}
+		z(t) , a \leq t \leq b\\
+		\widetilde{z}(t) , b \leq t \leq c
+	\end{cases}$.
+	\underline{\textcolor{blue}{\textbf{Concatenation}}} of $z , \widetilde{z}$ is denoted as \textcolor{blue}{$z \circ \widetilde{z}$}.\\
+	
+	\vspace{2em}
+	下面给出\textbf{zig-zag道路}的定义.
+	\begin{defn}\label{def 3.4.7}
+		A path is \underline{\textcolor{blue}{\textbf{zig-zag}}} if it consists of finitely many horizontal or vertical line seqments.
+	\end{defn}
+
+	\vspace{2em}
+	下面的命题说明区域内的任两点可由一条zig-zag道路连接.
+	\begin{proposition}\label{prop 3.4.1}
+		Let $\Omega \subset \C$ be a region. Then any two points in $\Omega$ can be joined by a zig-zag path.
+		
+		\vspace{2em}
+		\begin{proof}
+			\begin{itemize}
+				\item Case when $\Omega = D_{R}(z_0)$, where $z_0 \in \C$, $R > 0$.\\
+				$\forall \alpha , \beta \in \Omega$, we can join them to the horiziontal diameter via a vertical line seqment.
+				
+				\item Now let $\Omega$ be an arbitrary region. $\forall \alpha \in \Omega$. Let
+				\begin{align}
+					A \coloneqq \{ \beta \in \Omega \mid \exists \,\, zig-zag \,\, path \,\, \gamma \,\, connecting \,\, \beta \,\, and \,\, \alpha \}
+				\end{align}
+				Then 容易证$\alpha \in A \neq \varnothing$ 既开又闭，从而$A = \Omega$.
+			\end{itemize}
+		\end{proof}
+	\end{proposition}
+
+\newpage
+\section{课堂例题$2024-03-15$}
+	\begin{enumerate}
+		\item Calculate $2^i$, $i^i$.
+		
+		\vspace{2em}
+		
+		\item Find all possible values of $(1 + \sqrt{3}i)^{\frac{1}{8}}$.
+		
+		\vspace{2em}
+		
+		\item Let $z_n \in \C$, $Rez_n \geq 0$, $n = 1 , 2 , \cdots$. If $\overset{\infty}{\underset{n = 1}{\sum}}{z_n}$ and $\overset{\infty}{\underset{n = 1}{\sum}}{z_{n}^2}$ both converge, show that $\overset{\infty}{\underset{n = 1}{\sum}}{\left| z_n \right|^2}$ converges.
+		
+		\vspace{2em}
+		
+		\item Let $f(z) = \overset{\infty}{\underset{n = 1}{\sum}}{a_n z^n}$ be holomorphic on $\mathcal{D}$. Assume $\left| f(z) \right| \leq 1$, $\forall z \in \mathcal{D}$. Show $\left| a_n \right| \leq 1$, $n = 1 , 2 , \cdots$.
+		
+		\vspace{2em}
+	\end{enumerate}
+
+\chapter{$Week \,\, 4$}
+\section{曲线积分}
+\paragraph{积分}
+	下面先给出复数域上积分的定义.
+	\begin{defn}\label{def 4.1.1}
+		Let $z(t) = x(t) + i y(t)$, $t \in [a , b] \subset \R$. If $x(t) , y(t)$ are differentiable, we define $z^{'}(t) = x^{'}(t) + i y^{'}(t)$.\\
+		Similarly, if $x(t) , y(t)$ are continuous, we define
+		\begin{align}
+			\int_{a}^{b}{z(t) dt} = \int_{a}^{b}{x(t) dt} + i \int_{a}^{b}{y(t) dt}
+		\end{align}
+	\end{defn}
+
+	\vspace{2em}
+	容易证明，复数域上的积分同样具有三角不等式.
+	\begin{proposition}\label{prop 4.1.1}
+		Let $f : [a , b] \longrightarrow \C$ be continuous. Then 
+		\begin{align}
+			\left| \int_{a}^{b}{f(t) dt} \right| \leq \int_{a}^{b}{\left| f(t) \right| dt}
+		\end{align}
+	
+		\vspace{2em}
+		\begin{proof}
+			Write $\int_{a}^{b}{f(t) dt} = r e^{i\vartheta}$, $r \geq 0$. Then
+			\begin{align}
+				r = e^{-i\vartheta} \int_{a}^{b}{f(t) dt} = \int_{a}^{b}{e^{-i\vartheta} f(t) dt} 
+				&= \left| \int_{a}^{b}{Re \, e^{-i\vartheta} f(t) dt} \right| \\
+				&\leq \int_{a}^{b}{\left| Re \, e^{-i\vartheta} f(t) \right| dt} \\
+				&\leq \int_{a}^{b}{\left| e^{-i\vartheta} f(t) \right| dt} = \int_{a}^{b}{\left| f(t) \right| dt}
+			\end{align}
+		\end{proof}
+	\end{proposition}
+
+\newpage
+\paragraph{曲线积分}
+	下面给出复数域上\textbf{连续}道路的\textbf{曲线积分}的定义.
+	\begin{defn}\label{def 4.1.2}
+		Let $\Omega \subset \C$ be open. Given a smooth path $\gamma$ in $\Omega$ parametrized by $z : [a , b] \longrightarrow \Omega$ and a continuous funciton $f : \Omega \longrightarrow \C$. We define the \underline{\textcolor{blue}{\textbf{integral of $f$ along $\gamma$}}} by
+		\begin{align}
+			\int_{\gamma}{f(z) dz} \coloneqq \int_{a}^{b}{f(z(t)) z^{'}(t) dt}
+		\end{align}
+		Let $\widetilde{z}(t) : [c , d] \longrightarrow \Omega$ be equivalent to $z(t)$. Then
+		\begin{align}
+			\int_{a}^{b}{f(z(t)) z^{'}(t) dt} = \int_{c}^{d}{f(\widetilde{z}(t)) \widetilde{z}^{'}(t) dt}
+		\end{align}
+	\end{defn}
+
+	\vspace{2em}
+	下面给出\textbf{分段连续}道路的曲线积分及\textbf{曲线长度}的定义.
+	\begin{defn}\label{def 4.1.3}
+		If $\gamma$ is piecewise smooth and $z(t)$ is a piecewise smooth parametrization as before, we define
+		\begin{align}
+			\int_{\gamma}{f(z) dz} = \sum_{k = 0}^{n - 1}{\int_{a_{k}}^{a_{k + 1}}{f(z(t)) z^{'}(t) dt}}
+		\end{align}
+		The \underline{\textcolor{blue}{\textbf{length}}} of the smooth curve $\gamma$ is 
+		\begin{align}
+			\textcolor{blue}{length(\gamma)} = \int_{a}^{b}{\left| z^{'}(t) \right| dt}
+		\end{align}
+	\end{defn}
+
+	\vspace{2em}
+	If $f = u + i v$, $z(t) = x(t) + i y(t)$, then
+	\begin{align}
+		\int_{\gamma}{f(z) dz} 
+		= \int_{a}^{b}{f(z(t)) z^{'}(t) dt} 
+		&= \int_{a}^{b}{(u + iv)(x^{'}(t) + i y^{'}(t)) dt} \\
+		&= \int_{a}^{b}{(ux^{'}(t) - vy^{'}(t)) dt} + i \int_{a}^{b}{(vx^{'}(t) + uy^{'}(t)) dt} \\
+		&= \int_{\gamma}{(udx - vdy)} + i \int_{\gamma}{(vdx + udy)}
+	\end{align}
+
+	\vspace{2em}
+	下面给出曲线积分的几条性质.
+	\begin{proposition}\label{prop 4.1.2}
+		记$\gamma^{-}$ 为$\gamma$ 的反向.
+		\begin{enumerate}
+			\item[(1)]$\int_{\gamma}{f(z) dz} = -\int_{\gamma^{-}}{f(z) dz}$.
+			
+			\item[(2)]If $f(z) , g(z)$ are continuous, and $\gamma$ is a path, then $\forall \alpha , \beta \in \C$,
+			\begin{align}
+				\int_{\gamma}{(\alpha f + \beta g) dz} = \alpha \int_{\gamma}{f dz} + \beta \int_{\gamma}{g dz}
+			\end{align}
+		
+			\item[(3)]
+			\begin{align}
+				\left| \int_{\gamma}{f(z) dz} \right| \leq \sup_{\gamma}{\left| f(z) \right|} \cdot length(\gamma)
+			\end{align}
+		\end{enumerate}
+	\end{proposition}
+
+\newpage
+\paragraph{原函数}
+	下面我们给出\textbf{原函数}的概念.
+	\begin{defn}\label{def 4.1.4}
+		If $f : \Omega \longrightarrow \C$. Assume $\exists$ a complex differentiable $F : \Omega \longrightarrow \C$, $\st$
+		\begin{align}
+			F^{'}(z) = f(z) , \,\, for \,\, every \,\, z \in \Omega
+		\end{align}
+		Then we say $f$ admits a \underline{\textcolor{blue}{\textbf{primitival}}} (or an antiderivative) on $\Omega$.
+	\end{defn}
+
+	\vspace{2em}
+	下面的命题说明若函数有原函数，则其\uwave{曲线积分只与始末点有关，而与路径无关}.
+	\begin{proposition}\label{prop 4.1.3}
+		If $f$ is a continuous function that admits a primitive $F$ on $\Omega$, and $\gamma$ is a path in $\Omega$ that begins at $w_1$ and ends at $w_2$, then
+		\begin{align}
+			\int_{\gamma}{f(z) dz}=  F(w_2) - F(w_1)
+		\end{align}
+	
+		\vspace{2em}
+		\begin{proof}
+			Let $z(t) : [a , b] \longrightarrow \Omega$ be a parametrization for $\gamma$ with $z(a) = w_1$, $z(b) = w_2$.
+			\begin{itemize}
+				\item Assume $\gamma$ is smooth. Compute
+				\begin{align}
+					\int_{\gamma}{f(z) dz} = \int_{a}^{b}{f(z(t)) z^{'}(t) dt} = \int_{a}^{b}{F^{'}(z(t)) z^{'}(t) dt} = \int_{a}^{b}{\frac{dF(z(t))}{dt} dt}
+				\end{align}
+				According to \textbf{the fundamental theorem of calculus}, we get\\
+				(分别对实部和虚部运用微积分基本定理)
+				\begin{align}
+					\int_{\gamma}{f(z) dz} 
+					= \int_{a}^{b}{F^{'}(z(t)) z^{'}(t) dt} 
+					&= \int_{a}^{b}{\frac{dF(z(t))}{dt} dt} \\
+					&= F(z(b)) - F(z(a)) = F(w_2) - F(w_1)
+				\end{align}
+			
+				\item $\gamma$ is piecewise smooth, we can proof similarly.
+			\end{itemize}
+		\end{proof}
+	\end{proposition}
+
+	\vspace{2em}
+	由命题 \ref{prop 4.1.3}，可得到有原函数的函数$f$ 在闭曲线上积分为0.
+	\begin{corollary}\label{cor 4.1.1}
+		If $\gamma$ is a closed path in $\Omega$, $f$ is continuous and admits a primitive on $\Omega$, then
+		\begin{align}
+			\int_{\gamma}{f(z) dz} = 0
+		\end{align}
+	\end{corollary}
+
+	\newpage
+	同时，由命题 \ref{prop 4.1.3}，还可得到区域$\Omega$ 上导数恒为0的全纯函数只能为常值函数.
+	\begin{corollary}\label{cor 4.1.2}
+		If $f$ is holomorphic on a region $\Omega$ and $f^{'} \equiv 0$, then $f$ is constant.
+	\end{corollary}
+
+	\vspace{2em}
+	下面给出具有原函数的充要条件.
+	\begin{thm}
+		Let $\Omega \subset \C$ be a region. $f : \Omega \longrightarrow \C$ be a continuous function. Then the following statements are equivalent:
+		\begin{enumerate}
+			\item[(1)]$f$ admits a primitive on $\Omega$.
+			
+			\item[(2)]$\forall \alpha , \beta \in \C$, $\int_{\gamma}{f(z) dz}$ is invariant for any path $\gamma$ in $\Omega$ that joins $\alpha$ to $\beta$.
+			
+			\item[(3)]$\forall \alpha , \beta \in \C$, $\int_{\gamma}{f(z) dz}$ is invariant for any zig-zag path $\gamma$ in $\Omega$ that joins $\alpha$ to $\beta$.
+			
+			\vspace{2em}
+			\begin{proof}
+				(1) $\Rightarrow$ (2) and (2) $\Rightarrow$ (3) are clear.
+				\begin{enumerate}
+					\item[(3) $\Rightarrow$ (1):]Fix $\alpha \in \Omega$ and define $F : \Omega \longrightarrow \C$ by 
+					\begin{align}
+						F(z_0) = \int_{\gamma}{f(z) dz} , \,\, z_0 = x_0 + i y_0 \in \Omega
+					\end{align}
+					where $\gamma$ is any zig-zag path joining $\alpha$ to $z_0$.
+					\begin{center}
+						(\textbf{$F$ is Well-defined} : Condition (3) tells $F(z_0)$ is independent of the choice of $\gamma$.)
+					\end{center}
+					
+					\vspace{1.5em}
+					Let $F(z) = U + i V$, $f(z) = u + i v$. It suffices to show
+					\begin{align}
+						\begin{cases}
+							U_{x}(x_0 , y_0) &= u(x_0 , y_0) \,\, , \,\, V_{x}(x_0 , y_0) = v(x_0 , y_0) \\
+							U_{y}(x_0 , y_0) &= -v(x_0 , y_0) \,\, , \,\, V_{y}(x_0 , y_0) = u(x_0 , y_0)
+						\end{cases}
+					\end{align}
+					
+					\vspace{1.5em}
+					\begin{itemize}
+						\item \textcolor{red}{$U_{x}(x_0 , y_0) = u(x_0 , y_0) \,\, , \,\, V_{x}(x_0 , y_0) = v(x_0 , y_0)$}\\
+						Let $h \in \R$. Let $\gamma$ be a zig-zag path joining $\alpha$ to $z_0$, \\
+						$\gamma_{H} : z_{H}(t) = z_0 + th$, $0 \leq t \leq 1$. $\gamma_H \subset \Omega$. Then
+						\begin{align}
+							F(z_0 + h) = \int_{\gamma \circ \gamma_H}{f(z) dz} 
+							&= \int_{\gamma}{f(z) dz} + \int_{\gamma_H}{f(z) dz} \\
+							&= F(z_0) + \int_{\gamma_H}{f(z) dz}
+						\end{align}
+						Then we get
+						\begin{align}
+							\frac{F(z_0 + h) - F(z_0)}{h} = \int_{0}^{1}{f(z_0 + th) dt}
+						\end{align}
+						Since $f$ is continuous,
+						\begin{align}
+							\lim_{\substack{h \to 0 \\ h \, \in \, \R}}{\frac{F(z_0 + h) - F(z_0)}{h}} 
+							&= \lim_{\substack{h \to 0 \\ h \, \in \, \R}}{\int_{0}^{1}{f(z_0 + th) dt}} \\
+							&= f(z_0) \\
+							&= u(x_0 , y_0) + i v(x_0 , y_0)
+						\end{align}
+					
+						\item \textcolor{red}{$U_{y}(x_0 , y_0) = -v(x_0 , y_0) \,\, , \,\, V_{y}(x_0 , y_0) = u(x_0 , y_0)$}\\
+						Similarly.
+					\end{itemize}
+				\end{enumerate}
+			\end{proof}
+		\end{enumerate}
+	\end{thm}
+
+	%  ############################
+	\ifx\allfiles\undefined
+\end{document}
+\fi
