@@ -28,3 +28,16 @@
 \contentsline {paragraph}{积分}{31}{paragraph*.7}%
 \contentsline {paragraph}{曲线积分}{32}{paragraph*.8}%
 \contentsline {paragraph}{原函数}{33}{paragraph*.9}%
+\contentsline {section}{\numberline {4.2}课堂例题$2024-03-18$}{36}{section.4.2}%
+\contentsline {section}{\numberline {4.3}$Cauchy's \,\, Theorem$}{37}{section.4.3}%
+\contentsline {paragraph}{单连通}{37}{paragraph*.10}%
+\contentsline {paragraph}{Cauchy's Theorem}{38}{paragraph*.11}%
+\contentsline {section}{\numberline {4.4}课堂例题$2024-03-22$}{40}{section.4.4}%
+\contentsline {chapter}{\numberline {第五章\hspace {.3em}}$Week \,\, 5$}{41}{chapter.5}%
+\contentsline {section}{\numberline {5.1}闭路变形原理}{41}{section.5.1}%
+\contentsline {paragraph}{围道}{41}{paragraph*.12}%
+\contentsline {paragraph}{闭路变形原理}{41}{paragraph*.13}%
+\contentsline {section}{\numberline {5.2}$Cauchy \,\, Integral \,\, Formulas$}{43}{section.5.2}%
+\contentsline {paragraph}{Cauchy Integral Formulas}{43}{paragraph*.14}%
+\contentsline {paragraph}{高阶Cauchy Integral Formulas}{45}{paragraph*.15}%
+\contentsline {section}{\numberline {5.3}课堂例题$2024-03-25$}{46}{section.5.3}%

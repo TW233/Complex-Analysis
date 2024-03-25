@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.11.9)  24 MAR 2024 23:25
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.11.9)  25 MAR 2024 23:22
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1386,13 +1386,13 @@ num;+lnum;mapping=tex-text;" at 12.0pt
 -Bold.otf
 Requested font "SimHei/OT:script=hani;language=dflt;" at 12.0pt
  -> C:/Windows/fonts/simhei.ttf
-)
-\tf@toc=\write4
-\openout4 = `main.toc'.
-
  [1
 
 ])
+\tf@toc=\write4
+\openout4 = `main.toc'.
+
+ [2])
 \openout2 = `chap1/chap.aux'.
 
  (./chap1/chap.tex
@@ -1800,17 +1800,191 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 [31
 
-] [32] [33] [34]) [35] (./main.aux (./config/cover.aux) (./chap1/chap.aux))
+] [32] [33] [34] [35]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1392.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1392.
+
+[36]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1427.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\leavevmode@ifvmode' on input line 1427.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \kern 2.00043pt
+(hyperref)                removed on input line 1427.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\leavevmode@ifvmode' on input line 1427.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \kern 2.00043pt
+(hyperref)                removed on input line 1427.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1427.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1435--1437
+
+ []
+
+LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(1)/m/n' will be
+(Font)              scaled to size 12.0pt on input line 1442.
+Requested font "[TeXGyreTermesX-Regular.otf]/OT:script=latn;language=dflt;-ss05
+;+tnum;+lnum;+sups;mapping=tex-text;" at 12.0pt
+ -> e:/Latex/texlive/2022/texmf-dist/fonts/opentype/public/newtx/TeXGyreTermesX
+-Regular.otf
+LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/n' will be
+(Font)              scaled to size 10.0pt on input line 1442.
+Requested font "[TeXGyreTermesX-Regular.otf]/OT:script=latn;language=dflt;-ss05
+;+tnum;+lnum;mapping=tex-text;" at 10.0pt
+ -> e:/Latex/texlive/2022/texmf-dist/fonts/opentype/public/newtx/TeXGyreTermesX
+-Regular.otf
+Requested font "[TeXGyreTermesX-Regular.otf]/OT" at 9.99997pt
+ -> e:/Latex/texlive/2022/texmf-dist/fonts/opentype/public/newtx/TeXGyreTermesX
+-Regular.otf
+Requested font "[TeXGyreTermesX-Regular.otf]/OT:script=latn;language=dflt;" at 
+10.00003pt
+ -> e:/Latex/texlive/2022/texmf-dist/fonts/opentype/public/newtx/TeXGyreTermesX
+-Regular.otf
+LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(1)/m/n' will be
+(Font)              scaled to size 10.0pt on input line 1442.
+Requested font "[TeXGyreTermesX-Regular.otf]/OT:script=latn;language=dflt;-ss05
+;+tnum;+lnum;+sups;mapping=tex-text;" at 10.0pt
+ -> e:/Latex/texlive/2022/texmf-dist/fonts/opentype/public/newtx/TeXGyreTermesX
+-Regular.otf
+Requested font "SimSun/OT:script=hani;language=dflt;" at 10.0pt
+ -> C:/Windows/fonts/simsun.ttc
+LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/n' will be
+(Font)              scaled to size 10.0pt on input line 1442.
+Requested font "[TeXGyreTermesX-Bold.otf]/OT:script=latn;language=dflt;-ss05;+t
+num;+lnum;mapping=tex-text;" at 10.0pt
+ -> e:/Latex/texlive/2022/texmf-dist/fonts/opentype/public/newtx/TeXGyreTermesX
+-Bold.otf
+Requested font "SimHei/OT:script=hani;language=dflt;" at 10.0pt
+ -> C:/Windows/fonts/simhei.ttf
+[37] [38] [39]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1516.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1516.
+
+[40]
+第五章
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1525.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\leavevmode@ifvmode' on input line 1525.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \kern 2.00043pt
+(hyperref)                removed on input line 1525.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\leavevmode@ifvmode' on input line 1525.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \kern 2.00043pt
+(hyperref)                removed on input line 1525.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1525.
+
+File: figure/5.1-1.jpg Graphic file (type bmp)
+<figure/5.1-1.jpg>
+[41
+
+]
+File: figure/5.1-2.jpg Graphic file (type bmp)
+<figure/5.1-2.jpg>
+ [42]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1599.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\leavevmode@ifvmode' on input line 1599.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \kern 2.00043pt
+(hyperref)                removed on input line 1599.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\leavevmode@ifvmode' on input line 1599.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \kern 2.00043pt
+(hyperref)                removed on input line 1599.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\leavevmode@ifvmode' on input line 1599.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \kern 2.00043pt
+(hyperref)                removed on input line 1599.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\leavevmode@ifvmode' on input line 1599.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \kern 2.00043pt
+(hyperref)                removed on input line 1599.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1599.
+
+[43] [44] [45]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1695.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1695.
+
+[46]) [47] (./main.aux (./config/cover.aux) (./chap1/chap.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 3423AF1CF1ECFF7252321A00E4B4270D;2668.
+(rerunfilecheck)             Checksum: D1354A29AB3B672AF3A8989D2A52B2D2;3610.
  ) 
 Here is how much of TeX's memory you used:
- 19496 strings out of 476179
- 407841 string characters out of 5810426
- 732806 words of memory out of 5000000
- 39863 multiletter control sequences out of 15000+600000
- 512157 words of font info for 211 fonts, out of 8000000 for 9000
+ 19685 strings out of 476179
+ 415574 string characters out of 5810426
+ 734404 words of memory out of 5000000
+ 40026 multiletter control sequences out of 15000+600000
+ 512221 words of font info for 219 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  94i,18n,104p,409b,807s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (38 pages).
+Output written on main.pdf (51 pages).

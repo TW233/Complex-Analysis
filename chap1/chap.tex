@@ -1327,7 +1327,7 @@
 
 	\vspace{2em}
 	下面给出具有原函数的充要条件.
-	\begin{thm}
+	\begin{thm}\label{thm 4.1.3}
 		Let $\Omega \subset \C$ be a region. $f : \Omega \longrightarrow \C$ be a continuous function. Then the following statements are equivalent:
 		\begin{enumerate}
 			\item[(1)]$f$ admits a primitive on $\Omega$.
@@ -1387,6 +1387,405 @@
 			\end{proof}
 		\end{enumerate}
 	\end{thm}
+
+\newpage
+\section{课堂例题$2024-03-18$}
+	\begin{enumerate}
+		\item Let $f(x + iy) = x$. Consider two paths $\gamma_1 , \gamma_2$ joining 0 to 1.
+		\begin{align}
+			z_{1}(t) &= t , \,\, 0 \leq t \leq 1 \\
+			z_{2}(t) &= 
+			\begin{cases}
+				t + 2t i , \,\, 0 \leq t \leq \frac{1}{2} \\
+				t + 2(1 - t)i , \,\, \frac{1}{2} \leq t \leq 1
+			\end{cases}
+		\end{align}
+		Evaluate
+		\begin{align}
+			\int_{\gamma_1}{f(z) dz} &, \,\, \int_{\gamma_2}{f(z) dz} \\
+			 ( = \frac{1}{2} &, \,\, = \frac{1 - i}{2})
+		\end{align}
+		
+		\vspace{2em}
+		\item Let $f(z) = \frac{1}{z}$, $z \in \C \backslash \{ 0 \}$. Let $\gamma : z(t) = R e^{it}$, $R > 0$, $0 \leq t \leq 2\pi$.\\
+		Evaluate
+		\begin{align}
+			\int_{\gamma}{f(z) dz} \,\, (= 2\pi i)
+		\end{align}
+	
+		\vspace{2em}
+		\item Let $f(z) = z^3$ and let $\sigma$ be any path joining 1 to $2 + i$. Evaluate
+		\begin{align}
+			\int_{\gamma}{f(z) dz}
+		\end{align}
+	
+		\vspace{2em}
+		\item 课本第一章练习$T26$.
+	\end{enumerate}
+
+\newpage
+\section{$Cauchy's \,\, Theorem$}
+	\begin{center}
+		这节我们来介绍一个重要的定理——\textbf{Cauchy's Theorem}.
+	\end{center}
+
+\paragraph{单连通}
+	下面先给出一个定理并借此给出曲线的\textbf{内部}和\textbf{外部}的定义.
+	\begin{thm}\label{thm 4.3.1}
+		\underline{\textbf{Jordan Curve Therom}}.\\
+		Let $\gamma$ be a simple closed curve on $\C$. Then $\C \backslash \gamma$ has two connected components. The bounded component is called the \underline{\textcolor{blue}{\textbf{interior of $\gamma$}}} and the unbounded component is called the \underline{\textcolor{blue}{\textbf{exterior of $\gamma$}}}.\\
+		
+		If the simple closed path $\gamma$ is positively oriented, then Interior($\gamma$) is to the \textbf{left} while traversing $\gamma$.
+		
+		\vspace{2em}
+		\begin{proof}
+			证明见书\footnote{课堂教材：\textbf{《$Complex \,\, Analysis$》---  $Elias \,\, M. \,\, Stein$}}$Page \,\, 351$
+		\end{proof}
+	\end{thm}
+	
+	\vspace{2em}
+	下面给出\textbf{单连通集}的定义.
+	\begin{defn}\label{def 4.3.1}
+		A region $\Omega \subset \C$ is \underline{\textcolor{blue}{\textbf{simply connected}}} if for every closed path $\gamma \subset \Omega$, $Interior(\gamma) \subset \Omega$.
+	\end{defn}
+	
+	\vspace{2em}
+	\begin{example}\label{ex 4.3.1}
+		下面给出几个常见的单连通集 / 非单连通集的例子.
+		\begin{itemize}
+			\item $\C$, $D_{r}(z_0)$, $r > 0 , z_0 \in \C$ are simply connected.
+			
+			\item $\C \backslash \{ 0 \}$, $D_{r}^{*}(z_0)$ are not simply connected.
+			
+			\item $\C \backslash \R_{\leq 0}$ is simply connected.
+		\end{itemize}
+	\end{example}
+
+\newpage
+\paragraph{Cauchy's Theorem}
+	下面介绍\textbf{Cauchy's Theorem}.
+	\begin{thm}\label{thm 4.3.2}
+		Let $\Omega \subset \C$ be \textcolor{red}{\textbf{simply connected}}, $f : \Omega \longrightarrow \C$ be holomorphic. Then for any closed path $\gamma$,
+		\begin{align}
+			\int_{\gamma}{f(z) dz} = 0
+		\end{align}
+	
+		\vspace{1em}
+		\begin{rmk}
+			条件中$\Omega$ 单连通\textcolor{red}{\textbf{不可省略}}. 下面给出反例.
+			\begin{example}\label{ex 4.3.2}
+				Let $\Omega = \C \backslash \{ 0 \}$, $f(z) = \frac{1}{z}$. Then $f$ is holomorphic on $\Omega$ and ($C_{1}(0)$ 表示单位圆周)
+				\begin{align}
+					\int_{C_{1}(0)}{f(z) dz} = 2\pi i \neq 0
+				\end{align}
+			\end{example}
+		\end{rmk}
+	
+		\vspace{2em}
+		\begin{proof}
+			The result would follow if \uwave{$f$ has a primitive on $\Omega$}. \\
+			By Thm \ref{thm 4.1.3}, thus it suffices to show that for any two zig-zag paths $\gamma_1 , \gamma_2$ having the same starting points and ending points,
+			\begin{align}
+				&\int_{\gamma_1}{f(z) dz} = \int_{\gamma_2}{f(z) dz} \\
+				&i.e. \,\, \int_{\gamma_{1} \circ \gamma_{2}^{-1}}{f(z) dz} = 0
+			\end{align}
+			Equivalently, we have to show $\int_{\gamma}{f(z) dz} = 0$ for any closed zig-zag path $\gamma$.\\
+			By concatecnating some horizontal or vertical paths, any closed zig-zag path is the union of rectangle paths.\\
+			Thus we are done if we can show $\int_{R}{f(z) dz} = 0$, where $R$ is a rectangle path.\\
+			Note that 
+			\begin{align}
+				\int_{R}{f(z) dz} = \int_{T_1}{f(z) dz} + \int_{T_2}{f(z) dz}
+			\end{align}
+			Then the theorem boils down to showing $\int_{T}{f(z) dz} = 0$ for any triangle path $T$ in $\Omega$.
+			\begin{center}
+				(This is Coursat Theorem on P34.)
+			\end{center}
+		\end{proof}
+	\end{thm}
+	
+	\newpage
+	下面给出\textbf{Cauchy's Theorem} 的另一种叙述，\textcolor{red}{\textbf{这里并不对$f$ 的定义域$\Omega$ 做单连通要求}}.
+	\begin{thm}\label{thm 4.3.3}
+		Let $\gamma$ be a simple closed path. If $f$ is holomorphic in Interior($\gamma$) and continuous on $\gamma$, then
+		\begin{align}
+			\int_{\gamma}{f(z) dz} = 0
+		\end{align}
+	\end{thm}
+
+\newpage
+\section{课堂例题$2024-03-22$}
+	\begin{enumerate}
+		\item 课本第一章练习$T25$.
+		
+		\vspace{2em}
+		
+		\item 课本第二章练习$T5 , T6$.
+	\end{enumerate}
+
+\chapter{$Week \,\, 5$}
+\section{闭路变形原理}
+\paragraph{围道}
+	为了叙述方便，我们将简单闭曲线记作\textbf{围道(contour)}. 并默认其为正向.
+	\begin{defn}\label{def 5.1.1}
+		A simple closed path is called a \underline{\textcolor{blue}{\textbf{contour}}}. If nothing is specified, we'll assume the contour is positively oriented.
+	\end{defn}
+
+\vspace{2em}
+\paragraph{闭路变形原理}
+	下面来介绍\textbf{闭路变形原理}.(实际上可视为Cauchy's Theorem 的推论)
+	\begin{thm}\label{thm 5.1.1}
+		\textbf{Principle of contour deformation}.\\
+		Let $\Omega \subset \C$ be open, $f : \Omega \longrightarrow \C$ be holomorphic. Let $\gamma_1$ be a contour in $\Omega$, $\gamma_2$ be another contour in $\Omega \cap Interior(\gamma_1)$. If $Interior(\gamma_1) \cap Exterior(\gamma_2) \subset \Omega$, then
+		\begin{align}
+			\int_{\gamma_1}{f(z) dz} = \int_{\gamma_2}{f(z) dz}
+		\end{align}
+		
+		\vspace{1em}
+		\begin{rmk}
+			条件$Interior(\gamma_1) \cap Exterior(\gamma_2) \subset \Omega$ 保证了$\gamma_1$ 与$\gamma_2$ 之间围成的区域不存在空洞(亏格)，从而在这片区域上Cauchy's Theorem 总是奏效的.
+		\end{rmk}
+	
+		\begin{figure}[htbp]  %h此处，t页顶，b页底，p独立一页，浮动体出现的位置
+			\centering  %图表居中
+			\includegraphics[width=0.3\textwidth]{figure/5.1-1} %图片的名称或者路径之中有空格会出问题 
+			\caption{\textbf{Principle of contour deformation}} % 图片标题
+			\label{pic 5.1-1}
+		\end{figure}
+	
+		\vspace{2em}
+		\begin{proof}
+			\begin{align}
+				\int_{\gamma_1}{f(z) dz} - \int_{\gamma_2}{f(z) dz} 
+				&= \int_{\gamma_1}{f(z) dz} + \int_{\gamma_{2}^{-}}{f(z) dz} \\
+				&= \int_{\mu_1}{f(z) dz} + \int_{\mu_2}{f(z) dz} = 0 + 0 = 0
+			\end{align}
+		\end{proof}	
+	\end{thm}
+
+	\vspace{2em}
+	下面给出Thm \ref{thm 5.1.1} 的一种Special Case. (Interior($\gamma_1$)仅有一点不在$\Omega$ 内)
+	\begin{corollary}\label{cor 5.1.2}
+		Let $\Omega \subset \C$ be open, $f : \Omega \longrightarrow \C$ be holomorphic. Let $\gamma$ be a contour in $\Omega$ and $\exists \alpha \in Interior(\gamma)$, $\st Interior(\gamma) \backslash \{ \alpha \} \subset \C$. Then
+		\begin{align}
+			\int_{\gamma}{f(z) dz} = \int_{C_{r}(\alpha)}{f(z) dz} , \,\, where \,\, C_{r}(\alpha) \subset Interior(\gamma)
+		\end{align}
+	\end{corollary}
+	
+	\vspace{2em}
+	下面给出更一般的表述.(Interior($\gamma$)内有有限个点不在$\Omega$ 内)
+	\begin{corollary}\label{cor 5.1.3}
+		Let $\Omega \subset \C$ be open, $f : \Omega \longrightarrow \C$ be holomorphic and $\gamma$ is a contour in $\Omega$. If $\alpha_1 , \cdots , \alpha_n \in Interior(\gamma)$, such $Interior(\gamma) \backslash \{ \alpha_1 , \cdots , \alpha_n \} \subset \Omega$, then
+		\begin{align}
+			\int_{\gamma}{f(z) dz} = \sum_{k = 1}^{n}{\int_{C_{r_k}(\alpha_k)}{f(z) dz}} 
+		\end{align}
+		where $C_{r_k}(\alpha_k)$ are disjoint “small” circles.
+		
+		\begin{figure}[htbp]  %h此处，t页顶，b页底，p独立一页，浮动体出现的位置
+			\centering  %图表居中
+			\includegraphics[width=0.3\textwidth]{figure/5.1-2} %图片的名称或者路径之中有空格会出问题 
+			\caption{\textbf{Principle of contour deformation (Special Case)}} % 图片标题
+			\label{pic 5.1-2}
+		\end{figure}
+	
+		\begin{proof}
+			即证
+			\begin{align}
+				\int_{\gamma}{f(z) dz} + \sum_{k = 1}^{n}{\int_{C_{r_k}^{-}(\alpha_k)}{f(z) dz}} = \sum_{k = 1}^{n}{\int_{\mu_{k}}{f(z) dz}} = \sum_{k = 1}^{n}{0} = 0
+			\end{align}
+		\end{proof}
+	\end{corollary}
+
+\newpage
+\section{$Cauchy \,\, Integral \,\, Formulas$}
+	\begin{center}
+		接下来我们介绍另一个计算环路积分非常重要的公式——\textbf{Cauchy Integral Formulas}.
+	\end{center}
+
+\paragraph{Cauchy Integral Formulas}
+	首先给出一个命题.
+	\begin{proposition}\label{prop 5.2.1}
+		Let $\Omega \subset \C$ be open, $f : \Omega \longrightarrow \C$ be holomorphic, $\gamma$ be a contour in $\Omega$. Assume $\exists \alpha \in Interior(\gamma)$, $\st$
+		\begin{align}
+			Interior(\gamma) \backslash \{ \alpha \} \subset \Omega \,\,\,\, and \,\,\,\, \lim_{z \to \alpha}{(z - \alpha)f(z)} = 0
+		\end{align}
+		Then
+		\begin{align}
+			\int_{\gamma}{f(z) dz} = 0
+		\end{align}
+	
+		\vspace{2em}
+		\begin{proof}
+			$\forall \epsilon > 0$, $\exists \delta > 0$, $\st$
+			\begin{align}
+				\left| z - \alpha \right| < \delta \,\, \Rightarrow \,\, \left| (z - \alpha) f(z) \right| < \epsilon
+			\end{align}
+			By the \textbf{principle of contour deformation} (Thm \ref{thm 5.1.1}),
+			\begin{align}
+				\int_{\gamma}{f(z) dz} = \int_{C_{r}(\alpha)}{f(z) dz} , \,\, where \,\, 0 < r < \delta
+			\end{align}
+			Then
+			\begin{align}
+				\left| \int_{\gamma}{f(z) dz} \right| 
+				\leq \sup_{z \in C_{r}(\alpha)}{\left| f(z) \right|} \cdot length(\gamma) 
+				&= \sup_{z \in C_{r}(\alpha)}{\left| f(z) \right|} \cdot 2 \pi r \\
+				&< \frac{\epsilon}{r} \cdot 2 \pi r = 2 \pi \epsilon
+			\end{align}
+		\end{proof}
+	\end{proposition}
+
+	\newpage
+	下面给出\textbf{Cauchy Integral Formulas}.
+	\begin{thm}\label{thm 5.2.1}
+		\textbf{CIF}.\\
+		Let $\Omega \subset \C$ be open, $f : \Omega \longrightarrow \C$ be holomorphic. Then for any $z_0 \in \Omega$,
+		\begin{align}
+			f(z_0) = \frac{1}{2 \pi i} \int_{\gamma}{\frac{f(\zeta)}{\zeta - z_0} d\zeta}
+		\end{align}
+		where $\gamma$ is any contour in $\Omega$ $\st$ $z_0 \in Interior(\gamma) \subset \Omega$.
+		
+		\vspace{2em}
+		\begin{proof}
+			Let
+			\begin{align}
+				g(z) = \frac{f(z) - f(z_0)}{z - z_0}
+			\end{align}
+			Then $g(z)$ is holomorphic on $\Omega \backslash \{ z_0 \}$. Clearly
+			\begin{align}
+				\lim_{z \to z_0}{(z - z_0) g(z)} = 0 , \,\, Interior(\gamma) \backslash \{ z_0 \} \subset \Omega \backslash \{ z_0 \}
+			\end{align}
+			By Prop \ref{prop 5.2.1},
+			\begin{align}
+				\int_{\gamma}{g(z) dz} = 0 \,\, \Rightarrow \,\, \int_{\gamma}{\frac{f(z)}{z - z_0} dz} = \int_{\gamma}{\frac{f(z_0)}{z - z_0} dz}
+			\end{align}
+			Therefore
+			\begin{align}
+				\int_{\gamma}{\frac{f(z)}{z - z_0} dz} 
+				= \int_{\gamma}{\frac{f(z_0)}{z - z_0} dz} 
+				= f(z_0) \int_{\gamma}{\frac{1}{z - z_0} dz} 
+				&= f(z_0) \int_{C_{r}(z_0)}{\frac{1}{z - z_0} dz} \\
+				&= 2 \pi i \cdot f(z_0)
+			\end{align}
+		\end{proof}
+	\end{thm}
+
+	\vspace{2em}
+	Therefore, according to Cauchy Integral Formulas, we get
+	\begin{align}
+		f(z) = \frac{1}{2 \pi i} \int_{\gamma}{\frac{f(\zeta)}{\zeta - z} d\zeta} 
+	\end{align}
+	\begin{center}
+		where $f$ is holomorphic on an open set containing the contour $\gamma$ and its interior, $z \in Interior(\gamma)$.
+	\end{center}
+
+	\newpage
+\paragraph{高阶Cauchy Integral Formulas}
+	下面给出\textbf{高阶}的Cauchy Integral Formulas.
+	\begin{thm}\label{thm 5.2.2}
+		Let $\Omega \subset \C$ be open, $f : \Omega \longrightarrow \C$ be holomorphic. Then $f$ is complex differentiable to all orders and moreover, $\forall z \in \Omega$
+		\begin{align}
+			f^{(n)}(z) = \frac{n!}{2 \pi i} \int_{\gamma}{\frac{f(\zeta)}{(\zeta - z)^{n + 1}} d\zeta} , \,\, n = 1 , 2 , \cdots
+		\end{align}
+		where $\gamma$ is any contour in $\Omega$ $\st$ $z \in Interior(\gamma) \subset \Omega$.
+	\end{thm}
+	
+
+
+
+\newpage
+\section{课堂例题$2024-03-25$}
+	\begin{enumerate}
+		\item Evaluate 
+		\begin{align}
+			\int_{\gamma}{\frac{2z - 1}{z^2 - z} dz}
+		\end{align}
+		where $\gamma$ is any contour $\st$ $\overline{\mathcal{D}} \subset Interior(\gamma)$.
+		
+		\vspace{2em}
+		\begin{solution}
+			By Cor \ref{cor 5.1.3},(\textbf{闭路变形原理})
+			\begin{align}
+				\int_{\gamma}{f(z) dz} 
+				&= \int_{C_{\frac{1}{3}}(0)}{f(z) dz} + \int_{C_{\frac{1}{3}}(1)}{f(z) dz} \\
+				&= \int_{C_{\frac{1}{3}}(0)}{(\frac{1}{z - 1} + \frac{1}{z}) dz} + \int_{C_{\frac{1}{3}}(1)}{(\frac{1}{z - 1} + \frac{1}{z}) dz}
+			\end{align}
+			Since $\frac{1}{z - 1}$ is holomorphic on \textcolor{red}{$Interior(C_{\frac{1}{3}}(0)) = D_{\frac{1}{3}}(0)$}, where $D_{\frac{1}{3}}(0)$ is simply connected, then \\
+			by Cauchy's Theorem,
+			\begin{align}
+				\int_{C_{\frac{1}{3}}(0)}{(\frac{1}{z - 1} + \frac{1}{z}) dz} = \int_{C_{\frac{1}{3}}(0)}{\frac{1}{z} dz}
+			\end{align}
+			Similarly, since $\frac{1}{z}$ is holomorphic on $D_{\frac{1}{3}}(1)$, then
+			\begin{align}
+				\int_{C_{\frac{1}{3}}(1)}{(\frac{1}{z - 1} + \frac{1}{z}) dz} = \int_{C_{\frac{1}{3}}(1)}{\frac{1}{z - 1} dz}
+			\end{align}
+			Therefore
+			\begin{align}
+				\int_{\gamma}{f(z) dz} 
+				&= \int_{C_{\frac{1}{3}}(0)}{(\frac{1}{z - 1} + \frac{1}{z}) dz} + \int_{C_{\frac{1}{3}}(1)}{(\frac{1}{z - 1} + \frac{1}{z}) dz} \\
+				&= \int_{C_{\frac{1}{3}}(0)}{\frac{1}{z} dz} + \int_{C_{\frac{1}{3}}(1)}{\frac{1}{z - 1} dz} \\
+				&= 2\pi i + 2\pi i \\
+				&= 4 \pi i
+			\end{align}
+		\end{solution}
+		
+		\newpage
+		
+		\item Evaluate
+		\begin{align}
+			&\int_{C_{3}(0)}{\frac{e^{z^2}}{z - 2} dz} \,\,\,\, ( = 2 \pi i f(z_0) = 2 \pi i e^4) \\
+			&\int_{C_{1}(0)}{\frac{e^{z^2}}{z - 2} dz} \,\,\,\, ( = 0)
+		\end{align}
+	
+		\vspace{2em}
+		
+		\item Evaluate
+		\begin{align}
+			\int_{C_{2}(0)}{\frac{\sin{z}}{z^2 + 1} dz}
+		\end{align}
+		
+		\vspace{2em}
+		\begin{solution}
+			\begin{align}
+				\int_{C_{2}(0)}{\frac{\sin{z}}{z^2 + 1} dz} 
+				&= \int_{C_{\frac{1}{2}}(i)}{\frac{\sin{z}}{z + i} \cdot \frac{1}{z - i} dz} + \int_{C_{\frac{1}{2}}(-i)}{\frac{\sin{z}}{z - i} \cdot \frac{1}{z + i} dz} \\
+				&= 2 \pi i \cdot \frac{\sin{i}}{2i} + 2 \pi i \cdot \frac{\sin{(-i)}}{-2i} \\
+				&= 2\pi \sin{i}
+			\end{align}
+		\end{solution}
+	
+		\vspace{2em}
+		
+		\item Evaluate
+		\begin{align}
+			\int_{C_{3}(0)}{\frac{z}{(z - 1)(z - 2)^2} dz}
+		\end{align}
+	
+		\vspace{2em}
+		\begin{solution}
+			By Thm \ref{thm 5.2.2} (高阶Cauchy Integral Formulas),
+			\begin{align}
+				\int_{C_{3}(0)}{\frac{z}{(z - 1)(z - 2)^2} dz} 
+				&= \int_{C_{\frac{1}{3}}(1)}{\frac{z}{(z - 2)^2} \cdot \frac{1}{z - 1} dz} + \int_{C_{\frac{1}{3}}(2)}{\frac{z}{z - 1} \cdot \frac{1}{(z - 2)^2} dz} \\
+				&= 2 \pi i + 2 \pi i \left( \frac{z}{z - 1} \right)^{'}\Big|_{z = 2} \\
+				&= 0
+			\end{align}
+		\end{solution}
+	
+		\vspace{1em}
+		
+		\item 课本第二章练习$T6$.
+	\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
 
 	%  ############################
 	\ifx\allfiles\undefined
