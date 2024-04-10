@@ -40,4 +40,16 @@
 \contentsline {section}{\numberline {5.2}$Cauchy \,\, Integral \,\, Formulas$}{43}{section.5.2}%
 \contentsline {paragraph}{Cauchy Integral Formulas}{43}{paragraph*.14}%
 \contentsline {paragraph}{高阶Cauchy Integral Formulas}{45}{paragraph*.15}%
-\contentsline {section}{\numberline {5.3}课堂例题$2024-03-25$}{46}{section.5.3}%
+\contentsline {paragraph}{\textbf {Cauchy's Inequalities}}{45}{paragraph*.16}%
+\contentsline {paragraph}{\textbf {Liouville's therom}}{45}{paragraph*.17}%
+\contentsline {paragraph}{具有原函数的充要条件}{46}{paragraph*.18}%
+\contentsline {paragraph}{\textbf {Morera's Theorem}}{46}{paragraph*.19}%
+\contentsline {section}{\numberline {5.3}课堂例题$2024-03-25$}{48}{section.5.3}%
+\contentsline {section}{\numberline {5.4}$Sequence \,\, of \,\, functions$}{50}{section.5.4}%
+\contentsline {paragraph}{概念}{50}{paragraph*.20}%
+\contentsline {paragraph}{一致收敛}{50}{paragraph*.21}%
+\contentsline {section}{\numberline {5.5}课堂例题$2024-03-29$}{53}{section.5.5}%
+\contentsline {chapter}{\numberline {第六章\hspace {.3em}}$Week \,\, 6$}{54}{chapter.6}%
+\contentsline {section}{\numberline {6.1}课堂例题$2024-04-01$}{54}{section.6.1}%
+\contentsline {section}{\numberline {6.2}}{55}{section.6.2}%
+\contentsline {section}{\numberline {6.3}课堂例题$2024-04-07$}{56}{section.6.3}%

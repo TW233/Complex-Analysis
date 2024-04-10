@@ -1336,6 +1336,11 @@
 			
 			\item[(3)]$\forall \alpha , \beta \in \C$, $\int_{\gamma}{f(z) dz}$ is invariant for any zig-zag path $\gamma$ in $\Omega$ that joins $\alpha$ to $\beta$.
 			
+			\vspace{1em}
+			\begin{rmk}
+				我们将在\textbf{定理 \ref{thm 5.2.5}} 中补充一条具有原函数的充要条件. (详见\textbf{Thm \ref{thm 5.2.5} (4)} )
+			\end{rmk}
+			
 			\vspace{2em}
 			\begin{proof}
 				(1) $\Rightarrow$ (2) and (2) $\Rightarrow$ (3) are clear.
@@ -1683,10 +1688,129 @@
 	\begin{thm}\label{thm 5.2.2}
 		Let $\Omega \subset \C$ be open, $f : \Omega \longrightarrow \C$ be holomorphic. Then $f$ is complex differentiable to all orders and moreover, $\forall z \in \Omega$
 		\begin{align}
-			f^{(n)}(z) = \frac{n!}{2 \pi i} \int_{\gamma}{\frac{f(\zeta)}{(\zeta - z)^{n + 1}} d\zeta} , \,\, n = 1 , 2 , \cdots
+			f^{(n)}(z) = \frac{n!}{2 \pi i} \int_{\gamma}{\frac{f(\zeta)}{(\zeta - z)^{n + 1}} d\zeta} , \,\, n = 0 , 1 , 2 , \cdots
 		\end{align}
 		where $\gamma$ is any contour in $\Omega$ $\st$ $z \in Interior(\gamma) \subset \Omega$.
 	\end{thm}
+
+\vspace{2em}
+\paragraph{\textbf{Cauchy's Inequalities}}
+	作为\textbf{柯西积分公式 (CIF)}的推论，下面可得到\textbf{Cauchy's Inequalities}.
+	\begin{corollary}\label{cor 5.2.3}
+		\textbf{Cauchy's Inequalities}.\\
+		If $f$ is holomorphic on an open set $\Omega$ with $D_{R}(z_0) \subset \Omega$, $R > 0$, then
+		\begin{align}
+			\left| f^{(n)}(z_0) \right| \leq \frac{n! \,\, \Vert f \Vert_{C_{R}(z_0)}}{R^n} , \,\, where \,\, \Vert f \Vert_{C_{R}(z_0)} = \sup_{z \in C_{R}(z_0)}{\left| f(z) \right|}
+		\end{align}
+	\end{corollary}
+
+\vspace{2em}
+\paragraph{\textbf{Liouville's therom}}
+	下面给出\textbf{CIF} 的另一条重要推论. 在此之前，先给出\textbf{整函数 (entire)}的定义.
+	\begin{defn}\label{def 5.2.1}
+		A holomorphic function defined on the whole $\C$ is called an \underline{\textcolor{blue}{\textbf{entire function}}}.
+	\end{defn}
+
+	\vspace{2em}
+	下面给出\textbf{刘维尔定理 (Liouville's theorem)}的内容.
+	\begin{corollary}\label{cor 5.2.4}
+		\textbf{Liouville's theorem}.
+		\begin{center}
+			If $f$ is entire and bounded, then $f$ is constant.
+		\end{center}
+		
+		\vspace{2em}
+		\begin{proof}
+			$\forall z \in \C$, by \textbf{Cauchy's Inequalities (Cor \ref{cor 5.2.3})}
+			\begin{align}
+				\left| f^{'}(z) \right| \leq \frac{\Vert f \Vert_{\C}}{R} \leq \frac{M}{R} , \,\, where \,\, \left| f \right| \leq M
+			\end{align}
+			Letting $R \to \infty$, we get $f^{'}(z) = 0$, $\forall z \in \C$ $\,\, \Rightarrow \,\,$ $f$ is constant.
+		\end{proof}
+	\end{corollary}
+
+\newpage
+\paragraph{具有原函数的充要条件}
+	下面在定理 \ref{thm 4.1.3} 的基础上，再增加一条具有原函数的充要条件.
+	\begin{thm}\label{thm 5.2.5}
+		Let $\Omega \subset \C$ be a region, $f : \Omega \longrightarrow \C$ be continuous. Then \textbf{TFAE} \\
+		(the followings are equivalent):
+		\begin{enumerate}
+			\item[(1)]$f$ admits a primitive on $\Omega$.
+			
+			\item[(2)]$\forall \alpha , \beta \in \Omega$, $\int_{\gamma}{f(z) dz}$ is invariant for any path.
+			
+			\item[(3)]$\forall \alpha , \beta \in \Omega$, $\int_{\gamma}{f(z) dz}$ is invariant for any zig-zag path.
+			
+			\item[(4)]$\int_{\gamma}{f(z) dz} = 0$ for any closed path $\gamma \subset \Omega$. 
+		\end{enumerate}
+	
+		\vspace{2em}
+		\begin{proof}
+			$(4) \Rightarrow (2)$: Fix $\alpha , \beta \in \Omega$, $\forall$ two paths $\gamma_1 , \gamma_2 \subset \Omega$ joining $\alpha$ to $\beta$, by (4)
+			\begin{align}
+				\int_{\gamma_1}{f(z) dz} - \int_{\gamma_2}{f(z) dz} = \int_{\gamma_1 \circ \gamma_{2}^{-}}{f(z) dz} = 0 , \,\, where \,\, \gamma_1 \circ \gamma_{2}^{-} \,\, is \,\, a  \,\, closed \,\, path \,\, in \,\, \Omega
+			\end{align}
+			Therefore
+			\begin{align}
+				\int_{\gamma_1}{f(z) dz} = \int_{\gamma_2}{f(z) dz} , \,\, \forall \gamma_1 , \gamma_2 \subset \Omega
+			\end{align}
+		\end{proof}
+	\end{thm}
+
+\vspace{2em}
+\paragraph{\textbf{Morera's Theorem}}
+	有了具有原函数的充要条件之后 (Thm \ref{thm 5.2.5})，下面我们可以对全纯函数进行充要刻画，此即为\textbf{Morera's Theorem} 的推广.
+	
+	\begin{proposition}\label{prop 5.2.2}
+		Let $\Omega \subset \C$ be \textbf{simply connected}, $f : \Omega \longrightarrow \C$ be continuous. Then \textbf{TFAE}
+		\begin{enumerate}
+			\item[(1)]$f$ is holomorphic on $\Omega$.
+			
+			\item[(2)]$\int_{\gamma}{f(z) dz} = 0$ for any closed path $\gamma \subset \Omega$. 
+		\end{enumerate}
+		
+		\vspace{1em}
+		\begin{rmk}
+			命题中$(2) \Rightarrow (1)$ 的部分即为\textbf{Morera's Theorem}.
+		\end{rmk}
+	
+		\vspace{1em}
+		\begin{proof}
+			$(1) \Rightarrow (2)$: is by \textbf{Cauchy's Theorem} (Thm \ref{thm 4.3.2}). \\
+			$(2) \Rightarrow (1)$: By Thm \ref{thm 5.2.5}, $f$ admits a primitive $F$ on $\Omega$, i.e. $F^{'} = f$, then $F$ is holomorphic on $\Omega$. \\
+			By \textbf{CIF} (Thm \ref{thm 5.2.2}), $F$ is infinitely complex differentiable. \\
+			In particular, $F$ is twice complex differentiable. $\Rightarrow$ $F^{''} = f^{'}$ $\Rightarrow$ $f$ is holomorphic on $\Omega$. 
+		\end{proof}
+	\end{proposition}
+
+	\newpage
+	由\textbf{命题 \ref{prop 5.2.2}}可直接得到如下推论.
+	\begin{corollary}\label{cor 5.2.6}
+		Every holomorphic function on a simply connected region admits a primitive.
+	\end{corollary}
+
+	\vspace{2em}
+	在利用\textbf{命题 \ref{prop 5.2.2} (Morera's Thereom)}判定函数全纯时，要注意条件 (2)中道路$\gamma$ 的\textbf{任意性}. 下面便给出一个反例.
+	\begin{example}\label{ex 5.2.1}
+		Suppose $\int_{C_{r}(0)}{f(z) dz} = 0$ for all $0 < r < 1$, can we conclude $f$ is holomorphic on $\mathbb{D}$?
+		
+		\vspace{2em}
+		\begin{solution}
+			The answer is absolutely No. Take $f(z) = \left| z \right|^2$. Then $\int_{C_{r}(0)}{f(z) dz} = 0$, $\forall 0 < r < 1$. \\
+			Since
+			\begin{align}
+				f(z) = \left| z \right|^2 = z \cdot \overline{z} , \,\, \frac{\partial f}{\partial \overline{z}} = z \neq 0 , \,\, \forall z \in \C \backslash \{ 0 \}
+			\end{align}
+			Therefore, $f$ is not holomorphic on $\mathbb{D}$.
+			
+			\begin{rmk}
+				事实上，取道路$\gamma$ 为以原点为圆心，$\frac{1}{2}$ 为半径的上半圆，逆时针方向，可证$\int_{\gamma}{f(z) dz} \neq 0$.
+			\end{rmk}
+		\end{solution}
+	\end{example}
+
+
 	
 
 
@@ -1775,7 +1899,185 @@
 		\item 课本第二章练习$T6$.
 	\end{enumerate}
 
+\newpage
 
+\section{$Sequence \,\, of \,\, functions$}
+\paragraph{概念}
+	这一节我们来介绍有关复数域上函数列的相关概念和性质. 先回顾函数列收敛的定义.
+	\begin{defn}\label{def 5.4.1}
+		Let $\Omega \subset \C$ be open, $\{ f_n : \Omega \longrightarrow \C \}_{n = 1}^{\infty}$ be a sequence of function. \\
+		We say $\{ f_n \}_{n = 1}$ \underline{\textcolor{blue}{\textbf{converges}}} if $\forall z \in \Omega$, $\{ f_{n}(z) \}_{n = 1}^{\infty}$ converges.\\
+		We say $\{ f_n \}_{n = 1}^{\infty}$ \underline{\textcolor{blue}{\textbf{converges uniformly}}} if $\forall \epsilon > 0 , \exists N \in \N , \st$
+		\begin{center}
+			$m , n > N \,\, \Rightarrow \,\, \left| f_{m}(z) - f_{n}(z) \right| < \epsilon , \,\, \forall z \in \Omega$
+		\end{center}
+		We say $\{ f_n \}_{n = 1}^{\infty}$ \underline{\textcolor{blue}{\textbf{uniformly converges to $f$}}} if $\forall \epsilon > 0 , \exists N \in \N , \st$
+		\begin{center}
+			$n > N \,\, \Rightarrow \,\, \left| f_{n}(z) - f(z) \right| < \epsilon , \,\, \forall z \in \Omega$
+		\end{center}
+	\end{defn}
+	
+	\vspace{2em}
+	下面给出一个经典的收敛但不一致收敛的例子.
+	\begin{example}\label{ex 5.4.1}
+		$\{ f_{n}(z) = z^n \}_{n = 1}^{\infty}$ on $\mathbb{D}$ is convergent but not uniformly convergent. However, the sequence is uniformly convergent on any compact subset on $\mathbb{D}$.
+	\end{example}
+
+\vspace{2em}
+\paragraph{一致收敛}
+	下面给出函数列一致收敛的性质，即\textbf{积分与极限可交换次序}.
+	\begin{thm}\label{thm 5.4.1}
+		Let $\Omega \subset \C$ be open, $\{ f_n : \Omega \longrightarrow \C \}_{n = 1}^{\infty}$ be a sequence of continuous functions that converges uniformly to $f$ \textbf{on every compact subset of $\Omega$}. Then
+		\begin{enumerate}
+			\item[(1)]$f$ is continuous.
+			
+			\vspace{1em}
+			
+			\item[(2)]If $\gamma \subset \Omega$ is a path with finite length, then
+			\begin{align}
+				\lim_{n \to \infty}{\int_{\gamma}{f_{n}(z) dz}} = \int_{\gamma}{f(z) dz}
+			\end{align}
+		
+			\vspace{1em}
+			
+			\item[(3)]If $f_n$ is holomorphic for all $n$, then so is $f$. Moreover, \\
+			$\{ f_{n}^{'} \}_{n = 1}^{\infty}$ converges uniformly to $f^{'}$ \textbf{on every compact subset of $\Omega$}.
+		\end{enumerate}
+		
+		\vspace{1em}
+		\begin{rmk}
+			性质 (2)即说明了对于一致收敛的函数列，\textbf{极限与积分可交换次序}，即
+			\begin{align}
+				\lim_{n \to \infty}{\int_{\gamma}{f_{n}(z) dz}} = \int_{\gamma}{\lim_{n \to \infty}{f_{n}(z) dz}} = \int_{\gamma}{f(z) dz}
+			\end{align}
+		\end{rmk}
+	
+		\newpage
+		\begin{proof}
+			\begin{enumerate}
+				\item[(1)]: Fix $z_0 \in \Omega$, $\forall \epsilon > 0$\\
+				Since $\{f_n\}_{n = 1}^{\infty}$ converges uniformly to $f$, there exists $N \in \N$, $\st$
+				\begin{align}
+					\left| f(z) - f_{n}(z) \right| \leq \epsilon , \,\, \forall n \geq N , \forall z \in \Omega
+				\end{align}
+				Since $f_N$ is continuous at $z_0$, there exist $\delta > 0$, $\st$
+				\begin{align}
+					\left| f_{n}(z) - f_{n}(z_0) \right| \leq \epsilon , \,\, \forall z \in D_{\delta}(z_0)
+				\end{align}
+				Therefore
+				\begin{align}
+					\left| f(z) - f(z_0) \right| 
+					&\leq \left| f(z) - f_{N}(z) \right| + \left| f_{N}(z) - f_{N}(z_0) \right| + \left| f_{N}(z_0) - f(z_0) \right| \\
+					&\leq 3 \epsilon , \,\, \forall z \in D_{\delta}(z_0)
+				\end{align}
+				
+				\vspace{2em}
+				
+				\item[(2)]: Fix $\epsilon > 0$. For any path $\gamma$ with finite length, $\gamma \subset \Omega$ is a compact subset of $\Omega$.\\
+				Let $L = length(\gamma)$. Since $\{ f_n \}_{n = 1}^{\infty}$ converges uniformly on compact subset $\gamma$, $\exists N \in \N$, $\st$
+				\begin{align}
+					\left| f_{n}(z) - f(z) \right| \leq \frac{\epsilon}{L} , \,\, \forall z \in \gamma , \forall n > N
+				\end{align}
+				Hence, for all $n > N$,
+				\begin{align}
+					\left| \int_{\gamma}{f_{n}(z) dz} - \int_{\gamma}{f(z) dz} \right| \leq \int_{\gamma}{\left| f_{n}(z) - f(z) \right|} \leq \frac{\epsilon}{L} \cdot L = \epsilon , \,\, \forall n > N
+				\end{align}
+				Therefore
+				\begin{align}
+					\lim_{n \to \infty}{\int_{\gamma}{f_{n}(z) dz}} = \int_{\gamma}{f(z) dz} = \int_{\gamma}{\lim_{n \to \infty}{f_{n}(z) dz}}
+				\end{align}
+			
+				\vspace{2em}
+				\item[(3)]: 下面分两部分证明. (对应书\footnote{课堂教材：\textbf{《$Complex \,\, Analysis$》---  $Elias \,\, M. \,\, Stein$}}P54 Thm 5.3)
+				\begin{itemize}
+					\item $f$ is holomorphic. \\
+					$\forall \alpha \in \Omega$, $\exists r > 0$, $\st D_{r}(\alpha) \subset \Omega$. Let $\gamma$ be any closed path in $D_{r}(\alpha)$.\\
+					Since $f_n$ is holomorphic on $D_{r}(\alpha)$, by \textbf{Cauchy's Theorem (Thm \ref{thm 4.3.2})}, 
+					\begin{align}
+						\int_{\gamma}{f_{n}(z) dz} = 0
+					\end{align}
+					By (2) proofed previously, 
+					\begin{align}
+						\int_{\gamma}{f(z) dz} = \lim_{n \to \infty}{\int_{\gamma}{f_{n}(z) dz}} = 0
+					\end{align}
+				
+					\newpage
+					By \textbf{Morera's Theorem (Prop \ref{prop 5.2.2})}, $f$ is holomorphic on $D_{r}(\alpha)$.\\
+					In particular, $f$ is complex differentiable at $\alpha$. Since $\alpha$ is arbitrary, $f$ is holomorphic on $\Omega$.
+					
+					\vspace{2em}
+					
+					\item $\{ f_{n}^{'} \}_{n = 1}^{\infty}$ converges uniformly to $f^{'}$ on every compact subset of $\Omega$. \\
+					$\forall z_0 \in \Omega$, $\exists r > 0$, $\st \overline{D}_{r}(z_0) \subset \Omega$. \\
+					Since $f_n \longrightarrow f$ converges uniformly on $C_{r}(z_0)$, we have $\forall z \in D_{\frac{r}{2}}(z_0)$
+					\begin{align}
+						\frac{f_{n}(\zeta)}{(\zeta - z)^2} \to \frac{f(\zeta)}{(\zeta - z)^2} \,\, uniformly \,\, on \,\, C_{r}(z_0)
+					\end{align}
+					i.e. $\forall \epsilon > 0$, $\exists N \in \N$, $\st$
+					\begin{align}
+						\left| \frac{f_{n}(\zeta)}{(\zeta - z)^2} - \frac{f(\zeta)}{(\zeta - z)^2} \right| < \frac{\epsilon}{r}, \,\, \forall n > N , \forall \zeta \in C_{r}(z_0)
+					\end{align}
+					Therefore
+					\begin{align}
+						\left| f_{n}^{'}(z) - f^{'}(z) \right| 
+						&= \left| \frac{1}{2\pi i} \int_{C_{r}(z_0}{\left( \frac{f_{n}(\zeta)}{(\zeta - z)^2} - \frac{f(\zeta)}{(\zeta - z)^2} \right) d\zeta} \right| \\
+						&< \frac{1}{2 \pi i} \cdot \frac{\epsilon}{r} \cdot 2 \pi r i \\
+						&= \epsilon , \,\, \forall n > N , \forall z \in D_{\frac{r}{2}}(z_0)
+					\end{align}
+					It tells $f_{n}^{'} \to f^{'}$ uniformly on $D_{\frac{r}{2}}(z_0)$. \\
+					For any compact subset $K \subset \Omega$, consider the open covering $\{ D_{\frac{1}{2} r_x}(x) \subset \Omega \}_{x \in K}$.\\
+					There exists a finite subcovering $K \subset \{ D_{r_i}(x_i) \subset \Omega \}_{i = 1}^{n}$. \\
+					We can proof $f_{n}^{'} \to f^{'}$ uniformly on $K$.
+				\end{itemize}
+			\end{enumerate}
+		\end{proof}
+	\end{thm}
+
+\newpage
+
+\section{课堂例题$2024-03-29$}
+	\begin{enumerate}
+		\item Evaluate 
+		\begin{align}
+			\int_{C_{3}(0)}{\frac{z}{(z - 1)(z - 2)^2} dz}
+		\end{align}
+	
+		\vspace{2em}
+		\begin{solution}
+			\begin{align}
+				\int_{C_{3}(0)}{\frac{z}{(z - 1)(z - 2)^2} dz}
+				&= \int_{C_{\frac{1}{3}}(0)}{\frac{z}{(z - 2)^2} \cdot \frac{1}{z - 1} dz} + \int_{C_{\frac{1}{3}}(2)}{\frac{z}{z - 1} \cdot \frac{1}{(z - 2)^2} dz} \\
+				&= 2\pi i + 2\pi i \left( \frac{z}{z - 1} \right)^{'} \Big|_{z = 2} \\
+				&= 0
+			\end{align}
+		\end{solution}
+	\end{enumerate}
+
+\chapter{$Week \,\, 6$}
+\section{课堂例题$2024-04-01$}
+	\begin{center}
+		本节为习题课. (博士研究生助教代课)
+	\end{center}
+	\begin{enumerate}
+		\item 课本第二章练习$T1 , T2 , T3 , T4$.
+	\end{enumerate}
+
+\newpage
+
+\section{}
+
+
+
+
+
+
+
+\newpage
+
+\section{课堂例题$2024-04-07$}
+	\begin{enumerate}
+		\item 
+	\end{enumerate}
 
 
 
