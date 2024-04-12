@@ -51,5 +51,21 @@
 \contentsline {section}{\numberline {5.5}课堂例题$2024-03-29$}{53}{section.5.5}%
 \contentsline {chapter}{\numberline {第六章\hspace {.3em}}$Week \,\, 6$}{54}{chapter.6}%
 \contentsline {section}{\numberline {6.1}课堂例题$2024-04-01$}{54}{section.6.1}%
-\contentsline {section}{\numberline {6.2}}{55}{section.6.2}%
-\contentsline {section}{\numberline {6.3}课堂例题$2024-04-07$}{56}{section.6.3}%
+\contentsline {section}{\numberline {6.2}函数项级数，全纯函数解析}{55}{section.6.2}%
+\contentsline {paragraph}{回顾}{55}{paragraph*.22}%
+\contentsline {paragraph}{函数项级数}{56}{paragraph*.23}%
+\contentsline {paragraph}{解析与全纯等价}{56}{paragraph*.24}%
+\contentsline {section}{\numberline {6.3}解析延拓}{58}{section.6.3}%
+\contentsline {paragraph}{定义}{58}{paragraph*.25}%
+\contentsline {paragraph}{解析延拓的唯一性}{58}{paragraph*.26}%
+\contentsline {section}{\numberline {6.4}对称原理}{60}{section.6.4}%
+\contentsline {paragraph}{引入}{60}{paragraph*.27}%
+\contentsline {paragraph}{对称原理}{60}{paragraph*.28}%
+\contentsline {paragraph}{\textbf {Schwartz} 反射原理}{61}{paragraph*.29}%
+\contentsline {section}{\numberline {6.5}课堂例题$2024-04-07$}{62}{section.6.5}%
+\contentsline {chapter}{\numberline {第七章\hspace {.3em}}$Week \,\, 7$}{63}{chapter.7}%
+\contentsline {section}{\numberline {7.1}零点，极点，留数}{63}{section.7.1}%
+\contentsline {paragraph}{零点}{63}{paragraph*.30}%
+\contentsline {paragraph}{极点}{64}{paragraph*.31}%
+\contentsline {paragraph}{留数}{65}{paragraph*.32}%
+\contentsline {section}{\numberline {7.2}$Laurent \,\, Series \,\, Expansion$}{66}{section.7.2}%

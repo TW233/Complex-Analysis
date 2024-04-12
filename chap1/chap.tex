@@ -2064,20 +2064,502 @@
 
 \newpage
 
-\section{}
+\section{函数项级数，全纯函数解析}
+\paragraph{回顾}
+	在介绍复数域上函数项级数的性质之前，先回顾一下函数列的性质 (Thm \ref{thm 5.4.1}).
+	\begin{thm}\label{thm 6.2.1}
+		\textbf{一致收敛 $\Rightarrow$ 积分与极限可交换次序}.\\
+		Let $\Omega \subset \C$ be open, $\{ f_n : \Omega \longrightarrow \C \}_{n = 1}^{\infty}$ be a sequence of continuous functions that converges uniformly to $f$ \textbf{on every compact subset of $\Omega$}. Then
+		\begin{enumerate}
+			\item[(1)]$f$ is continuous.
+			
+			\vspace{1em}
+			
+			\item[(2)]If $\gamma \subset \Omega$ is a path with finite length, then
+			\begin{align}
+				\lim_{n \to \infty}{\int_{\gamma}{f_{n}(z) dz}} = \int_{\gamma}{f(z) dz}
+			\end{align}
+			
+			\vspace{1em}
+			
+			\item[(3)]If $f_n$ is holomorphic for all $n$, then so is $f$. Moreover, \\
+			$\{ f_{n}^{'} \}_{n = 1}^{\infty}$ converges uniformly to $f^{'}$ \textbf{on every compact subset of $\Omega$}.
+		\end{enumerate}
+		
+		\vspace{1em}
+		\begin{rmk}
+			\begin{itemize}
+				\item 事实上，结论 (3)可做推广，即当函数列$\{ f_n \}_{n = 1}^{\infty}$ 满足上述条件时，有：
+				\begin{center}
+					$\{ f_{n}^{(k)} \}_{n = 1}^{\infty}$ converges uniformly to $f^{(k)}$ \textbf{on every compact subset of $\Omega$}.
+				\end{center}
+			
+				\vspace{2em}
+				
+				\item 注意实变函数列与复变函数列的\textbf{可微性}的区别，即实变函数列不满足定理中的 (3). 下面给出结论 (3)在实变函数列下的反例.
+				
+				\vspace{1em}
+				
+				\begin{example}\label{ex 6.2.1}
+					Let $f_{n}(x) = \sqrt{x^2 + \frac{1}{n}}$, $x \in [-1 , 1]$. Then $\{ f_n \}_{n = 1}^{\infty}$ converges uniformly to $f(x) = \left| x \right|$. \\
+					Though $f_n$, $n = 1 , 2 , \cdots$ are differentiable over $[-1 , 1]$, the limit function $f(x) = \left| x \right|$ is \textbf{not differentiable} at $x = 0$.
+				\end{example}
+			\end{itemize}
+		\end{rmk}
+	
+		\vspace{2em}
+		\begin{proof}
+			详见定理 \ref{thm 5.4.1}证明.
+		\end{proof}
+	\end{thm}
 
+\newpage
 
+\paragraph{函数项级数}
+	下面给出函数项级数收敛的定义.
+	\begin{defn}\label{def 6.2.1}
+		Let $\Omega \subset \C$ be open, $\{ f_n : \Omega \longrightarrow \C \}_{n = 1}^{\infty}$ be a sequence of functions. \\
+		We say $\overset{\infty}{\underset{n = 1}{\sum}}{f_n}$ \underline{\textcolor{blue}{\textbf{converges}}} if $\{ S_{N} = \overset{N}{\underset{n = 1}{\sum}}{f_n} \}_{N = 1}^{\infty}$ converges.  \\
+		We say $\overset{\infty}{\underset{n = 1}{\sum}}{f_n}$ \underline{\textcolor{blue}{\textbf{converges uniformly}}} if $\{ S_{N} = \overset{N}{\underset{n = 1}{\sum}}{f_n} \}_{N = 1}^{\infty}$ converges uniformly).
+	\end{defn}
 
+	\vspace{2em}
+	下面给出判断函数项级数一致收敛性的经典方法 (\textbf{Weierstrass M-test}).
+	
+	\begin{proposition}\label{prop 6.2.1}
+		\textbf{Weierstrass M-test}. \\
+		If $\left| f_{n}(z) \right| \leq M_n$, $n = 1 , 2 , \cdots , \forall z \in \Omega$, and $\overset{\infty}{\underset{n = 1}{\sum}}{M_n} < \infty$, then $\overset{\infty}{\underset{n = 1}{\sum}}{f_n}$ converges uniformly.
+		
+		\vspace{2em}
+		\begin{proof}
+			Let $S_N = \overset{N}{\underset{n = 1}{\sum}}{f_n}$, $\forall N \in \N$. Since $\overset{\infty}{\underset{n = 1}{\sum}}{M_n} < \infty$, then\\
+			$\forall \epsilon > 0 , \exists N \in \N , \st n > m > N$
+			\begin{align}
+				\left| S_n - S_m \right| = \left| f_{n}(z) + \cdots + f_{m + 1}(z) \right| \leq \sum_{j = m + 1}^{\infty}{M_j} \leq \epsilon , \,\, \forall z \in \Omega
+			\end{align}
+			Therefore, $\{ S_n \}_{n = 1}^{\infty}$ converges uniformly. $\,\, \Rightarrow \,\,$ $\{ f_n \}_{n = 1}^{\infty}$ converges uniformly.
+		\end{proof}
+	\end{proposition}
 
+\vspace{2em}
+\paragraph{解析与全纯等价}
+	下面证明\textbf{全纯}函数均\textbf{解析 (可展成幂级数)}. 
+	\begin{center}
+		\textbf{(该定理与定理 \ref{thm 3.1.2}共同说明了，解析 $\Leftrightarrow$ 全纯)}
+	\end{center}
+	\begin{thm}\label{thm 6.2.2}
+		Suppose $f$ is holomorphic on an open set $\Omega \subset \C$. Then $\forall z_0 \in \Omega$ with $D_{r}(z_0) \subset \Omega$ for some $r > 0$, $f$ has a power series expansion at $z_0$.
+		\begin{align}
+			f(z) = \sum_{n = 0}^{\infty}{a_n (z - z_0)^n} , \,\, \forall z \in D_{r}(z_0)
+		\end{align}
+		$where \,\, a_n = \frac{f^{(n)}(z_0)}{n!} , \,\, \forall n \geq 0$.\\
+		
+		\begin{proof}
+			Fix $z \in D_{r}(z_0)$. By \textbf{CIF (Thm \ref{thm 5.2.1})},
+			\begin{align}
+				f(z) = \frac{1}{2\pi i}\int_{C_{r}(z_0)}{\frac{f(\zeta)}{\zeta - z} d\zeta}
+			\end{align}
+			Then
+			\begin{align}
+				\frac{1}{\zeta - z} 
+				= \frac{1}{\zeta - z_0 - (z - z_0)} 
+				= \frac{1}{\zeta - z_0} \cdot \frac{1}{1 - \frac{z - z_0}{\zeta - z_0}} 
+			\end{align}
+			Since $z \in D_{r}(z_0)$ is fixed, and $\forall \zeta \in C_{r}(z_0)$, there exists $0 < r < 1$, $\st$
+			\begin{align}
+				\left| \frac{z - z_0}{\zeta - z_0} \right| < r
+			\end{align}
+			Therefore,
+			\begin{align}
+				\sum_{n = 0}^{N}{\left( \frac{z - z_0}{\zeta - z_0} \right)^n} \,\, \Rightarrow \,\, \frac{1}{1 - \frac{z - z_0}{\zeta - z_0}} , \,\, N \to \infty , \,\, \forall \zeta \in C_{r}(z_0)
+			\end{align}
+			converges uniformly \textbf{w.r.t. (with respect to , 关于)} $\zeta \in C_{r}(z_0)$. i.e.
+			\begin{align}
+				\sum_{n = 0}^{\infty}{\left( \frac{z - z_0}{\zeta - z_0} \right)^n} = \frac{1}{1 - \frac{z - z_0}{\zeta - z_0}} , \,\, \forall \zeta \in C_{r}(z_0)
+			\end{align}
+			Let
+			\begin{align}
+				g_{N}(\zeta)
+				&= \sum_{n = 0}^{N}{\left( f(\zeta) \cdot \frac{1}{\zeta - z_0} \cdot \left( \frac{z - z_0}{\zeta - z_0} \right)^n \right)} \\
+				&= f(\zeta) \cdot \frac{1}{\zeta - z_0} \sum_{n = 0}^{N}{\left( \frac{z - z_0}{\zeta - z_0} \right)^n} , \,\, \zeta \in C_{r}(z_0)
+			\end{align}
+			Then we have
+			\begin{align}
+				g_{N} \,\, &\Rightarrow \,\, f(\zeta) \cdot \frac{1}{\zeta - z_0} \cdot \frac{1}{1 - \frac{z - z_0}{\zeta - z_0}} \\
+				&= \frac{f(\zeta)}{\zeta - z} , \,\, N \to \infty , \,\, \zeta \in C_{r}(z_0)
+			\end{align}
+			converges uniformly w.r.t. $\zeta \in C_{r}(z_0)$. Therefore, by Thm \ref{thm 6.2.1},
+			\begin{align}
+				f(z) 
+				= \frac{1}{2\pi i}\int_{C_{r}(z_0)}{\frac{f(\zeta)}{\zeta - z} d\zeta}
+				&= \frac{1}{2\pi i} \int_{C_{r}(z_0)}{\lim_{N \to \infty}{g_{N}(\zeta) d\zeta}} \\
+				&= \lim_{N \to \infty}{\frac{1}{2 \pi i} \int_{C_{r}(z_0)}{g_{N}(\zeta) d\zeta}} \\
+				&= \lim_{N \to \infty}{\frac{1}{2 \pi i} \int_{C_{r}(z_0)}{ \left( f(\zeta) \cdot \frac{1}{\zeta - z_0} \sum_{n = 0}^{N}{\left( \frac{z - z_0}{\zeta - z_0} \right)^n } \right) d\zeta } } \\
+				&= \lim_{N \to \infty}{\sum_{n = 0}^{N} \frac{1}{2 \pi i} \int_{C_{r}(z_0)}{ \left( f(\zeta) \cdot \frac{1}{\zeta - z_0} \left( \frac{z - z_0}{\zeta - z_0} \right)^n \right) d\zeta } } \\
+				&= \sum_{n = 0}^{\infty} \left( \frac{1}{2 \pi i} \int_{C_{r}(z_0)}{ \frac{f(\zeta)}{(\zeta - z_0)^{n + 1}} d\zeta } \right) (z - z_0)^n \\
+				&= \sum_{n = 0}^{\infty}{a_n (z - z_0)^n}
+			\end{align}
+			By \textbf{CIF (Thm \ref{thm 5.2.2})}, we have
+			\begin{align}
+				a_n = \frac{1}{2 \pi i} \int_{C_{r}(z_0)}{ \frac{f(\zeta)}{(\zeta - z_0)^{n + 1}} d\zeta } = \frac{f^{(n)}(z_0)}{n!} , \,\, \forall n \geq 0
+			\end{align}
+		\end{proof}
+	
+		\begin{rmk}
+			事实上，该定理也提供了\textbf{CIF 高阶形式 (Thm \ref{thm 5.2.2})} 的另一种证明 (比较系数可得).
+		\end{rmk}
+	\end{thm}
 
+\newpage
 
+\section{解析延拓}
+\paragraph{定义}
+	下面先给出\textbf{解析延拓 (Analytic continuation)}的定义.
+	\begin{defn}\label{def 6.3.1}
+		Suppose $f$ and $F$ are holomorphic in nonempty regions $\Omega$ and $\hat{\Omega}$ respectively with $\Omega \subset \hat{\Omega}$. If $f(z) = F(z)$ in $\Omega$, then we say $F$ is an \underline{\textcolor{blue}{\textbf{analytic continuation}}} of $f$ in $\hat{\Omega}$.
+	\end{defn}
+
+\vspace{2em}
+\paragraph{解析延拓的唯一性}
+	在说明这之前，先给出一个有关全纯函数的非常重要的结论.
+	
+	\begin{thm}\label{thm 6.3.1}
+		Suppose $f$ is holomorphic in a region $\Omega$ that vanishes on a sequence of distinct points with a limit in $\Omega$. Then $f(z) \equiv 0$ for all $z \in \Omega$.
+		
+		\vspace{1em}
+		\begin{rmk}
+			该定理说明了，不恒为零的全纯函数的\textbf{零点均为孤立点} (不为聚点).
+		\end{rmk}
+	
+		\vspace{1em}
+		\begin{proof}
+			反证法. Suppose $\{ w_k \}_{k = 1}^{\infty} \subset \Omega$ with $\underset{k \to \infty}{\lim}{w_k} = z_0 \in \Omega$ and $f(w_k) = 0$, $k = 1 , 2 , \cdots$. \\
+			Since $f$ is holomorphic in $\Omega$, $\forall z \in D_{r}(z_0)$
+			\begin{align}
+				f(z) = \sum_{n = 0}^{\infty}{a_n (z - z_0)^n} , \,\, for \,\, some \,\, r > 0
+			\end{align}
+			下面分为两步证明.
+			\begin{itemize}
+				\item We first show $f(z) \equiv 0$ on $D_{r}(z_0)$. \\
+				Assume $f(z) \neq 0$ for $z \in D_{r}(z_0)$, then $\exists$ smalledt integer $m$ $\st$ $a_m \neq 0$. Now
+				\begin{align}
+					f(z) = a_m (z - z_0)^m (1 + g(z)) , \,\, where \,\, g(z) = \sum_{n = m + 1}^{\infty}{a_n (z - z_0)^{n - m}}
+				\end{align}
+				Since $g(z) \to 0$ as $z \to z_0$, $\forall \epsilon < 1$, there exists $\delta > 0$, $\st$
+				\begin{align}
+					\left| g(z) \right| \leq \epsilon < 1 , \,\, \forall z \in D_{\delta}^{*}(z_0)
+				\end{align}
+				Since $w_k \to z_0 \in \Omega$, $\exists k_0 \in \N$, $\st$ $w_{k_0} \in D_{\delta}^{*}(z_0)$. Then
+				\begin{align}
+					f(w_{k_0}) = a_m (z - z_0)^m (1 + g(w_{k_0})) \neq 0
+				\end{align}
+				which is a contradiction with that $f(w_{k_0}) = 0$.
+				
+				\item Then we shall show $f \equiv 0$ on $\Omega$. \\
+				Let $U$ be the interior of $\{ z \in \Omega \mid f(z) = 0 \}$. Since $f(z) \equiv 0 , \forall z \in D_{r}(z_0)$, $U \neq \varnothing$ and $U$ is open. \\
+				Moreover, 下面我们证明 $U$ is closed.
+				\begin{itemize}
+					\item For all $\{ z_k \}_{k = 1}^{\infty} \subset U$ with $z_k \to p \in \Omega$. 与第一步证明相同，可以得到\\
+					$\exists r_p > 0$, $\st$ $f(z) \equiv 0 , \forall z \in D_{r_p}(p)$. 于是$p \in U$. 即$U$ 包含了自身序列的所有极限点. \\
+					which means that $U$ is closed.
+				\end{itemize}
+				Therefore, $U \subset \Omega$ is both open and closed. Since $U \neq \varnothing$ and $\Omega$ is connected, then $U = \Omega$, \\
+				which means $f \equiv 0$ on $\Omega$.
+			\end{itemize}
+		\end{proof}
+	\end{thm}
+	
+	\vspace{2em}
+	通过上述定理可得到，全纯函数的取值只由区域上\textbf{可数个点}决定.
+	\begin{corollary}\label{cor 6.3.2}
+		Suppose $f , g$ are holomorphic in a region $\hat{\Omega}$ and $f(z) = g(z)$ for all $z \in \Omega$, where $\Omega$ is an open subset of $\hat{\Omega}$. Then $f(z) = g(z)$ for $z \in \hat{\Omega}$.
+	\end{corollary}
+
+	\vspace{2em}
+	By Cor \ref{cor 6.3.2}，我们得到解析延拓若存在，则\textbf{必唯一}.
+	\begin{corollary}\label{cor 3.3.3}
+		Suppose $F$ and $G$ are both analytic continuation of $f$ into $\hat{\Omega}$. Then
+		\begin{center}
+			$F = G$ in $\hat{\Omega}$
+		\end{center}
+	\end{corollary}
+
+\newpage
+
+\section{对称原理}
+\paragraph{引入}
+	在实分析中，我们曾探讨过有关\textbf{连续函数的延拓 (Tietze 延拓定理}). 
+	
+	但在复分析中，对于\textbf{全纯函数的延拓}似乎不再那么容易与显然，因为全纯函数不仅要求在复平面上光滑，而且还具有一些 additional characteristically rigid properties. 
+	\begin{center}
+		(书P67 Problem 1. 给出了无法 (解析)延拓至$\overline{\mathbb{D}}$ 的定义在$\mathbb{D}$ 上的全纯函数.)
+	\end{center}
+	而本节将给出一种十分有用的情况下全纯函数的延拓，即在\textbf{关于实轴对称}的区域上的延拓.
+	
+\vspace{2em}
+\paragraph{对称原理}
+	为了讨论的方便，接下来的命题将默认以下几个记号：
+	\begin{itemize}
+		\item Let $\Omega$ be an open subset of $\C$ that is \textbf{symmetric} w.r.t. the real axis.
+		
+		\item Let $\Omega^{+}$ denote the part of $\Omega$ that lies in the upper half-plane and $\Omega^{-}$ the part that lies in the lower half-plane.
+	\end{itemize}
+	
+	\vspace{2em}
+	下面给出对称原理.
+	\begin{thm}\label{thm 6.4.1}
+		\textbf{Symmetric principle}. \\
+		If $f^{+}$ and $f^{-}$ are holomorphic in $\Omega^{+}$ and $\Omega^{-}$ respectively that extends continuously to $I$ ($I = \Omega \cap \R$) and $f^{+}(x) = f^{-}(x)$ for all $x \in I$. Then
+		\begin{align}
+			f(z) = 
+			\begin{cases}
+				f^{+}(z) , z \in \Omega^{+} \\
+				f^{+}(z) = f^{-}(z) , z \in I \\
+				f^{-}(z) , z \in \Omega^{-}
+			\end{cases}
+		\end{align}
+		is holomorphic in $\Omega$.
+		
+		\vspace{2em}
+		\begin{proof}
+			详见书P58 Thm 5.5 证明.
+		\end{proof}
+	\end{thm}
+
+\newpage
+\paragraph{\textbf{Schwartz} 反射原理}
+	有了上述对称原理的铺垫后，下面给出全纯函数在\textbf{关于实轴对称}区域上的延拓定理. (\textbf{Schwartz 反射原理})
+	\begin{thm}\label{thm 6.4.2}
+		\textbf{Schwartz reflection principle}. \\
+		Suppose $f$ is holomorphic in $\Omega^{+}$ that extends continuously to $I$ and $f$ is real-valued on $I$. Then $\exists F$ holomorphic in all $\Omega$, $\st$ $F = f$ in $\Omega^{+}$.
+		
+		\vspace{2em}
+		\begin{proof}
+			Define $f^{-}(z) = \overline{f(\overline{z})}$ for $z \in \Omega^{-}$. Fix $z_0 \in \Omega^{-} , \exists r > 0 , \st D_{r}(z_0) \subset \Omega^{-}$.\\
+			Then $\overline{z_0} \in \Omega^{+}$ and $D_{r}(\overline{z_0}) \subset \Omega^{+}$. $\forall x \in D_{r}(z_0)$, $\overline{x} \in D_{r}(\overline{z_0})$\\
+			Since $f$ is holomorphic in $\Omega^{+}$, by Thm \ref{thm 6.2.2} (全纯函数均解析)
+			\begin{align}
+				f(\overline{z}) = \sum_{n = 0}^{\infty}{a_n (\overline{z} - \overline{z_0})^n} , \,\, \forall \overline{z} \in D_{r}(\overline{z_0})
+			\end{align}
+			Then we have
+			\begin{align}
+				f^{-}(z) = \sum_{n = 0}^{\infty}{\overline{a_n} (z - z_0)^n} = \sum_{n = 0}^{\infty}{a_n (z - z_0)^n} , \,\, \forall z \in D_{r}(z_0)
+			\end{align}
+			Therefore, $f^{-}$ is analytic in $\omega^{-}$. By Thm \ref{thm 3.1.2}, $f^{-}$ is holomorphic in $\Omega^{-}$. (解析函数均全纯)\\
+			Therefore, by \textbf{Symmetric principle (对称原理)}, 
+			\begin{align}
+				F(z) = 
+				\begin{cases}
+					f^{+}(z) , z \in \Omega^{+} \\
+					f^{+}(z) = f^{-}(z) , z \in I \\
+					f^{-}(z) , z \in \Omega^{-}
+				\end{cases}
+			\end{align}
+			is holomorphic in $\Omega$.
+		\end{proof}
+	\end{thm}
 
 \newpage
 
 \section{课堂例题$2024-04-07$}
-	\begin{enumerate}
-		\item 
-	\end{enumerate}
+\begin{enumerate}
+	\item \textbf{(课本P66 Ex10.)}\\
+	Weierstrass's theorem states that a continuous function on $[0 , 1]$ can be uniformly approxiamted by polynomials. \textbf{Can every continuous function on the closed unit disc be approxiated uniformly by polynomials in the variable $z$?}
+	
+	\vspace{2em}
+	
+	\begin{solution}
+		Absolutely No. Take $f(z) = \left| z \right|$ continuous on $\mathbb{D}$ into consideration. \\
+		If there exists polynomials $\{ f_n \}_{n = 1}^{\infty}$, $\st$ $f_n \Rightarrow f$, then by Thm \ref{thm 6.2.1}, \\
+		$f$ is holomorphic on $\mathbb{D}$, which is a contradiction with that $f$ is not differentiable at $x = 0$.
+	\end{solution}
+
+	\vspace{2em}
+	
+	\item Suppose $f$ is entire and real-valued on the real-axis. If $f(1 + i) = 2 + i$, then what is $f(1 - i)$?
+	
+	\vspace{2em}
+	
+	\begin{solution}
+		Ans : $2 - i$. (by \textbf{Schwartz reflection principle})
+	\end{solution}
+
+	\vspace{2em}
+	
+	\item 课本第二章练习$T7-10 , T15$.
+\end{enumerate}
+
+\chapter{$Week \,\, 7$}
+\section{零点，极点，留数}
+\paragraph{零点}
+	根据\textbf{定理 \ref{thm 6.3.1}}知，不恒为零的全纯函数只含\textbf{孤立零点}. 下面我们将给出非零全纯函数在其孤立零点附近的\textbf{局部刻画}.
+	
+	\vspace{2em}
+	下面先给出孤立零点的定义.
+	\begin{defn}\label{def 7.1.1}
+		Let $\Omega \subset \C$ be a region, $f : \Omega \longrightarrow \C$ be holomorphic. We say the zero $z_0$ is \underline{\textcolor{blue}{\textbf{isolated}}} if $\exists r > 0$, $\st$ $f(z) \neq 0$ for all $z \in D_{r}^{*}(z_0)$. 
+		
+		\begin{rmk}
+			By Thm \ref{thm 6.3.1}, we note that if $f(z) \not\equiv 0$, $z \in \Omega$ (不全为零), then the zeros of $f(z)$ are isolated.
+		\end{rmk}
+	\end{defn}
+
+	\vspace{2em}
+	下面给出非零全纯函数在其孤立零点附近的\textbf{局部刻画}.
+	\begin{thm}\label{thm 7.1.1}
+		Suppose \textcolor{red}{\textbf{$f(z) \not\equiv 0$}} is holomorphic in a region $\Omega$. $z_0$ is a zero of $f$. Then $\exists r > 0$ and \textcolor{red}{\textbf{nonvanishing}} holomorphic function $g(z)$ in $D_{r}(z_0)$ and a \textcolor{red}{\textbf{unique}} integer $n$, $\st$
+		\begin{center}
+			$f(z) = (z - z_0)^n g(z) , \,\, z \in D_{r}(z_0)$
+		\end{center}
+	
+		\vspace{1em}
+		\begin{rmk}
+			\begin{itemize}
+				\item $f(z) \not\equiv 0$ 指的是$f$ \textbf{不恒为零}，而$g$ nonvanishing 指的是$g$ \textbf{恒不为零}.
+				
+				\item In this theorem, we say $z_0$ is a \underline{\textcolor{blue}{\textbf{zero of $f$ of multiplicity of $n$}}}. \\
+				If $n = 1$, we say $z_0$ is a \underline{\textcolor{blue}{\textbf{simple}}} zero of $f$. 
+			\end{itemize}
+		\end{rmk}
+	
+		\vspace{1em}
+		\begin{proof}
+			\begin{itemize}
+				\item \textbf{存在性}: Since $f$ is holomorphic, by Thm \ref{thm 6.2.2}, $\exists R > 0$, $\st$
+				\begin{align}
+					f(z) = \sum_{k = 0}^{\infty}{a_k (z - z_0)^k} , \,\, \forall z \in D_{R}(z_0)
+				\end{align}
+				$f(z_0) = 0 \,\, \Rightarrow \,\, a_0 = 0$. Since $f(z) \not\equiv 0$, $\exists$ the smallest integer $n$, $\st$ $a_n \neq 0$. Then
+				\begin{align}
+					f(z) = (z - z_0)^n (a_n + a_{n + 1}(z - z_0) + \cdots) = (z - z_0)^n g(z)
+				\end{align}
+				Clearly, $\exists 0 < r < R$, $\st$ $g(z) \neq 0$ for all $z \in D_{r}(z_0)$.
+				
+				\item \textbf{唯一性}: 详见书P73 Thm 1.1 证明.
+			\end{itemize}
+		\end{proof}
+	\end{thm}
+
+\vspace{2em}
+\paragraph{极点}
+	下面给出复变函数的\textbf{极点}的定义.
+	\begin{defn}\label{def 7.1.2}
+		We say $f : D_{r}^{*}(z_0) \rightarrow \C$ has a \underline{\textcolor{blue}{\textbf{pole}}} at $z_0$ if $\,\, \frac{1}{f} \,\,$ is holomorphic in $D_{r}(z_0)$ and has a zero at $z_0$.
+		
+		\begin{rmk}
+			有定义可知，a pole of a function is isolated.
+		\end{rmk}
+	\end{defn}
+
+	\vspace{2em}
+	根据非零全纯函数在\textbf{孤立零点附近的局部刻画 (Thm \ref{thm 7.1.1})}，可以很容易得到全纯函数在其\textbf{极点}附近的\textbf{局部刻画}.
+	\begin{thm}\label{thm 7.1.2}
+		If $f$ has a pole at $z_0$, then $\exists r > 0$ and a \textbf{nonvanishing} holomorphic function $h(z)$ in $D_{r}(z_0)$ and a \textbf{unique} positive integer $n$, $\st$
+		\begin{center}
+			$f(z) = (z - z_0)^{-n} h(z) , \,\, z \in D_{r}^{*}(z_0)$
+		\end{center}
+	
+		\vspace{2em}
+		\begin{proof}
+			详见书P74 Thm 1.2 证明.
+		\end{proof}
+	\end{thm}
+
+\newpage
+\paragraph{留数}
+	在定理 \ref{thm 7.1.2}的基础上，可以更进一步给出更精细的刻画. 对于$n$ 阶极点，我们存在这样的刻画.
+	\begin{thm}\label{thm 7.1.3}
+		If $f$ has a pole of order $n$ at $z_0$, then we can write
+		\begin{align}
+			f(z) = \frac{a_{-n}}{(z - z_0)^n} + \cdots + \frac{a_{-1}}{z - z_0} + G(z)
+		\end{align}
+		where $G(z)$ is holomorphic in some neighbourhood of $z_0$.
+		
+		\vspace{1em}
+		\begin{rmk}
+			\begin{itemize}
+				\item The sum
+				\begin{align}
+					\frac{a_{-n}}{(z - z_0)^n} + \cdots + \frac{a_{-1}}{z - z_0}
+				\end{align}
+				is called \underline{\textcolor{blue}{\textbf{the principal part}}} (or \underline{\textcolor{blue}{\textbf{singular part}}}) of $f$ at the pole $z_0$.
+				
+				\vspace{1em}
+				
+				\item $G(z)$ is called \underline{\textcolor{blue}{\textbf{the holomorphic part}}} of $f$ at the pole $z_0$.
+				
+				\vspace{1em}
+				
+				\item The coefficient $a_{-1}$ is called the \underline{\textcolor{blue}{\textbf{residue}}} of $f$ at the pole $z_0$. We write \textcolor{blue}{$Res_{z_0}f = a_{-1}$}.
+			\end{itemize}
+		
+			\vspace{1em}
+			\begin{proof}
+				详见书P75 Thm 1.3 证明.
+			\end{proof}
+		\end{rmk}
+	\end{thm}
+
+	\vspace{2em}
+	关于\textbf{留数}的用途和含义，在于其绕对应极点的环路积分之中. 
+	
+	对于$f : \Omega \rightarrow \C$ with a pole $z_0 \in \Omega$, since $\frac{a_{-k}}{(z - z_0)^k} , k = 2, \cdots, n$ have primitives and $G$ is holomorphic, we have
+	\begin{align}
+		\int_{C_{r}(z_0)}{f(z) dz} = \int_{C_{r}(z_0)}{\frac{a_{-1}}{z - z_0} dz} = 2\pi i \cdot a_{-1}
+	\end{align}
+	环路积分的值只剩下与$a_{-1}$ 有关，此即为\textbf{“留数”}之意.
+	
+\newpage
+\section{$Laurent \,\, Series \,\, Expansion$}
+	事实上，对于全纯函数$f$，其不仅能在定义域内展开为幂级数 (\textbf{Thm \ref{thm 6.2.2}})，其同样能在极点周围类似地展开为幂级数的形式，此即为\textbf{Laurent Series Expansion (洛朗级数展开)}.
+	
+	\begin{thm}
+		Let $f$ be holomorphic on a region containing the annulus and its boundary
+		\begin{align}
+			\mathcal{A} = \{ z \mid r_1 < \left| z - z_0 \right| < r_2 \}, \,\, where \,\, 0 \leq r_1 < r_2
+		\end{align}
+		Then
+		\begin{align}
+			f(z) = \sum_{n = 0}^{\infty}{a_n (z - z_0)^n}
+		\end{align}
+		where
+		\begin{align}
+			a_n = \frac{1}{2\pi i} \int_{C_{r}(z_0)}{\frac{f(\zeta)}{(\zeta - z_0)^{n + 1}} d\zeta} , \,\, for \,\, any \,\, r \in [r_1 , r_2]
+		\end{align}
+	
+		\vspace{1em}
+		\begin{rmk}
+			\begin{itemize}
+				\item The series in the Theorem is called the \underline{\textcolor{blue}{\textbf{Laurent Series Expansion}}} of $f$ near $z_0$ or in the annulus.
+				
+				\vspace{1em}
+				
+				\item 在同一圆环域内，Laurent 展式唯一；在不同的圆环域内，Laurent 展式可能不同.
+			\end{itemize}
+		\end{rmk}
+	
+		\vspace{1em}
+		\begin{proof}
+			Fix $z \in \mathcal{A}$, $\exists \delta > 0$, $\st$ $C_{\delta}(z) \subset \mathcal{A}$. \\
+			Consider 
+			\begin{align}
+				g(\zeta) = \frac{f(\zeta)}{\zeta - z}
+			\end{align}
+			Then $g(\zeta)$ is holomorphic in a region containing $\mathcal{A} \backslash D_{\delta}(z)$ and its boundary. \\
+			By the \textbf{principle of contour deformation (Cor \ref{cor 5.1.3}, 闭路变形原理)}
+			\begin{align}
+				\int_{C_{r_2}(z_0)}{g(\zeta) d\zeta} = \int_{C_{\delta}(z)}{g(\zeta) d\zeta} + \int_{C_{r_1}(z_0)}{f(\zeta) d\zeta}
+			\end{align}
+			By \textbf{CIF (Thm \ref{thm 5.2.1})}
+			\begin{align}
+				2 \pi i \cdot f(z) = \int_{C_{\delta}(z)}{g(\zeta) d\zeta}
+			\end{align}
+			Thus
+			\begin{align}
+				f(z) = \frac{1}{2 \pi i} \int_{C_{r_2}(z_0)}{\frac{f(\zeta)}{\zeta - z} d\zeta} - \frac{1}{2 \pi i} \int_{C_{r_1}(z_0)}{\frac{f(\zeta)}{\zeta - z} d\zeta}
+			\end{align}
+		\end{proof}
+	\end{thm}
 
 
 
