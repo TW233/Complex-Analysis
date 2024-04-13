@@ -69,3 +69,10 @@
 \contentsline {paragraph}{极点}{64}{paragraph*.31}%
 \contentsline {paragraph}{留数}{65}{paragraph*.32}%
 \contentsline {section}{\numberline {7.2}$Laurent \,\, Series \,\, Expansion$}{66}{section.7.2}%
+\contentsline {section}{\numberline {7.3}课堂例题$2024-04-08$}{68}{section.7.3}%
+\contentsline {section}{\numberline {7.4}$Residue \,\, Formula$}{69}{section.7.4}%
+\contentsline {paragraph}{引入}{69}{paragraph*.33}%
+\contentsline {paragraph}{\textbf {Residue Formula}}{69}{paragraph*.34}%
+\contentsline {section}{\numberline {7.5}课堂例题$2024-04-12$}{71}{section.7.5}%
+\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}$L'H\hat {o}spital's \,\, Rule$}{73}{appendix.A}%
+\contentsline {section}{\numberline {A.1}弱化版本}{73}{section.A.1}%
