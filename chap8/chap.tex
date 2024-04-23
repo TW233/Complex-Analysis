@@ -1,0 +1,272 @@
+\ifx\allfiles\undefined
+\input{../config/config}
+\begin{document}
+	% \input{../config/cover} 
+	\else
+	\fi
+	%  ############################ 正文部分
+
+\chapter{$Week \,\, 8$}
+\section{均值定理}
+	下面补充一个\textbf{CIF (Thm \ref{thm 5.2.1}, 柯西积分公式)}的推论，即\textbf{均值定理}.
+	\begin{proposition}\label{prop 8.1.1}
+		\textbf{(Mean Value Property.)} \\
+		If $f$ is holomorphic on $D_{R}(z_0)$, where $z_0 \in \C$, $R > 0$, then
+		\begin{align}
+			f(z_0) = \frac{1}{2 \pi}\int_{0}^{2\pi}{f(z_0 + re^{i\vartheta}) d\vartheta} , \,\, 0 < r < R
+		\end{align}
+	
+		\vspace{2em}
+		\begin{proof}
+			By \textbf{CIF (Thm \ref{thm 5.2.1})},
+			\begin{align}
+				f(z_0) = \frac{1}{2 \pi i} \int_{C_{r}(z_0)}{\frac{f(\zeta)}{\zeta - z_0} d\zeta}
+				&= \frac{1}{2 \pi i} \int_{0}^{2\pi}{\frac{f(z_0 + re^{i\vartheta})}{re^{i\vartheta}} r \cdot i \cdot e^{i\vartheta} d\vartheta} \\
+				&= \frac{1}{2 \pi}\int_{0}^{2\pi}{f(z_0 + re^{i\vartheta}) d\vartheta}
+			\end{align}
+		\end{proof}
+	\end{proposition}
+
+\newpage
+\section{奇点}
+	下面给出\textbf{奇点}的定义.
+	\begin{defn}\label{def 8.2.1}
+		A complex number $z_0$ is a \underline{\textcolor{blue}{\textbf{singular point}}} (or a \underline{\textcolor{blue}{\textbf{singularity}}}) of $f$ if $f$ is not analytic at $z_0$. We say $z_0$ is an \underline{\textcolor{blue}{\textbf{isolated singularity}}} if $f$ is analytic in a deleted neighbourhood of $z_0$.
+		
+		\vspace{1em}
+		\begin{rmk}
+			大多数情况下我们研究的都是\textbf{孤立奇点}，但也存在着\textbf{非孤立奇点}.
+			\begin{example}\label{ex 8.2.1}
+				\begin{itemize}
+					\item $0$ is an isolated singularity of $\frac{1}{z} , \frac{1}{\sin{z}} , \frac{1}{e^z - 1}$.
+					
+					\item \textbf{Poles are isolated singularities. (极点均为孤立奇点)}
+					
+					\item For 
+					\begin{align}
+						\frac{1}{\sin{\frac{\pi}{z}}}
+					\end{align}
+					$0$ is not an isolated singularity.
+				\end{itemize}
+			\end{example}
+		\end{rmk}
+	\end{defn}
+
+\vspace{2em}
+\subsection{\textbf{Classification of isolated singularities}}
+	下面我们对\textbf{奇点}进行分类.
+	\begin{defn}\label{def 8.2.2}
+		Let $f : D_{r}^{*}(z_0) \rightarrow \C$ where $r > 0 , z_0 \in \C$ be holomorphic with the Laurent expansion
+		\begin{align}
+			f(z) = \sum_{-\infty}^{\infty}{a_n (z - z_0)^n}
+		\end{align}
+		\begin{enumerate}
+			\item[(1)]$z_0$ is called a \underline{\textcolor{blue}{\textbf{removable singularity (可去奇点)}}} if $a_{-n} = 0$, $n = 1 , 2 , \cdots$.
+			
+			\item[(2)]$z_0$ is called a \underline{\textcolor{blue}{\textbf{pole (极点)}}} if $a_{-n} \neq 0 , a_{-(n + k)} = 0$, $k = 1 , 2 , \cdots$.
+			
+			\item[(3)]$z_0$ is called a \underline{\textcolor{blue}{\textbf{essential singularity (本性奇点)}}} if $a_{-n} \neq 0$ for infinitely many $n \geq 1$.
+		\end{enumerate}
+	
+		\vspace{2em}
+		\begin{example}\label{ex 8.2.2}
+			\begin{itemize}
+				\item $f(z) = z^{-n} , n \geq 1$ has a \textbf{pole} of order $n$ at $z = 0$.
+				
+				\item $f(z) = e^{\frac{1}{z}}$ has an \textbf{essential singularity} at $z = 0$.
+				
+				\item $f(z) = \frac{e^z - 1}{z}$ has a \textbf{removable singularity} at $z = 0$.
+				\begin{proof}
+					\begin{align}
+						f(z) = \sum_{k = 1}^{\infty}{\frac{z^{k - 1}}{k!}}
+					\end{align}
+				\end{proof}
+			\end{itemize}
+		\end{example}
+	\end{defn}
+
+\newpage
+\section{孤立奇点的等价刻画}
+	\begin{center}
+		下面主要研究\textbf{孤立奇点}附近的性态，并给出各类孤立奇点的等价刻画.
+	\end{center}
+
+\subsection{\textbf{Removable Singularity}}
+	首先，介于\textbf{可去奇点}的良好性质，我们可在简单的操作后令函数\textbf{全纯}，即：
+	\begin{rmk}
+		If $z_0$ is a removable singularity of $f : D_{r}^{*}(z_0) \rightarrow \C$, then we define $f(z_0) = a_0$ so that $f$ is holomorphic in $D_{r}(z_0)$, where
+		\begin{align}
+			f(z) = \sum_{n = 0}^{\infty}{a_n (z - z_0)^n} , \,\, z \in D_{r}^{*}(z_0)
+		\end{align}
+	\end{rmk}
+	
+	\vspace{2em}
+
+	下面给出\textbf{可去奇点}的\textbf{等价刻画}.
+	\begin{thm}\label{thm 8.3.1}
+		If $z_0$ is a singularity of $f$, then 
+		\begin{center}
+			$z_0 \in \C$ is a removable singularity \hspace*{1em} iff \hspace*{1em} $f$ is bounded near $z_0$. \\
+			(i.e. in a deleted neighbourhood of $z_0$)
+		\end{center}
+	
+		\vspace{2em}
+		\begin{proof}
+			\begin{enumerate}
+				\item[$``\Rightarrow"$]: We can define the value of $f$ at $z_0$ $\st$
+				\begin{center}
+					$f$ is holomorphic in $D_{r}(z_0)$ for some $r > 0$.
+				\end{center}
+				In particular, $f$ is continuous in $\overline{D_{\frac{r}{2}}(z_0)}$ and so $f$ is bounded near $z_0$.
+				
+				\vspace{2em}
+				\item[$`` \Leftarrow "$]: Define
+				\begin{align}
+					g : D_{r}(z_0) &\longrightarrow \C \\
+					z &\longmapsto g(z) = 
+					\begin{cases}
+						(z - z_0)^2 f(z) , z \neq z_0 \\
+						0 , z = z_0
+					\end{cases}
+				\end{align}
+				Then
+				\begin{align}
+					g^{'}(z) = 2(z - z_0)f(z) + (z - z_0)^2 f^{'}(z) , \,\, \forall z \in D_{r}^{*}(z_0)
+				\end{align}
+				Since $f$ is bounded near $z_0$,
+				\begin{align}
+					\lim_{z \to z_0}{\frac{g(z) - g(z_0)}{z - z_0}}
+					= \lim_{z \to z_0}{(z - z_0)f(z)}
+					= 0
+				\end{align}
+				Thus $g$ is holomorphic in $D_{r}(z_0)$ and so $g$ is analytic in $D_{r}(z_0)$,
+				\begin{align}
+					g(z) = \sum_{n = 0}^{\infty}{c_n (z - z_0)^n},  \,\, \forall z \in D_{r}(z_0)
+				\end{align}
+				Note that $c_0 = g(z_0) = 0$, $c_1 = g^{'}(z_0) = 0$. Thus
+				\begin{align}
+					g(z) = \sum_{n = 0}^{\infty}{a_n (z - z_0)^{n + 2}}, \,\, where \,\, a_n = c_{n + 2}, n = 0 , 1 , 2 , \cdots
+				\end{align}
+				Therefore
+				\begin{align}
+					f(z) = (z - z_0)^{-2} g(z) = \sum_{n = 0}^{\infty}{a_n (z - z_0)^n} , \,\, \forall z \in D_{r}^{*}(z_0)
+				\end{align}
+				and so $z_0$ is a removable singularity of $f$.
+			\end{enumerate}
+		\end{proof}
+	\end{thm}
+
+	\vspace{3em}
+	从上述定理的证明过程中，可以直接得到下面的推论，也是对\textbf{可去奇点}的\textbf{等价刻画}.
+	\begin{corollary}\label{cor 8.3.2}
+		If $z_0$ is a singularity of $f$, then
+		\begin{center}
+			$z_0$ is a removable singularity \hspace*{1em} iff \hspace*{1em} $\underset{z \to z_0}{\lim}{(z - z_0)f(z)} = 0$.
+		\end{center}
+	\end{corollary}
+
+\newpage
+\subsection{\textbf{Pole}}
+	作为\textbf{定理 \ref{thm 8.3.1}}的推论，下面我们给出\textbf{极点}的\textbf{等价刻画}.
+	\begin{corollary}\label{cor 8.3.3}\footnote{对应课本P85 Cor 3.2}
+		If $z_0$ is a singularity of $f$, then
+		\begin{center}
+			$z_0$ is a pole \hspace*{1em} iff \hspace*{1em} $\left| f(z) \right| \to \infty$ as $z \to z_0$.
+		\end{center}
+	
+		\vspace{2em}
+		\begin{proof}
+			$`` \Rightarrow "$: $\frac{1}{f(z_0)} = 0 \,\, \Rightarrow \,\, \left| f(z) \right| \to \infty$ as $z \to z_0$. 
+			
+			\vspace{1em}
+			$`` \Leftarrow "$: Suppose $\left| f(z) \right| \to \infty$ as $z \to z_0$, then $\exists r > 0$, $\st$
+			\begin{center}
+				$f(z) \neq 0 , \,\, \forall z \in D_{r}^{*}(z)$
+			\end{center}
+			and so $\frac{1}{f}$ is holomorphic on $D_{r}^{*}(z_0)$. Moreover, $\left| \frac{1}{f(z)} \right| \to 0$ as $z \to z_0$. \\
+			By \textbf{Thm \ref{thm 8.3.1}}, $\frac{1}{f}$ is bounded near $z_0$,
+			\begin{center}
+				$\Rightarrow \,\, z_0$ is a removable singularity of $\frac{1}{f}$.
+			\end{center}
+			Since $\left| \frac{1}{f(z)} \right| \to 0$ as $z \to z_0$, we have
+			\begin{align}
+				\frac{1}{f(z)} = \sum_{n = 0}^{\infty}{a_n (z - z_0)^n} , \,\, \forall z \in D_{r}^{*}(z_0) , \,\, where \,\, a_0 = 0
+			\end{align}
+			Therefore, if we define $\frac{1}{f(z_0)} = 0$, then $\frac{1}{f}$ is holomorphic on $D_{r}(z_0)$. By \textbf{Def \ref{def 7.1.3}}, $z_0$ is a pole of $f$. 
+		\end{proof}
+	\end{corollary}
+
+\vspace{2em}
+\subsection{\textbf{Essential Singularity}}
+	在排除了\textbf{定理 \ref{thm 8.3.1}}和\textbf{Cor \textbf{cor 8.3.3}}的情况后，下面我们给出\textbf{本性奇点}的\textbf{等价刻画}.
+	\begin{corollary}\label{cor 8.3.4}
+		If $z_0$ is a singularity of $f$, then
+		\begin{center}
+			$z_0$ is an essential singularity \hspace*{1em} iff \hspace*{1em} $\underset{z \to z_0}{\lim}{\left| f(z) \right|}$ does not exists. \\
+			(Here we allow the limit to be $\infty$)
+		\end{center}
+	\end{corollary}
+	
+	\begin{example}\label{ex 8.3.1}
+		Consider $f(z) = e^{\frac{1}{z}}$. Since 
+		\begin{align}
+			\lim_{\substack{z \in \R \\ z \to 0^{+}}}{e^{\frac{1}{z}}} = \infty , \,\, \lim_{\substack{z \in \R \\ z \to 0^{-}}}{e^{\frac{1}{z}}} = 0
+		\end{align}
+		Therefore $0$ is an essential singularity of $f$.
+	\end{example}
+
+
+
+
+
+
+
+
+
+\newpage
+\section{课堂例题$2024-04-15$}
+\begin{enumerate}
+	\item \textbf{(课前 Question 1.)} \\
+	Let $z_1 , z_2 \in \C$ with $Rez_1 \leq 0 , Rez_2 \leq 0$. Show
+	\begin{center}
+		$\left| e^{z_1} - e^{z_2} \right| \leq \left| z_1 - z_2 \right|$
+	\end{center}
+
+	\vspace{2em}
+	
+	\item \textbf{(课前 Question 2.)} \\
+	If $f , g$ are entire functions that agree in infinite number of points, then $f = g$?
+	
+	\vspace{2em}
+	\begin{solution}
+		Eg: $f(z) = \sin{z} , g(z) = e^1 \sin{z}$.
+	\end{solution}
+	
+	\vspace{2em}
+	
+	\item \textbf{(课前 Question 3.)} \\
+	Is there a holomorphic function $f : \C \backslash \{ 0 \} \rightarrow \C$ with a simple pole at $z = 0$, $\st$
+	\begin{align}
+		\int_{C_{1}(0)}{f(z) dz} = 0 \,\, ?
+	\end{align}
+
+	\vspace{2em}
+	\begin{solution}
+		simple pole $\,\, \Rightarrow \,\,$ $Res_{0}f \neq 0$ $\,\, \Rightarrow \,\,$ $\int_{C_{1}(0)}{f(z) dz} = 2 \pi i \cdot Res_{0}f \neq 0$.
+	\end{solution}
+
+	\vspace{2em}
+	
+	\item 课本第三章练习$T13$.
+\end{enumerate}
+
+
+
+
+
+
+
+	%  ############################
+	\ifx\allfiles\undefined
+\end{document}
+\fi

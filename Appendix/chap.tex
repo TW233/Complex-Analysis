@@ -1,0 +1,41 @@
+\ifx\allfiles\undefined
+\input{../config/config}
+\begin{document}
+	% \input{../config/cover} 
+	\else
+	\fi
+	%  ############################ 正文部分
+
+\appendix
+\chapter{$L'H\hat{o}spital's \,\, Rule$}
+事实上，在复数域$\C$ 上，\textbf{L'Hospital's Rule} 同样成立. 下面便将其推广至$\C$.
+
+\section{弱化版本}
+首先先给出一个常用的弱化版本.
+\begin{thm}\label{thm A.1.1}
+	Suppose $f , g$ are holomorphic in a region containing $D_{r}(z_0)$ for some $r > 0$. If $f(z_0) = g(z_0) = 0$, then
+	\begin{align}
+		\lim_{z \to z_0}{\frac{f(z)}{g(z)}} = \frac{f^{'}(z_0)}{g^{'}(z_0)}
+	\end{align}
+	
+	\vspace{2em}
+	\begin{proof}
+		Since $f(z_0) = g(z_0) = 0$, then
+		\begin{align}
+			\frac{f^{'}(z_0)}{g^{'}(z_0)}
+			= \lim_{z \to z_0}{\frac{\frac{f(z) - f(z_0)}{z - z_0}}{\frac{g(z) - g(z_0)}{z - z_0}}}
+			= \lim_{z \to z_0}{\frac{f(z) - f(z_0)}{g(z) - g(z_0)}}
+			= \lim_{z \to z_0}{\frac{f(z)}{g(z)}}
+		\end{align}
+	\end{proof}
+\end{thm}
+
+
+
+
+
+
+	%  ############################
+	\ifx\allfiles\undefined
+\end{document}
+\fi

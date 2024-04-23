@@ -1,0 +1,453 @@
+\ifx\allfiles\undefined
+\input{../config/config}
+\begin{document}
+	% \input{../config/cover} 
+	\else
+	\fi
+	%  ############################ 正文部分
+
+\chapter{$Week \,\, 2 \,\, -- \,\, Functions \,\, on \,\, \C$}
+\section{连续函数和极值}
+\begin{defn}\label{def 2.1.1}
+	$Let \,\, \Omega \subseteq \C \,\, be \,\, open. \,\, We \,\, say \,\, f : \Omega \longrightarrow \C \,\, is \,\, continuous \,\, at \,\, z_0 \in \Omega \,\, $\\
+	$if \,\, \forall \epsilon > 0 , \exists \delta > 0 , \st$
+	\begin{align}
+		whenever \,\, \left| z - z_0 \right| < \delta , \,\, z \in \Omega , \,\, then \,\, \left| f(z) - f(z_0) \right| < \epsilon
+	\end{align}
+	$To \,\, say \,\, it \,\, another \,\, way , \,\, \forall \epsilon > 0 , \exists \delta > 0 , \st \,\, f(D_{\delta}(z_0) \cap \Omega) \subseteq D_{\epsilon}(f(z_0))$
+	
+	\begin{rmk}
+		$We \,\, say \,\, f \,\, is \,\, continuous \,\, on \,\, \Omega \,\, if \,\, f \,\, is \,\, continuous \,\, at \,\, every \,\, point \,\, of \,\, \Omega.$
+	\end{rmk}
+\end{defn}
+
+\vspace*{2em}
+$Here \,\, are \,\, some \,\, facts.$
+\begin{enumerate}
+	\item[$Fact \,\, 1.$] $If \,\, f \,\, is \,\, continuous \,\, on \,\, \Omega , \,\, then \,\, so \,\, are \,\, \overline{f} , \,\, \left| f \right| , \,\, \frac{1}{f} \,\, (if \,\, f(z) \neq 0 \,\, for \,\, all \,\, z \in \Omega).$
+	\begin{proof}
+		$For \,\, \left| f \right| , \,\, use \,\, \left| \left| f(z) \right| - \left| f(z_0) \right| \right| \leq \left| f(z) - f(z_0) \right|$
+	\end{proof}
+	
+	\item[$Fact \,\, 2.$]$f \,\, is \,\, continuous \,\, iff \,\, Ref \,\, and \,\, Imf \,\, are \,\, continuous.$
+\end{enumerate}
+
+\vspace*{2em}
+\begin{proposition}\label{prop 2.1.1}
+	$Let \,\, \Omega \subseteq \C \,\, and \,\, let \,\, f \,\, be \,\, continuous \,\, on \,\, \Omega . \,\, Then$
+	\begin{enumerate}
+		\item[(1)]$For \,\, every \,\, open \,\, set \,\, S \subseteq \C , \,\, f^{-1}(S) = \{ z \in \Omega \mid f(z) \in S \} \,\, is \,\, open.$
+		
+		\item[(2)]$For \,\, every \,\, compact \,\, set \,\, K \subseteq \C , \,\, f(K) \,\, is \,\, compact.$
+	\end{enumerate}
+	
+	\vspace*{2em}
+	\begin{proof}
+		\begin{enumerate}
+			\item[(1)]$If \,\, f^{-1}(S) = \varnothing , \,\, true.$\\
+			$Assume \,\, f^{-1}(S) \neq \varnothing \,\, and \,\, let \,\, z_0 \in f^{-1}(S) . \,\, Write \,\, w_0 = f(z_0) \in S.$\\
+			$Since \,\, S \,\, is \,\, open , \,\, \exists \epsilon > 0 , \st \,\, D_{\epsilon}(w_0) \subseteq S$\\
+			$Since \,\, f \,\, is \,\, continuous , \,\, taking \,\, \epsilon \,\, in \,\, the \,\, definition , \,\, we \,\, get \,\, a \,\, \delta > 0 , \st$
+			\begin{align}
+				D_{\delta}(z_0) \subseteq \Omega \,\, and \,\, f(D_{\delta}(z_0)) \subseteq D_{\epsilon}(f(z_0)) = D_{\epsilon}(w_0) \subseteq S
+			\end{align}
+			$Thus \,\, D_{\delta}(z_0) \subseteq f^{-1}(S) , \,\, and \,\, so \,\, f^{-1}(S) \,\, is \,\, open.$
+			
+			\vspace*{2em}
+			
+			\item[(2)]$Let \,\, \{ \Omega_j \}_{j \in J} \,\, be \,\, an \,\, open \,\, cover \,\, of \,\, f(K) , \,\, i.e.$
+			\begin{align}
+				f(K) \subseteq \bigcup_{j \in J}{\Omega_j}
+			\end{align}
+			$Then$
+			\begin{align}
+				K \subseteq f^{-1}(\bigcup_{j \in J}{\Omega_j}) = \bigcup_{j \in J}{f^{-1}(\Omega_j)}
+			\end{align}
+			$By \,\, (1) , \,\, f^{-1}(\Omega_j) \,\, is \,\, open \,\, for \,\, all \,\, j \in J. \,\, Thus \,\, \{ f^{-1}(\Omega_j) \}_{j \in J} \,\, is \,\, an \,\, open \,\, cover \,\, of \,\, K.$\\
+			$Since \,\, K \,\, is \,\, compact , \,\, \exists j_1 , \cdots , j_n \in J , \st $
+			\begin{align}
+				&k \subseteq \bigcup_{k = 1}^{n}{f^{-1}(\Omega_{j_k})} = f^{-1}(\bigcup_{k = 1}^{n}{\Omega_{j_k}}) \\
+				&\Rightarrow f(K) \subseteq \bigcup_{k = 1}^{n}{\Omega_{j_k}}
+			\end{align}
+		\end{enumerate}
+	\end{proof}
+\end{proposition}
+
+\vspace*{2em}
+$We \,\, say \,\, that \,\, f \,\, contains \,\, a \,\, maximum \,\, at \,\, z_0 \in \Omega \,\, if $
+\begin{align}
+	\left| f(z) \right| \leq \left| f(z_0) \right| , \,\, \forall z \in \Omega
+\end{align}
+
+\begin{proposition}\label{prop 2.1.2}
+	$A \,\, continuous \,\, function \,\, on \,\, a \,\, compact \,\, set \,\, \Omega \,\, is \,\, bounded \,\, and \,\, attains \,\, a \,\, maximum $\\ 
+	$and \,\, a \,\, minimum \,\, on \,\, \Omega.$
+	
+	\vspace*{2em}
+	\begin{proof}
+		$use \,\, \left| f \right|^2 = (Ref)^2 + (Imf)^2$.
+	\end{proof}
+\end{proposition}
+
+\newpage
+\section{复变函数的极限，全纯函数}
+\begin{defn}\label{def 2.2.1}
+	$Assume \,\, \Omega \subseteq \C , \,\, \Omega \neq \varnothing \,\, and \,\, \alpha \in Acc(\Omega) , \,\, f : \Omega \longrightarrow \C , \,\, \underset{z \to \alpha , \, z \in \Omega}{\lim}{f(z)} = w \,\, means$
+	\begin{align}
+		\forall \epsilon > 0 , \exists \delta > 0 , \st \,\, 0 < \left| z - z_0 \right| < \delta \,\, \Rightarrow \,\, \left| f(z) - w \right| < \epsilon
+	\end{align}
+	
+	\begin{rmk}
+		容易证明若极限存在，则极限唯一.
+	\end{rmk}
+\end{defn}
+
+\vspace*{2em}
+\begin{defn}\label{def 2.2.2}
+	$Let \,\, \Omega \subseteq \C \,\, be \,\, open , \,\, f : \Omega \longrightarrow \C . \,\, We \,\, say \,\, f(z) \,\, is \,\, \underline{\textbf{$Complex \,\, differentiable \,\, at \,\, z_0 \in \Omega$}}$\\
+	$if \,\, \underset{h \to 0}{\lim}{\frac{f(z_0 + h) - f(z_0)}{h}} \,\, exists. \,\, If \,\, f \,\, is \,\, complex \,\, differentiable at \,\, z_0 , \,\, we \,\, denote \,\, the \,\, limit \,\, of \,\, the \,\, quotient $\\ 
+	$by \,\, f^{'}(z_0) . \,\, i.e.$
+	\begin{align}
+		f^{'}(z_0) = \lim_{h \to 0}{\frac{f(z_0 + h) - f(z_0)}{h}}
+	\end{align}
+	$f^{'}(z_0) \,\, is \,\, called \,\, \underline{\textbf{$the \,\, derivative \,\, of \,\, f \,\, at \,\, z_0$}}$.
+	
+	\begin{rmk}
+		$If \,\, f \,\, is \,\, complex \,\, differentiable \,\, at \,\, every \,\, point \,\, of \,\, \Omega , \,\, then \,\, we \,\, say \,\, f \,\, is \,\, \underline{\textbf{$holomorphic$}} \,\, on \,\,  \Omega.$
+	\end{rmk}
+\end{defn}
+
+\vspace*{2em}
+\begin{example}\label{ex 2.2.1}
+	\begin{itemize}
+		\item $f(z) = \frac{1}{z} \,\, is \,\, holomorphic \,\, on \,\, \C \backslash \{ 0 \}.$
+		
+		\item $f(z) = \bar{z} \,\, is \,\, not \,\, complex \,\, differentiable \,\, at \,\, any \,\, point \,\, of \,\, \C.$
+		
+		\item $f(z) = \left| z \right|^2 \,\, is \,\, only \,\, complex \,\, differentiable \,\, at \,\, z = 0.$
+	\end{itemize}
+\end{example}
+
+\vspace*{2em}
+\begin{align}
+	\lim_{h \to 0}{\frac{f(z_0 + h) - f(z_0)}{h}} = f^{'}(z_0) \,\, \Leftrightarrow \,\, \lim_{h \to 0}{\frac{f(z_0 + h) - f(z_0) - hf^{'}(z_0)}{h}} = 0
+\end{align}
+$Let \,\, \underline{\textbf{$\circ(h)$}} \,\, denote \,\, \underline{\textbf{$any \,\, complexed \,\, valued \,\, function$}} \,\, with \,\, the \,\, property \,\, \frac{\circ(h)}{h} \to 0 , \,\, as \,\, h \to 0$\\
+$Then \,\, f \,\, is \,\, complex \,\, differentiable \,\, at \,\, z_0 \,\, iff \,\, \exists a \in \C , \st$
+\begin{align}
+	f(z_0 + h) - f(z_0) - ha = \circ(h) , \,\, where \,\, a = f^{'}(z_0)
+\end{align}
+\begin{rmk}
+	$According \,\, to \,\, equation(2.11) , \,\, holomorphic \,\, \Rightarrow \,\, continuity.$
+\end{rmk}
+
+\newpage
+\begin{proposition}\label{prop 2.2.1}
+	$If \,\, f , \,\, g \,\, are \,\, holomorphic \,\, on \,\, an \,\, open \,\, set \,\, \Omega \subseteq \C , \,\, then$
+	\begin{align}
+		(f + g)^{'} = f^{'} + g^{'} , \,\, (fg)^{'} = f^{'}g + fg^{'}
+	\end{align}
+	$If \,\, g(z_0) \neq 0 , \,\, then \,\, \frac{f}{g} \,\, is \,\, complex \,\, differentiable \,\, at \,\, z_0 \,\, and$
+	\begin{align}
+		\left( \frac{f}{g} \right)^{'}_{z = z_0} = \frac{f^{'}g - fg^{'}}{g^2}\Big|_{z = z_0}
+	\end{align}
+	$If \,\, f : \Omega \longrightarrow U \,\, and \,\, g : U \longrightarrow \C \,\, are \,\, holomorphic , \,\, then \,\, \underline{\textbf{$the \,\, chain \,\, rule$}} \,\, holds$
+	\begin{align}
+		(g \circ f)^{'}(z) = g^{'}(f(z)) \, f^{'}(z) , \,\, \forall z \in \Omega
+	\end{align}
+\end{proposition}
+
+\newpage
+\section{$Cauchy - Riemann \,\, Equations$}
+\begin{align}
+	f(z) = f(x + iy) = u(x , y) + iv(x , y)
+\end{align}
+$Assume \,\, \underset{h \to 0}{\lim}{\frac{f(z_0 + h) - f(z_0)}{h}} \,\, exists , \,\, we \,\, may \,\, let \,\, h \to 0 \,\, in \,\, whichever \,\, manner \,\, we \,\, please. $\\
+$(let \,\, z_0 = x_0 + iy_0)$
+\begin{itemize}
+	\item $Let \,\, h = t \in \R , $
+	\begin{align}
+		f^{'}(z_0) = \lim_{t \to 0 , \,\, t \in \R}{\frac{f(z_0 + h) - f(z_0)}{h}} &= u_x (x_0 , y_0) + i v_x (x_0 , y_0) \\
+		&= \frac{\partial u}{\partial x}(x_0 , y_0) + i\frac{\partial v}{\partial x}(x_0 , y_0)
+	\end{align}
+	
+	\item $Let \,\, h = it , t \in \R ,$
+	\begin{align}
+		f^{'}(z_0) = \lim_{t \to 0 , \,\, t \in \R}{\frac{f(z_0 + h) - f(z_0)}{it}} &= v_y(x_0 , y_0) - iu_y(x_0 , y_0) \\
+		&= \frac{\partial v}{\partial y}(x_0 , y_0) - i\frac{\partial u}{\partial y}(x_0 , y_0)
+	\end{align}
+\end{itemize}
+$Thus , \,\, we \,\, conclude \,\, f = u + iv \,\, is \,\, holomorphic \,\, \Rightarrow \,\, u , \,\, v \,\, satisfy$
+\begin{align}
+	\begin{cases}
+		u_x = v_x\\
+		u_y = - v_y
+	\end{cases}
+\end{align}
+$The \,\, equations(2.20) \,\, is \,\, called \,\, \underline{\textbf{$Cauthy - Riemann \,\, Equations$}}$.
+
+\vspace*{2em}
+\begin{example}\label{ex 2.3.1}
+	$f(x + iy) = x^2 - y^2 - 2xyi , \,\, x , y \in \R \,\, is \,\, not \,\, holomorphic \,\, on \,\, \C \backslash \{ 0 \}.$
+\end{example}
+
+\newpage
+\section{全纯条件}
+Let $f = u + i v : \Omega \longrightarrow \C$ be holomorphic. Then
+\begin{align}
+	\begin{cases}
+		u_x = v_y \\
+		u_y = - v_x
+	\end{cases} \,\, on \,\, \Omega
+\end{align}
+
+\vspace{2em}
+下面给出函数$holomorphic$ 的充分条件.
+\begin{thm}\label{thm 2.4.1}
+	Let $\Omega \subset \C$ be open, $f = u + iv : \Omega \longrightarrow \C$. If $u , v$ are differentiable on $\Omega$ and satisfy the $Cauchy-Riemann \,\, equations$, then $f$ is holomorphic on $\Omega$.
+	
+	\vspace{2em}
+	\begin{proof}
+		(Goal : $\forall z_0 = x_0 + i y_0 \in \Omega , \,\, h = h_1 + i h_2 \in \C , \,\, z_0 + h \in \Omega , \,\, \left| h \right| \,\, small \,\, enough , $\\
+		$f(z_0+  h) - f(z_0) = ah + \circ(h)$)\\
+		
+		\vspace{1em}
+		Since $u(x , y)$ is differentiable on $\Omega$, 
+		\begin{align}
+			u(x_0 + h_1 , y_0 + h_2) - u(x_0 , y_0) = h_1 u_x(x_0 , y_0) + h_2 u_y(x_0 , y_0) + \circ(h_1 , h_2)
+		\end{align}
+		Here $\circ(h_1 , h_2)$ is any expression with the property that $\frac{\circ(h_1 , h_2)}{\sqrt{h_{1}^2 + h_{2}^2}} \to 0$ , as $(h_1 , h_2) \to 0$.\\
+		Similarly, 
+		\begin{align}
+			v(x_0 + h_1 , y_0 + h_2) - v(x_0 , y_0) = h_1 v_x(x_0 , y_0) + h_2 v_y(x_0 , y_0) + \circ(h_1 , h_2)
+		\end{align}
+		Then
+		\begin{align}
+			f(z_0 + h) - f(z_0) 
+			&= h_1 u_x + h_2 u_y + i (h_1 v_x + h_2 v_y) + \circ(h_1 , h_2) \\
+			&= h_1 u_x - h_2 v_x + i (h_1 v_x + h_2 u_x) + \circ(h_1 , h_2) \\
+			&= (u_x + i v_x)(h_1 + i h_2) + \circ(h_1 , h_2)
+		\end{align}
+		Note that we may write $\circ(h)$ instead of $\circ(h_1 , h_2)$, since
+		\begin{align}
+			(h_1 , h_2) \to 0 \Leftrightarrow h \to 0 \Leftrightarrow \left| h \right| \to 0
+		\end{align}
+		Then the previous expression is equal to $f^{'}(z_0)h + \circ(h)$.\\
+		Since $z_0$ is arbitrary, $f$ is holomorphic on $\Omega$.
+	\end{proof}
+\end{thm}
+
+\newpage
+$f = u + iv$ can be seen as a mapping
+\begin{align}
+	F : \R^2 &\longrightarrow \R^2 \\
+	(x , y) &\longmapsto (u(x , y) , v(x , y))
+\end{align}
+F is said to be differentiable at a point $P_0 = (x_0 , y_0)$, if $\exists$ a linear transformation $J : \R^2 \longrightarrow \R^2 , \,\, \st$
+\begin{align}
+	F(P_0 + H) - F(P_0) = J(H) + \left| H \right| \psi(H) , \,\, with \,\, \left| \psi(H) \right| \to 0 \,\, as \,\, \left| H \right| \to 0
+\end{align}
+
+\vspace{2em}
+\begin{proposition}\label{prop 2.4.1}
+	If $f$ is complex differentiable at $z_0 = x_0 + i y_0$, then $F$ is differentiable at $(x_0 , y_0)$.
+	
+	\vspace{2em}
+	\begin{proof}
+		Since $f$ is complex differentiable at $z_0 = x_0 + i y_0$, we have
+		\begin{align}
+			f(z_0 + h) - f(z_0) 
+			&= f^{'}(z_0)h + \circ(h) \\
+			&= (u_x + i v_x)(h_1 + i h_2) + \circ(h) \\
+			&= u_x h_1 - v_x h_2 + i (v_x h_1 + u_x h_2) + \circ(h) \\
+			&= u_x h_1 + u_y h_2 + i (v_x h_1 + v_y h_2) + \circ(h)
+		\end{align}
+		Thus, $F(P_0 + H) - F(P_0) = J(H) + \circ(H)$, where $J = 
+		\begin{pmatrix}
+			u_x \,\, &u_y \\
+			v_x &v_y
+		\end{pmatrix}$ and $H = (h_1 , h_2)$.
+	\end{proof}
+\end{proposition}
+
+\newpage
+\section{复变函数微分}
+\begin{center}
+	$z = x + i y , \,\, \overline{z} = x - i y \,\, \Leftrightarrow \,\, x = \frac{z + \overline{z}}{2} , \,\, y = \frac{z - \overline{z}}{2i}$
+\end{center}
+A given function $f : \Omega \longrightarrow \C$ can be expressed either in variables $x , y$ or $z , \overline{z}$. That is, for the given $f$, we may write $f(x , y)$ or $f(z , \overline{z})$.
+\begin{rmk}
+	可视作复平面上可建立两个坐标系$xOy$ 和$zO\overline{z}$，即$\C$ 中存在两组基.由于将复数$z$ 转化为$x + i y$ 后再进行计算常常会产生不便，因此下面通过这两组基之间的转化，探讨不同形式下函数微分的表达方式.
+\end{rmk}
+
+\vspace{2em}
+Suppose the relevant derivatives exist.
+\begin{align}
+	\frac{\partial f}{\partial z} &= \frac{\partial f}{\partial x} \cdot \frac{\partial x}{\partial z} + \frac{\partial f}{\partial y} \cdot \frac{\partial y}{\partial z} = \frac{1}{2} \left( \frac{\partial}{\partial x} - i \frac{\partial}{\partial y} \right) f \\
+	\frac{\partial f}{\partial \overline{z}} &= \frac{\partial f}{\partial x} \cdot \frac{\partial x}{\partial \overline{z}} + \frac{\partial f}{\partial y} \cdot \frac{\partial y}{\partial \overline{z}} = \frac{1}{2} \left( \frac{\partial}{\partial x} + i \frac{\partial}{\partial y} \right) f
+\end{align}
+Define two operations.$\left( Wirtinger \,\, operations , \,\, 1927 \right)$
+\begin{align}
+	\frac{\partial}{\partial z} \coloneqq \frac{1}{2} \left( \frac{\partial}{\partial x} - i \frac{\partial}{\partial y} \right) \\
+	\frac{\partial}{\partial \overline{z}} \coloneqq \frac{1}{2} \left( \frac{\partial}{\partial x} + i \frac{\partial}{\partial y} \right)
+\end{align}
+
+\vspace{2em}
+\begin{proposition}\label{prop 2.5.1}
+	$Cauchy - Riemann \,\, equations$ are equivalent to
+	\begin{align}
+		\frac{\partial f}{\partial \overline{z}} = 0
+	\end{align}
+	
+	\vspace{2em}
+	\begin{proof}
+		Let $f = u + i v$. Then 
+		\begin{align}
+			\frac{\partial f}{\partial \overline{z}} = \frac{1}{2} \left( \frac{\partial f}{\partial x} + i \frac{\partial f}{\partial y} \right) = \frac{1}{2} \left( u_x + v_x + i (u_y + v_y) \right) = \frac{1}{2} \left( u_x - v_y + i (u_y + v_x) \right)
+		\end{align}
+		\begin{align}
+			\frac{\partial f}{\partial \overline{z}} = 0 \Leftrightarrow 
+			\begin{cases}
+				u_x = v_y \\
+				u_y = - v_x
+			\end{cases}
+		\end{align}
+	\end{proof}
+\end{proposition}
+
+\begin{rmk}
+	We note that $f^{'}(z) = u_x + i v_x = u_x - i u_y = 2 \frac{\partial u}{\partial z}$.
+\end{rmk}
+
+\newpage
+\paragraph{调和算子 / 拉普拉斯算子}
+Define the \underline{$Laplacian$}(or the \underline{$Laplace \,\, operator$}).
+\begin{align}
+	\Delta = \frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2}
+\end{align}
+
+\begin{rmk}
+	$C^{k}(\Omega)$ denotes the set of all k times continuously differentiable functions on $\Omega$.
+\end{rmk}
+
+\vspace{2em}
+下面给出调和函数的定义.
+\begin{defn}\label{def 2.5.1}
+	Let $\Omega \subset \C$ be an open set. $g : \Omega \longrightarrow \C$ is called \underline{$harmonic$} if $g \in C^{2}(\Omega)$ and $\Delta g = 0$.
+\end{defn}
+
+\vspace{2em}
+下面的命题说明了全纯函数的实部和虚部均调和.(全纯的必要条件)
+\begin{proposition}\label{prop 2.5.2}
+	Let $f = u + i v : \Omega \longrightarrow \C$ be holomorphic. Assume $u , v \in C^{2}(\Omega)$. Then $u , v$ are harmonic.
+	
+	\begin{rmk}
+		事实上后面会证明此处无需$u , v \in C^{2}(\Omega)$.
+	\end{rmk}
+	
+	\vspace{2em}
+	\begin{proof}
+		The $Cauchy - Riemann \,\, equations$ tell $
+		\begin{cases}
+			u_x = v_y \\
+			u_y = - v_x
+		\end{cases}$
+		\begin{align}
+			\frac{\partial^2 u}{\partial x^2} &= \frac{\partial^2 v}{\partial x \partial y} \\
+			\frac{\partial^2 u}{\partial y^2} &= -\frac{\partial^2 v}{\partial y \partial x}
+		\end{align}
+		Since $v \in C^{2}(\Omega)$, 
+		\begin{align}
+			\frac{\partial^2 v}{\partial x \partial y} = \frac{\partial^2 v}{\partial y \partial x}
+		\end{align}
+		Therefore, $u_{xx} + u_{yy} = 0$. Similarly we can proof that $v_{xx} + v_{yy} = 0$.
+	\end{proof}
+\end{proposition}
+
+\vspace{2em}
+A holomorphic function is necessarily harmonic, so is $\overline{f}$.
+\begin{proposition}\label{prop 2.5.3}
+	Let $\Omega \subset \C$ be a region, $f : \Omega \longrightarrow \C$. Then
+	\begin{center}
+		$f$ is consistant iff $f^{'}(z) = 0 , \forall z \in \Omega$.
+	\end{center}
+	
+	\vspace{2em}
+	\begin{proof}
+		\begin{enumerate}
+			\item[$\Rightarrow:$]clear
+			
+			\item[$\Leftarrow:$]Let $f = u + i v$, then
+			\begin{align}
+				f^{'}(z) = 0 \Rightarrow u_x + i v_x = 0 &\Rightarrow u_x = 0 , v_x = 0 \\
+				&\overset{C-R}{\Rightarrow} v_y = 0 , u_y = 0 \\
+				&\Rightarrow u = c_1 , v = c_2 \,\, (by \,\, mean \,\, value \,\, theorem) \\
+				&(\text{区域连通，利用中值定理})
+			\end{align}
+		\end{enumerate}
+	\end{proof}
+\end{proposition}
+
+\newpage
+\section{课堂例题$2024-03-08$}
+\begin{enumerate}
+	\item $f(x + i y) = x^2 - y^2 + 2xy i$ is holomorphic.
+	
+	\vspace{2em}
+	
+	\item Is $f(z) = z^2 \overline{z} + \frac{1}{z} + \frac{1}{z^2}$ holomorphic on $\C \backslash \{ 0 \}$?
+	
+	\vspace{2em}
+	
+	\item Let $f = u + i v$ be holomorphic on a region $\Omega$. Assume $au + bv + c = 0$ for some $a , b , c \in \R$ and $a , b$ are not all zero. Show $f$ is consistant.
+	
+	\vspace{2em}
+	
+	\item Find a holomorphic function $f$ on $\C$ $\st$
+	\begin{align}
+		Re f = x^2 - y^2 + xy , \,\, f(0) = 0
+	\end{align}
+	
+	\vspace{2em}
+	
+	\item Let $\Omega = \C \backslash \{ 0 \}$ and $u : \Omega \longrightarrow \R$ be given by $u(x , y) = \frac{1}{2} \ln(x^2 + y^2)$.\\
+	Is there a holomorphic function $f : \Omega \longrightarrow \C$, $\st$ $Ref = u$ ?
+	
+	\vspace{2em}
+	\begin{solution}
+		Suppose $f = u + i v$ is holomorphic on $\Omega$. Then
+		\begin{align}
+			\begin{cases}
+				v_x = -u_y = -\frac{y}{x^2 + y^2} \\
+				v_y = u_x = \frac{x}{x^2 + y^2}
+			\end{cases}
+		\end{align}
+		By $v_y = \frac{x}{x^2 + y^2}$,
+		\begin{align}
+			v = \arctan{\frac{y}{x}} + c(x)
+		\end{align}
+		Then by $v_x = -\frac{y}{x^2 + y^2}$, $c(x) = c$ is constant. $\Rightarrow$ $v = \arctan{\frac{y}{x}} + c$.\\
+		However, $\arctan{\frac{y}{x}} : \R^2 \longrightarrow (-\pi , \pi]$ is not continuous on $\R_{\leq 0} = \{ x \leq 0 \mid x \in \R \}$.
+		\begin{center}
+			(Let $z = x + iy$, then $\arctan{\frac{y}{x}}$ is an argument of z.)
+		\end{center}
+		Therefore, there is no function satisfying the conditions.
+		\begin{rmk}
+			If the region $\Omega = \C \backslash \{ 0 \}$ is replaced by $\Omega = \C \backslash \R_{\leq 0}$, then the answer is yes.
+		\end{rmk}
+	\end{solution}
+	
+	\vspace{2em}
+	
+	\item 课本第一章练习$T8 , T9 , T10 , T13$.
+\end{enumerate}
+
+
+
+
+
+
+	%  ############################
+	\ifx\allfiles\undefined
+\end{document}
+\fi

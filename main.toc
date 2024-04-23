@@ -74,5 +74,14 @@
 \contentsline {paragraph}{引入}{69}{paragraph*.33}%
 \contentsline {paragraph}{\textbf {Residue Formula}}{69}{paragraph*.34}%
 \contentsline {section}{\numberline {7.5}课堂例题$2024-04-12$}{71}{section.7.5}%
-\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}$L'H\hat {o}spital's \,\, Rule$}{73}{appendix.A}%
-\contentsline {section}{\numberline {A.1}弱化版本}{73}{section.A.1}%
+\contentsline {chapter}{\numberline {第八章\hspace {.3em}}$Week \,\, 8$}{73}{chapter.8}%
+\contentsline {section}{\numberline {8.1}均值定理}{73}{section.8.1}%
+\contentsline {section}{\numberline {8.2}奇点}{74}{section.8.2}%
+\contentsline {subsection}{\numberline {8.2.1}\textbf {Classification of isolated singularities}}{74}{subsection.8.2.1}%
+\contentsline {section}{\numberline {8.3}孤立奇点的等价刻画}{75}{section.8.3}%
+\contentsline {subsection}{\numberline {8.3.1}\textbf {Removable Singularity}}{75}{subsection.8.3.1}%
+\contentsline {subsection}{\numberline {8.3.2}\textbf {Pole}}{77}{subsection.8.3.2}%
+\contentsline {subsection}{\numberline {8.3.3}\textbf {Essential Singularity}}{77}{subsection.8.3.3}%
+\contentsline {section}{\numberline {8.4}课堂例题$2024-04-15$}{78}{section.8.4}%
+\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}$L'H\hat {o}spital's \,\, Rule$}{79}{appendix.A}%
+\contentsline {section}{\numberline {A.1}弱化版本}{79}{section.A.1}%

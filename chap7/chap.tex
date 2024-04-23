@@ -1,0 +1,502 @@
+\ifx\allfiles\undefined
+\input{../config/config}
+\begin{document}
+	% \input{../config/cover} 
+	\else
+	\fi
+	%  ############################ 正文部分
+
+\chapter{$Week \,\, 7$}
+\section{零点，极点，留数}
+\paragraph{零点}
+根据\textbf{定理 \ref{thm 6.3.1}}知，不恒为零的全纯函数只含\textbf{孤立零点}. 下面我们将给出非零全纯函数在其孤立零点附近的\textbf{局部刻画}.
+
+\vspace{2em}
+下面先给出孤立零点的定义.
+\begin{defn}\label{def 7.1.1}
+	Let $\Omega \subset \C$ be a region, $f : \Omega \longrightarrow \C$ be holomorphic. We say the zero $z_0$ is \underline{\textcolor{blue}{\textbf{isolated}}} if $\exists r > 0$, $\st$ $f(z) \neq 0$ for all $z \in D_{r}^{*}(z_0)$. 
+	
+	\begin{rmk}
+		By Thm \ref{thm 6.3.1}, we note that if $f(z) \not\equiv 0$, $z \in \Omega$ (不全为零), then the zeros of $f(z)$ are isolated.
+	\end{rmk}
+\end{defn}
+
+\vspace{2em}
+下面给出非零全纯函数在其孤立零点附近的\textbf{局部刻画}.
+\begin{thm}\label{thm 7.1.1}
+	Suppose \textcolor{red}{\textbf{$f(z) \not\equiv 0$}} is holomorphic in a region $\Omega$. $z_0$ is a zero of $f$. Then $\exists r > 0$ and \textcolor{red}{\textbf{nonvanishing}} holomorphic function $g(z)$ in $D_{r}(z_0)$ and a \textcolor{red}{\textbf{unique}} integer $n$, $\st$
+	\begin{center}
+		$f(z) = (z - z_0)^n g(z) , \,\, z \in D_{r}(z_0)$
+	\end{center}
+	
+	\vspace{1em}
+	\begin{rmk}
+		\begin{itemize}
+			\item $f(z) \not\equiv 0$ 指的是$f$ \textbf{不恒为零}，而$g$ nonvanishing 指的是$g$ \textbf{恒不为零}.
+			
+			\item In this theorem, we say $z_0$ is a \underline{\textcolor{blue}{\textbf{zero of $f$ of multiplicity of $n$}}}. \\
+			If $n = 1$, we say $z_0$ is a \underline{\textcolor{blue}{\textbf{simple}}} zero of $f$. 
+		\end{itemize}
+	\end{rmk}
+	
+	\vspace{1em}
+	\begin{proof}
+		\begin{itemize}
+			\item \textbf{存在性}: Since $f$ is holomorphic, by Thm \ref{thm 6.2.2}, $\exists R > 0$, $\st$
+			\begin{align}
+				f(z) = \sum_{k = 0}^{\infty}{a_k (z - z_0)^k} , \,\, \forall z \in D_{R}(z_0)
+			\end{align}
+			$f(z_0) = 0 \,\, \Rightarrow \,\, a_0 = 0$. Since $f(z) \not\equiv 0$, $\exists$ the smallest integer $n$, $\st$ $a_n \neq 0$. Then
+			\begin{align}
+				f(z) = (z - z_0)^n (a_n + a_{n + 1}(z - z_0) + \cdots) = (z - z_0)^n g(z)
+			\end{align}
+			Clearly, $\exists 0 < r < R$, $\st$ $g(z) \neq 0$ for all $z \in D_{r}(z_0)$.
+			
+			\item \textbf{唯一性}: 详见书P73 Thm 1.1 证明.
+		\end{itemize}
+	\end{proof}
+\end{thm}
+
+\vspace{2em}
+\paragraph{极点}
+下面给出复变函数的\textbf{极点}的定义.
+\begin{defn}\label{def 7.1.2}
+	We say $f : D_{r}^{*}(z_0) \rightarrow \C$ has a \underline{\textcolor{blue}{\textbf{pole}}} at $z_0$ if $\,\, \frac{1}{f} \,\,$ is holomorphic in $D_{r}(z_0)$ and has a zero at $z_0$.
+	
+	\begin{rmk}
+		\begin{itemize}
+			\item 牢林此处的定义\textbf{并不严谨}，并未对$1 / f$ 在$z_0$ 处无定义的情况说明\textbf{pole} 的定义. 事实上这会导致后面对\textbf{奇点附近性质}的讨论带来不便，下面引用书\footnote{课堂教材：\textbf{《$Complex \,\, Analysis$》---  $Elias \,\, M. \,\, Stein$}}P74的定义.
+			\begin{defn}\label{def 7.1.3}
+				We say $f : D_{r}^{*}(z_0) \rightarrow \C$ has a \underline{\textcolor{blue}{\textbf{pole}}} at $z_0$, if the function $\frac{1}{f}$, defined to be zero at $z_0$, is holomorphic in a full neighbourhood of $z_0$.
+			\end{defn}
+			
+			\vspace{1em}
+			
+			\item 由定义可知，a pole of a function is isolated.
+		\end{itemize}
+	\end{rmk}
+\end{defn}
+
+\vspace{2em}
+根据非零全纯函数在\textbf{孤立零点附近的局部刻画 (Thm \ref{thm 7.1.1})}，可以很容易得到全纯函数在其\textbf{极点}附近的\textbf{局部刻画}.
+\begin{thm}\label{thm 7.1.2}
+	If $f$ has a pole at $z_0$, then $\exists r > 0$ and a \textbf{nonvanishing} holomorphic function $h(z)$ in $D_{r}(z_0)$ and a \textbf{unique} positive integer $n$, $\st$
+	\begin{center}
+		$f(z) = (z - z_0)^{-n} h(z) , \,\, z \in D_{r}^{*}(z_0)$
+	\end{center}
+	
+	\vspace{2em}
+	\begin{proof}
+		详见书P74 Thm 1.2 证明.
+	\end{proof}
+\end{thm}
+
+\newpage
+\paragraph{留数}
+在定理 \ref{thm 7.1.2}的基础上，可以更进一步给出更精细的刻画. 对于$n$ 阶极点，我们存在这样的刻画.
+\begin{thm}\label{thm 7.1.3}
+	If $f$ has a pole of order $n$ at $z_0$, then we can write
+	\begin{align}
+		f(z) = \frac{a_{-n}}{(z - z_0)^n} + \cdots + \frac{a_{-1}}{z - z_0} + G(z)
+	\end{align}
+	where $G(z)$ is holomorphic in some neighbourhood of $z_0$.
+	
+	\vspace{1em}
+	\begin{rmk}
+		\begin{itemize}
+			\item The sum
+			\begin{align}
+				\frac{a_{-n}}{(z - z_0)^n} + \cdots + \frac{a_{-1}}{z - z_0}
+			\end{align}
+			is called \underline{\textcolor{blue}{\textbf{the principal part}}} (or \underline{\textcolor{blue}{\textbf{singular part}}}) of $f$ at the pole $z_0$.
+			
+			\vspace{1em}
+			
+			\item $G(z)$ is called \underline{\textcolor{blue}{\textbf{the holomorphic part}}} of $f$ at the pole $z_0$.
+			
+			\vspace{1em}
+			
+			\item The coefficient $a_{-1}$ is called the \underline{\textcolor{blue}{\textbf{residue}}} of $f$ at the pole $z_0$. We write \textcolor{blue}{$Res_{z_0}f = a_{-1}$}.
+		\end{itemize}
+		
+		\vspace{1em}
+		\begin{proof}
+			详见书P75 Thm 1.3 证明.
+		\end{proof}
+	\end{rmk}
+\end{thm}
+
+\vspace{2em}
+关于\textbf{留数}的用途和含义，在于其绕对应极点的环路积分之中. 
+
+对于$f : \Omega \rightarrow \C$ with a pole $z_0 \in \Omega$, since $\frac{a_{-k}}{(z - z_0)^k} , k = 2, \cdots, n$ have primitives and $G$ is holomorphic, we have
+\begin{align}
+	\int_{C_{r}(z_0)}{f(z) dz} = \int_{C_{r}(z_0)}{\frac{a_{-1}}{z - z_0} dz} = 2\pi i \cdot a_{-1}
+\end{align}
+环路积分的值只剩下与$a_{-1}$ 有关，此即为\textbf{“留数”}之意.
+
+\vspace{2em}
+下面介绍留数的\textbf{计算技巧}. 设$z_0$ 为$f$ 的$n$ 阶极点.
+\begin{itemize}
+	\item $n = 1$时，$Res_{z_0}f = \underset{z \to z_0}{\lim}{(z - z_0) f(z)}$
+	
+	\item $n > 1$时，我们有
+	\begin{align}
+		Res_{z_0}f = \lim_{z \to z_0}{\frac{1}{(n - 1)!} \left( \frac{d}{dz} \right)^{n - 1} (z - z_0)^n f(z)}
+	\end{align}
+\end{itemize}
+\begin{center}
+	(根据\textbf{定理 \ref{thm 7.1.3}}的公式可轻松得证.)
+\end{center}
+
+\newpage
+\section{$Laurent \,\, Series \,\, Expansion$}
+事实上，对于全纯函数$f$，其不仅能在定义域内展开为幂级数 (\textbf{Thm \ref{thm 6.2.2}})，其同样能在极点周围类似地展开为幂级数的形式，此即为\textbf{Laurent Series Expansion (洛朗级数展开)}.
+
+\begin{thm}\label{thm 7.2.1}
+	Let $f$ be holomorphic on a region containing the annulus and its boundary
+	\begin{align}
+		\mathcal{A} = \{ z \mid r_1 < \left| z - z_0 \right| < r_2 \}, \,\, where \,\, 0 \leq r_1 < r_2
+	\end{align}
+	Then
+	\begin{align}
+		f(z) = \sum_{n = -\infty}^{\infty}{a_n (z - z_0)^n}
+	\end{align}
+	where
+	\begin{align}
+		a_n = \frac{1}{2\pi i} \int_{C_{r}(z_0)}{\frac{f(\zeta)}{(\zeta - z_0)^{n + 1}} d\zeta} , \,\, for \,\, any \,\, r \in [r_1 , r_2]
+	\end{align}
+	
+	\vspace{1em}
+	\begin{rmk}
+		\begin{itemize}
+			\item The series in the Theorem is called the \underline{\textcolor{blue}{\textbf{Laurent Series Expansion}}} of $f$ near $z_0$ or in the annulus.
+			
+			\vspace{1em}
+			
+			\item 在同一圆环域内，Laurent 展式唯一；在不同的圆环域内，Laurent 展式可能不同.
+		\end{itemize}
+	\end{rmk}
+	
+	\vspace{1em}
+	\begin{proof}
+		Fix $z \in \mathcal{A}$, $\exists \delta > 0$, $\st$ $C_{\delta}(z) \subset \mathcal{A}$. \\
+		Consider 
+		\begin{align}
+			g(\zeta) = \frac{f(\zeta)}{\zeta - z}
+		\end{align}
+		Then $g(\zeta)$ is holomorphic in a region containing $\mathcal{A} \backslash D_{\delta}(z)$ and its boundary. \\
+		By the \textbf{principle of contour deformation (Thm \ref{thm 5.1.1}, 闭路变形原理)}
+		\begin{align}
+			\int_{C_{r_2}(z_0)}{g(\zeta) d\zeta} = \int_{C_{\delta}(z)}{g(\zeta) d\zeta} + \int_{C_{r_1}(z_0)}{f(\zeta) d\zeta}
+		\end{align}
+		By \textbf{CIF (Thm \ref{thm 5.2.1})}
+		\begin{align}
+			2 \pi i \cdot f(z) = \int_{C_{\delta}(z)}{g(\zeta) d\zeta}
+		\end{align}
+		Thus
+		\begin{align}
+			f(z) = \frac{1}{2 \pi i} \int_{C_{r_2}(z_0)}{\frac{f(\zeta)}{\zeta - z} d\zeta} - \frac{1}{2 \pi i} \int_{C_{r_1}(z_0)}{\frac{f(\zeta)}{\zeta - z} d\zeta}
+		\end{align}
+		
+		\vspace{2em}
+		下面分别计算积分$\frac{1}{2 \pi i} \int_{C_{r_2}(z_0)}{\frac{f(\zeta)}{\zeta - z} d\zeta}$ 和$-\frac{1}{2 \pi i} \int_{C_{r_1}(z_0)}{\frac{f(\zeta)}{\zeta - z} d\zeta}$.
+		\begin{itemize}
+			\item If $\zeta \in C_{r_2}(z_0)$, then $\left| \zeta - z_0 \right| > \left| z - z_0 \right|$.
+			\begin{align}
+				\frac{1}{\zeta - z} 
+				= \frac{1}{\zeta - z_0 - (z - z_0)} 
+				= \frac{1}{\zeta - z_0} \cdot \frac{1}{1 - \left( \frac{z - z_0}{\zeta - z_0} \right)}
+				= \frac{1}{\zeta - z_0} \sum_{n = 0}^{\infty}{\left( \frac{z - z_0}{\zeta - z_0} \right)^n}
+			\end{align}
+			converges  w.r.t. $\zeta$. Hence
+			\begin{align}
+				\frac{1}{2\pi i} \int_{C_{r_2}(z_0)}{\frac{f(\zeta)}{\zeta - z} d\zeta}
+				= \sum_{n = 0}^{\infty}{\left( \frac{1}{2 \pi i} \int_{C_{r_2}(z_0)}{\frac{f(\zeta)}{(\zeta - z_0)^{n + 1} } d\zeta } \right) (z - z_0)^n}
+			\end{align}
+			\begin{center}
+				(此处具体证明过程可见\textbf{定理 \ref{thm 6.2.2}} 的证明.)
+			\end{center}
+			
+			\vspace{1em}
+			
+			\item If $\zeta \in C_{r_1}(z_0)$, then $\left| \zeta - z_0 \right| < \left| z - z_0 \right|$.
+			\begin{align}
+				-\frac{1}{\zeta - z} 
+				= \frac{1}{z - \zeta}
+				= \frac{1}{(z - z_0) - (\zeta - z_0)}
+				= \frac{1}{z - z_0} \cdot \frac{1}{1 - \frac{\zeta - z_0}{z - z_0}}
+				&= \frac{1}{z - z_0} \sum_{n = 0}^{\infty}{\left( \frac{\zeta - z_0}{z - z_0} \right)^n} \\
+				&= \sum_{n = 0}^{\infty}{\frac{(\zeta - z_0)^{n - 1}}{(z - z_0)^n}} \\
+				&= \sum_{n = -1}^{-\infty}{\frac{(z - z_0)^n}{(\zeta - z_0)^{n + 1}}}
+			\end{align}
+			Hence
+			\begin{align}
+				-\frac{1}{2\pi i} \int_{C_{r_1}(z_0)}{\frac{f(\zeta)}{\zeta - z} d\zeta}
+				= \sum_{n = -1}^{-\infty}{\left( \frac{1}{2\pi i} \int_{C_{r_1}(z_0)}{\frac{f(\zeta)}{(\zeta - z_0)^{n + 1}} d\zeta} \right) (z - z_0)^n}
+			\end{align}
+		\end{itemize}
+		由于$\frac{f(\zeta)}{(\zeta - z_0)^{n + 1}}$, $\forall n$ 在$\mathcal{A}$ 上holomorphic，因此根据\textbf{闭路变形原理 (Thm \ref{thm 5.1.1})}, $\forall r \in [r_1 , r_2]$
+		\begin{align}
+			\int_{C_{r_2}(z_0)}{\frac{f(\zeta)}{(\zeta - z_0)^{n + 1} } d\zeta }
+			&= \int_{C_{r}(z_0)}{\frac{f(\zeta)}{(\zeta - z_0)^{n + 1} } d\zeta } \\
+			\int_{C_{r_1}(z_0)}{\frac{f(\zeta)}{(\zeta - z_0)^{n + 1} } d\zeta }
+			&= \int_{C_{r}(z_0)}{\frac{f(\zeta)}{(\zeta - z_0)^{n + 1} } d\zeta }
+		\end{align}
+		Therefore
+		\begin{align}
+			f(z) 
+			&= \frac{1}{2 \pi i} \int_{C_{r_2}(z_0)}{\frac{f(\zeta)}{\zeta - z} d\zeta} - \frac{1}{2 \pi i} \int_{C_{r_1}(z_0)}{\frac{f(\zeta)}{\zeta - z} d\zeta} \\
+			&= \sum_{n = 0}^{\infty}{\left( \frac{1}{2 \pi i} \int_{C_{r_2}(z_0)}{\frac{f(\zeta)}{(\zeta - z_0)^{n + 1} } d\zeta } \right) (z - z_0)^n} + \sum_{n = -1}^{-\infty}{\left( \frac{1}{2\pi i} \int_{C_{r_1}(z_0)}{\frac{f(\zeta)}{(\zeta - z_0)^{n + 1}} d\zeta} \right) (z - z_0)^n} \\
+			&= \sum_{n = 0}^{\infty}{\left( \frac{1}{2 \pi i} \int_{C_{r}(z_0)}{\frac{f(\zeta)}{(\zeta - z_0)^{n + 1} } d\zeta } \right) (z - z_0)^n} + \sum_{n = -1}^{-\infty}{\left( \frac{1}{2\pi i} \int_{C_{r}(z_0)}{\frac{f(\zeta)}{(\zeta - z_0)^{n + 1}} d\zeta} \right) (z - z_0)^n} \\
+			&= \sum_{-\infty}^{\infty}{\left( \frac{1}{2 \pi i} \int_{C_{r}(z_0)}{\frac{f(\zeta)}{(\zeta - z_0)^{n + 1} } d\zeta } \right) (z - z_0)^n} \\
+			&= \sum_{- \infty}^{\infty}{a_n (z - z_0)^n}, \,\,where \,\, a_n = \frac{1}{2\pi i} \int_{C_{r}(z_0)}{\frac{f(\zeta)}{(\zeta - z_0)^{n + 1}} d\zeta} , \,\, for \,\, any \,\, r \in [r_1 , r_2]
+		\end{align}
+	\end{proof}
+\end{thm}
+
+\newpage
+
+\section{课堂例题$2024-04-08$}
+\begin{enumerate}
+	\item Find the Laurent Expansion of 
+	\begin{align}
+		\frac{1}{z^2 (z - i)} \,\, in \,\, \frac{1}{4} < \left| z - i \right| < \frac{3}{4}
+	\end{align}
+	
+	\begin{solution}
+		Ans:
+		\begin{align}
+			\sum_{n = -1}^{\infty}{(n + 2) i^{n + 1} (z - i)^n}
+		\end{align}
+	\end{solution}
+	
+	\vspace{2em}
+	
+	\item Find the Laurent Expansion of 
+	\begin{align}
+		\frac{z^3}{1 + z^2} \,\, in \,\, 2 < \left| z \right| < 4
+	\end{align}
+	
+	\begin{solution}
+		Ans:
+		\begin{align}
+			= \frac{z}{1 + \frac{1}{z^2}} = z \cdot \sum_{n = 0}^{\infty}{\left( -\frac{1}{z^2} \right)^n}
+		\end{align}
+	\end{solution}
+	
+	\vspace{2em}
+	
+	\item Find the Laurent Expansion of
+	\begin{align}
+		f(z) = \frac{z^2 - 2z + 5}{(z - 2)(z^2 + 1)}
+	\end{align}
+	in $1 < \left| z \right| < 2$, $2 < \left| z \right| < +\infty$ respectively.
+	
+	\vspace{2em}
+	\begin{solution}
+		$f(z) = \frac{1}{z - 2} - \frac{2}{z^2 + 1}$.
+		\begin{itemize}
+			\item In the annulus $1 < \left| z \right| < 2$,
+			\begin{align}
+				f(z) 
+				= -\frac{1}{2} \cdot \frac{1}{1 - \frac{z}{2}} - \frac{2}{z^2} \cdot \frac{1}{1 + \frac{1}{z^2}}
+				&= -\frac{1}{2} \sum_{n = 0}^{\infty}{\left( \frac{z}{2} \right)^n} - \frac{2}{z^2} \sum_{n = 0}^{\infty}{\left( -\frac{1}{z^2} \right)^n} \\
+				&= -\sum_{n = 0}^{\infty}{\frac{z^n}{2^{n + 1}}} + \sum_{n = 1}^{\infty}{\frac{2(-1)^n}{z^{2n}}}
+			\end{align}
+			
+			\vspace{1em}
+			
+			\item In the annulus $2 < \left| z \right| < +\infty$,
+			\begin{align}
+				f(z) 
+				= \frac{1}{z} \cdot \frac{1}{1 - \frac{2}{z}} - \frac{2}{z^2} \cdot \frac{1}{1 + \frac{1}{z^2}}
+				= \frac{1}{z} \sum_{n = 0}^{\infty}{\left( \frac{2}{z} \right)^n} + \sum_{n = 1}^{\infty}{\frac{2(-1)^n}{z^{2n}}}
+			\end{align}
+		\end{itemize}
+	\end{solution}
+\end{enumerate}
+
+\newpage
+
+\section{$Residue \,\, Formula$}
+\paragraph{引入}
+对于\textbf{单连通区域}，\textbf{Cauchy's Theorem (Thm \ref{thm 4.3.2})}已经告诉了我们全纯函数的环路积分为0. 
+
+但对于更一般的区域，若其中含有极点，则\textbf{Cauchy's Theorem} 便不再奏效. 此时便需要使用接下来所要介绍的\textbf{Residue Formula} 来进行计算.
+
+\vspace{2em}
+\paragraph{\textbf{Residue Formula}}
+下面先给出单个极点的圆形环路上函数的积分值.
+\begin{thm}\label{thm 7.4.1}
+	Suppose $f$ is holomorphic in a region containing $\overline{D_{r}^{*}(z_0)}$, $r > 0$, and $z_0$ is a pole of $f$. Then
+	\begin{align}
+		\int_{C_{r}(z_0)}{f(z) dz} = 2 \pi i \cdot Res_{z_0}f
+	\end{align}
+	
+	\vspace{2em}
+	\begin{proof}
+		证明是 trivial 的. Suppose $z_0$ is a pole of order $n$. Then by \textbf{Thm \ref{thm 7.1.3}},
+		\begin{align}
+			f(z) = \frac{a_{-n}}{(z - z_0)^n} + \cdots + \frac{a_{-1}}{z - z_0} + G(z)
+		\end{align}
+		where $G(z)$ is holomorphic in $\overline{D_{r}(z_0)}$.\\
+		Since $\frac{a_{-k}}{(z - z_0)^k}$,  $k = 2 , 3 , \cdots , n$ admit primitives and $G$ is holomorphic in a region containing $\overline{D_{r}^{*}(z_0)}$,\\
+		this yields
+		\begin{align}
+			\int_{C_{r}(z_0)}{f(z) dz} = \int_{C_{r}(z_0)}{\frac{a_{-1}}{z - z_0} dz} = 2 \pi i \cdot a_{-1} = 2 \pi i \cdot Res_{z_0}f
+		\end{align}
+	\end{proof}
+\end{thm}
+
+\newpage
+下面给出\textbf{Residue Formula}. 它给出了环路内部存在\textbf{有限个极点}时的积分计算公式.
+\begin{thm}\label{thm 7.4.2}
+	\textbf{Residue Formula}.\\
+	Suppose $f$ is holomorphic in an open set containing a contour $\gamma$ and its interior except for poles $z_1 , \cdots , z_n \in Interior(\gamma)$. Then
+	\begin{align}
+		\int_{\gamma}{f(z) dz} = 2 \pi i \sum_{k = 1}^{n}{Res_{z_k}f}
+	\end{align}
+	
+	\vspace{2em}
+	\begin{proof}
+		By \textbf{Principle of Contour Deformation (Cor \ref{cor 5.1.3}, 闭路变形原理)},
+		\begin{align}
+			\int_{\gamma}{f(z) dz} = \sum_{k = 1}^{n}{\int_{C_{r_k}(z_k)}{f(z) dz}}
+		\end{align}
+		where $C_{r_k}(z_k)$, $k = 1 \sim n$ are disjoint circles in $Interior(\gamma)$.\\
+		Then by \textbf{Thm \ref{thm 7.4.1}}, the desired result follows.
+	\end{proof}
+\end{thm}
+
+\newpage
+
+\section{课堂例题$2024-04-12$}
+\begin{enumerate}
+	\item \textbf{(课本P103 T2.)}\\
+	Evaluate 
+	\begin{align}
+		\int_{-\infty}^{\infty}{\frac{1}{1 + x^4} dx}
+	\end{align}
+	
+	\vspace{2em}
+	\begin{solution}
+		Consider $f(z) = \frac{1}{1 + z^4}$ and the contour $\gamma_1 \circ \gamma_2$. \\
+		\hspace*{5em}($\gamma_1$ 为$(-R, 0)$ 到$(R , 0)$的实直线，$\gamma_2$ 为$(R,0)$ 到$(-R,0)$ 的上半圆周)\\
+		For sufficiently large $R$, the contour $\gamma_1 \circ \gamma_2$ contains poles $e^{\frac{\pi i}{4}} , e^{\frac{3\pi i}{4}}$ of $f$. \\
+		By the \textbf{Residue Formula (Thm \ref{thm 7.4.2})},
+		\begin{align}
+			\int_{\gamma_1 \circ \gamma_2}{f(z) dz} = 2 \pi i \left( Res_{e^{\frac{\pi i}{4}}}f + Res_{e^{\frac{3\pi i}{4}}}f \right)
+		\end{align}
+		By the \textbf{L'Hospital's Rule (Thm \ref{thm A.1.1})}, since $e^{\frac{\pi i}{4}}$ is a simple pole of $f$, we compute
+		\begin{align}
+			Res_{e^{\frac{\pi i}{4}}}f 
+			= \lim_{z \to e^{\frac{\pi i}{4}}}{(z - e^{\frac{\pi i}{4}}) f(z)}
+			= \lim_{z \to e^{\frac{\pi i}{4}}}{\frac{z - e^{\frac{\pi i}{4}}}{1 + z^4}}
+			\overset{L'Hospital}{=} \frac{1}{4 e^{\frac{3\pi i}{4}}} 
+			= \frac{1}{4} e^{-\frac{3 \pi i}{4}}
+		\end{align}
+		Similarly, we have
+		\begin{align}
+			Res_{e^{\frac{3 \pi i}{4}}}f = \lim_{z \to e^{\frac{3 \pi i}{4}}}{(z - e^{\frac{3 \pi i}{4}}) f(z)} = \frac{1}{4} e^{-\frac{\pi i}{4}}
+		\end{align}
+		Then
+		\begin{align}
+			\int_{\gamma_1 \circ \gamma_2}{f(z) dz} 
+			&= \int_{\gamma_1}{f(z) dz} + \int_{\gamma_2}{f(z) dz} \\ 
+			&= 2 \pi i \left( Res_{e^{\frac{\pi i}{4}}}f + Res_{e^{\frac{3\pi i}{4}}}f \right) 
+			= \frac{\sqrt{2}}{2}\pi 
+		\end{align}
+		Note that
+		\begin{align}
+			\left| \int_{\gamma_2}{f(z) dz} \right| 
+			= \left| \int_{\gamma_2}{\frac{1}{1 + z^4} dz} \right|
+			\leq  \sup_{z \in \gamma_2}{\left| f(z) \right|} \cdot length(\gamma_2)
+		\end{align}
+		Since $\left| 1 + z^4 \right| \geq \left| z^4 \right| - 1$, then $\sup_{z \in \gamma_2} \leq \frac{1}{R^4 - 1}$.
+		\begin{align}
+			\left| \int_{\gamma_2}{f(z) dz} \right|
+			\leq \sup_{z \in \gamma_2}{\left| f(z) \right|} \cdot length(\gamma_2)
+			\leq \frac{\pi R}{R^4 - 1} \to 0 , \,\, as \,\, R \to \infty
+		\end{align}
+		Thus
+		\begin{align}
+			\int_{-\infty}^{\infty}{\frac{1}{1 + x^4} dx} 
+			= \lim_{R \to \infty}{\int_{\gamma_1}{f(z) dz}}
+			&= \lim_{R \to \infty}{\int_{\gamma_1}{f(z) dz}} + \lim_{R \to \infty}{\int_{\gamma_2}{f(z) dz}} \\
+			&= \lim_{R \to \infty}{\int_{\gamma_1 \circ \gamma_2}{f(z) dz}} \\
+			&= \frac{\sqrt{2}}{2} \pi
+		\end{align}
+	\end{solution}
+	
+	\newpage
+	
+	\item Evaluate
+	\begin{align}
+		\int_{-\infty}^{\infty}{\frac{1}{1 + x^n} dx} , \,\, n \geq 2
+	\end{align}
+	
+	\vspace{2em}
+	
+	\item \textbf{(课本P103 T3.)}\\
+	Evaluate
+	\begin{align}
+		\int_{-\infty}^{\infty}{\frac{\cos{x}}{x^2 + a^2} dx} , \,\, a > 0
+	\end{align}
+	
+	\vspace{2em}
+	\begin{solution}
+		Let $f(z) = \frac{e^{iz}}{z^2 + a^2}$. Consider the contour $\gamma_1 \circ \gamma_2$. 
+		\begin{center}
+			($\gamma_1$ 为$(-R, 0)$ 到$(R , 0)$的实直线，$\gamma_2$ 为$(R,0)$ 到$(-R,0)$ 的上半圆周)
+		\end{center}
+		Since $\frac{\sin{x}}{x^2 + a^2}$ 为奇函数，
+		\begin{align}
+			\int_{-\infty}^{+\infty}{\frac{\sin{x}}{x^2 + a^2} dx} = 0
+		\end{align}
+		Then
+		\begin{align}
+			I = \int_{-\infty}^{\infty}{\frac{\cos{x}}{x^2 + a^2} dx}
+			= \int_{-\infty}^{+\infty}{\frac{e^{ix}}{x^2 + a^2} dx}
+			= \lim_{R \to \infty}{\int_{\gamma_1}{f(z) dz}}
+		\end{align}
+		By the \textbf{Residue Formula (Thm \ref{thm 7.4.2})},
+		\begin{align}
+			\int_{\gamma_1 \circ \gamma_2}{f(z) dz} = 2 \pi i \cdot Res_{ai}f
+			= 2 \pi i \lim_{z \to ai}{\frac{e^{iz}}{z + ai}}
+			= \frac{\pi e^{-a}}{a}
+		\end{align}
+		Since
+		\begin{align}
+			\left| \int_{\gamma_2}{f(z) dz} \right| 
+			\leq \sup_{0 \leq \vartheta \leq \pi}{\left| \frac{e^{i(R\cos{\vartheta} + iR\sin{\vartheta})}}{R^2 e^{i2\vartheta} + a^2} \right|} \cdot \pi R
+			\leq \frac{\pi R}{R^2 - a^2} \to 0 , \,\, as \,\, R \to \infty
+		\end{align}
+		Therefore
+		\begin{align}
+			I = \int_{-\infty}^{\infty}{\frac{\cos{x}}{x^2 + a^2} dx}
+			= \int_{-\infty}^{+\infty}{\frac{e^{ix}}{x^2 + a^2} dx}
+			= \lim_{R \to \infty}{\int_{\gamma_1}{f(z) dz}}
+			&= \lim_{R \to \infty}{\int_{\gamma_1 \circ \gamma_2}{f(z) dz}} \\
+			&= \frac{\pi e^{-a}}{a}
+		\end{align}
+	\end{solution}
+	
+	\vspace{2em}
+	
+	\item 课本第三章练习$T1 \sim T8$.
+	
+	\vspace{2em}
+	
+	\item 课本P79 例2.
+\end{enumerate}
+
+
+
+
+
+
+	%  ############################
+	\ifx\allfiles\undefined
+\end{document}
+\fi

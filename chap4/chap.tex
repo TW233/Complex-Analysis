@@ -1,0 +1,363 @@
+\ifx\allfiles\undefined
+\input{../config/config}
+\begin{document}
+	% \input{../config/cover} 
+	\else
+	\fi
+	%  ############################ 正文部分
+
+\chapter{$Week \,\, 4$}
+\section{曲线积分}
+\paragraph{积分}
+下面先给出复数域上积分的定义.
+\begin{defn}\label{def 4.1.1}
+	Let $z(t) = x(t) + i y(t)$, $t \in [a , b] \subset \R$. If $x(t) , y(t)$ are differentiable, we define $z^{'}(t) = x^{'}(t) + i y^{'}(t)$.\\
+	Similarly, if $x(t) , y(t)$ are continuous, we define
+	\begin{align}
+		\int_{a}^{b}{z(t) dt} = \int_{a}^{b}{x(t) dt} + i \int_{a}^{b}{y(t) dt}
+	\end{align}
+\end{defn}
+
+\vspace{2em}
+容易证明，复数域上的积分同样具有三角不等式.
+\begin{proposition}\label{prop 4.1.1}
+	Let $f : [a , b] \longrightarrow \C$ be continuous. Then 
+	\begin{align}
+		\left| \int_{a}^{b}{f(t) dt} \right| \leq \int_{a}^{b}{\left| f(t) \right| dt}
+	\end{align}
+	
+	\vspace{2em}
+	\begin{proof}
+		Write $\int_{a}^{b}{f(t) dt} = r e^{i\vartheta}$, $r \geq 0$. Then
+		\begin{align}
+			r = e^{-i\vartheta} \int_{a}^{b}{f(t) dt} = \int_{a}^{b}{e^{-i\vartheta} f(t) dt} 
+			&= \left| \int_{a}^{b}{Re \, e^{-i\vartheta} f(t) dt} \right| \\
+			&\leq \int_{a}^{b}{\left| Re \, e^{-i\vartheta} f(t) \right| dt} \\
+			&\leq \int_{a}^{b}{\left| e^{-i\vartheta} f(t) \right| dt} = \int_{a}^{b}{\left| f(t) \right| dt}
+		\end{align}
+	\end{proof}
+\end{proposition}
+
+\newpage
+\paragraph{曲线积分}
+下面给出复数域上\textbf{连续}道路的\textbf{曲线积分}的定义.
+\begin{defn}\label{def 4.1.2}
+	Let $\Omega \subset \C$ be open. Given a smooth path $\gamma$ in $\Omega$ parametrized by $z : [a , b] \longrightarrow \Omega$ and a continuous funciton $f : \Omega \longrightarrow \C$. We define the \underline{\textcolor{blue}{\textbf{integral of $f$ along $\gamma$}}} by
+	\begin{align}
+		\int_{\gamma}{f(z) dz} \coloneqq \int_{a}^{b}{f(z(t)) z^{'}(t) dt}
+	\end{align}
+	Let $\widetilde{z}(t) : [c , d] \longrightarrow \Omega$ be equivalent to $z(t)$. Then
+	\begin{align}
+		\int_{a}^{b}{f(z(t)) z^{'}(t) dt} = \int_{c}^{d}{f(\widetilde{z}(t)) \widetilde{z}^{'}(t) dt}
+	\end{align}
+\end{defn}
+
+\vspace{2em}
+下面给出\textbf{分段连续}道路的曲线积分及\textbf{曲线长度}的定义.
+\begin{defn}\label{def 4.1.3}
+	If $\gamma$ is piecewise smooth and $z(t)$ is a piecewise smooth parametrization as before, we define
+	\begin{align}
+		\int_{\gamma}{f(z) dz} = \sum_{k = 0}^{n - 1}{\int_{a_{k}}^{a_{k + 1}}{f(z(t)) z^{'}(t) dt}}
+	\end{align}
+	The \underline{\textcolor{blue}{\textbf{length}}} of the smooth curve $\gamma$ is 
+	\begin{align}
+		\textcolor{blue}{length(\gamma)} = \int_{a}^{b}{\left| z^{'}(t) \right| dt}
+	\end{align}
+\end{defn}
+
+\vspace{2em}
+If $f = u + i v$, $z(t) = x(t) + i y(t)$, then
+\begin{align}
+	\int_{\gamma}{f(z) dz} 
+	= \int_{a}^{b}{f(z(t)) z^{'}(t) dt} 
+	&= \int_{a}^{b}{(u + iv)(x^{'}(t) + i y^{'}(t)) dt} \\
+	&= \int_{a}^{b}{(ux^{'}(t) - vy^{'}(t)) dt} + i \int_{a}^{b}{(vx^{'}(t) + uy^{'}(t)) dt} \\
+	&= \int_{\gamma}{(udx - vdy)} + i \int_{\gamma}{(vdx + udy)}
+\end{align}
+
+\vspace{2em}
+下面给出曲线积分的几条性质.
+\begin{proposition}\label{prop 4.1.2}
+	记$\gamma^{-}$ 为$\gamma$ 的反向.
+	\begin{enumerate}
+		\item[(1)]$\int_{\gamma}{f(z) dz} = -\int_{\gamma^{-}}{f(z) dz}$.
+		
+		\item[(2)]If $f(z) , g(z)$ are continuous, and $\gamma$ is a path, then $\forall \alpha , \beta \in \C$,
+		\begin{align}
+			\int_{\gamma}{(\alpha f + \beta g) dz} = \alpha \int_{\gamma}{f dz} + \beta \int_{\gamma}{g dz}
+		\end{align}
+		
+		\item[(3)]
+		\begin{align}
+			\left| \int_{\gamma}{f(z) dz} \right| \leq \sup_{\gamma}{\left| f(z) \right|} \cdot length(\gamma)
+		\end{align}
+	\end{enumerate}
+\end{proposition}
+
+\newpage
+\paragraph{原函数}
+下面我们给出\textbf{原函数}的概念.
+\begin{defn}\label{def 4.1.4}
+	If $f : \Omega \longrightarrow \C$. Assume $\exists$ a complex differentiable $F : \Omega \longrightarrow \C$, $\st$
+	\begin{align}
+		F^{'}(z) = f(z) , \,\, for \,\, every \,\, z \in \Omega
+	\end{align}
+	Then we say $f$ admits a \underline{\textcolor{blue}{\textbf{primitival}}} (or an antiderivative) on $\Omega$.
+\end{defn}
+
+\vspace{2em}
+下面的命题说明若函数有原函数，则其\uwave{曲线积分只与始末点有关，而与路径无关}.
+\begin{proposition}\label{prop 4.1.3}
+	If $f$ is a continuous function that admits a primitive $F$ on $\Omega$, and $\gamma$ is a path in $\Omega$ that begins at $w_1$ and ends at $w_2$, then
+	\begin{align}
+		\int_{\gamma}{f(z) dz}=  F(w_2) - F(w_1)
+	\end{align}
+	
+	\vspace{2em}
+	\begin{proof}
+		Let $z(t) : [a , b] \longrightarrow \Omega$ be a parametrization for $\gamma$ with $z(a) = w_1$, $z(b) = w_2$.
+		\begin{itemize}
+			\item Assume $\gamma$ is smooth. Compute
+			\begin{align}
+				\int_{\gamma}{f(z) dz} = \int_{a}^{b}{f(z(t)) z^{'}(t) dt} = \int_{a}^{b}{F^{'}(z(t)) z^{'}(t) dt} = \int_{a}^{b}{\frac{dF(z(t))}{dt} dt}
+			\end{align}
+			According to \textbf{the fundamental theorem of calculus}, we get\\
+			(分别对实部和虚部运用微积分基本定理)
+			\begin{align}
+				\int_{\gamma}{f(z) dz} 
+				= \int_{a}^{b}{F^{'}(z(t)) z^{'}(t) dt} 
+				&= \int_{a}^{b}{\frac{dF(z(t))}{dt} dt} \\
+				&= F(z(b)) - F(z(a)) = F(w_2) - F(w_1)
+			\end{align}
+			
+			\item $\gamma$ is piecewise smooth, we can proof similarly.
+		\end{itemize}
+	\end{proof}
+\end{proposition}
+
+\vspace{2em}
+由命题 \ref{prop 4.1.3}，可得到有原函数的函数$f$ 在闭曲线上积分为0.
+\begin{corollary}\label{cor 4.1.1}
+	If $\gamma$ is a closed path in $\Omega$, $f$ is continuous and admits a primitive on $\Omega$, then
+	\begin{align}
+		\int_{\gamma}{f(z) dz} = 0
+	\end{align}
+\end{corollary}
+
+\newpage
+同时，由命题 \ref{prop 4.1.3}，还可得到区域$\Omega$ 上导数恒为0的全纯函数只能为常值函数.
+\begin{corollary}\label{cor 4.1.2}
+	If $f$ is holomorphic on a region $\Omega$ and $f^{'} \equiv 0$, then $f$ is constant.
+\end{corollary}
+
+\vspace{2em}
+下面给出具有原函数的充要条件.
+\begin{thm}\label{thm 4.1.3}
+	Let $\Omega \subset \C$ be a region. $f : \Omega \longrightarrow \C$ be a continuous function. Then the following statements are equivalent:
+	\begin{enumerate}
+		\item[(1)]$f$ admits a primitive on $\Omega$.
+		
+		\item[(2)]$\forall \alpha , \beta \in \C$, $\int_{\gamma}{f(z) dz}$ is invariant for any path $\gamma$ in $\Omega$ that joins $\alpha$ to $\beta$.
+		
+		\item[(3)]$\forall \alpha , \beta \in \C$, $\int_{\gamma}{f(z) dz}$ is invariant for any zig-zag path $\gamma$ in $\Omega$ that joins $\alpha$ to $\beta$.
+		
+		\vspace{1em}
+		\begin{rmk}
+			我们将在\textbf{定理 \ref{thm 5.2.5}} 中补充一条具有原函数的充要条件. (详见\textbf{Thm \ref{thm 5.2.5} (4)} )
+		\end{rmk}
+		
+		\vspace{2em}
+		\begin{proof}
+			(1) $\Rightarrow$ (2) and (2) $\Rightarrow$ (3) are clear.
+			\begin{enumerate}
+				\item[(3) $\Rightarrow$ (1):]Fix $\alpha \in \Omega$ and define $F : \Omega \longrightarrow \C$ by 
+				\begin{align}
+					F(z_0) = \int_{\gamma}{f(z) dz} , \,\, z_0 = x_0 + i y_0 \in \Omega
+				\end{align}
+				where $\gamma$ is any zig-zag path joining $\alpha$ to $z_0$.
+				\begin{center}
+					(\textbf{$F$ is Well-defined} : Condition (3) tells $F(z_0)$ is independent of the choice of $\gamma$.)
+				\end{center}
+				
+				\vspace{1.5em}
+				Let $F(z) = U + i V$, $f(z) = u + i v$. It suffices to show
+				\begin{align}
+					\begin{cases}
+						U_{x}(x_0 , y_0) &= u(x_0 , y_0) \,\, , \,\, V_{x}(x_0 , y_0) = v(x_0 , y_0) \\
+						U_{y}(x_0 , y_0) &= -v(x_0 , y_0) \,\, , \,\, V_{y}(x_0 , y_0) = u(x_0 , y_0)
+					\end{cases}
+				\end{align}
+				
+				\vspace{1.5em}
+				\begin{itemize}
+					\item \textcolor{red}{$U_{x}(x_0 , y_0) = u(x_0 , y_0) \,\, , \,\, V_{x}(x_0 , y_0) = v(x_0 , y_0)$}\\
+					Let $h \in \R$. Let $\gamma$ be a zig-zag path joining $\alpha$ to $z_0$, \\
+					$\gamma_{H} : z_{H}(t) = z_0 + th$, $0 \leq t \leq 1$. $\gamma_H \subset \Omega$. Then
+					\begin{align}
+						F(z_0 + h) = \int_{\gamma \circ \gamma_H}{f(z) dz} 
+						&= \int_{\gamma}{f(z) dz} + \int_{\gamma_H}{f(z) dz} \\
+						&= F(z_0) + \int_{\gamma_H}{f(z) dz}
+					\end{align}
+					Then we get
+					\begin{align}
+						\frac{F(z_0 + h) - F(z_0)}{h} = \int_{0}^{1}{f(z_0 + th) dt}
+					\end{align}
+					Since $f$ is continuous,
+					\begin{align}
+						\lim_{\substack{h \to 0 \\ h \, \in \, \R}}{\frac{F(z_0 + h) - F(z_0)}{h}} 
+						&= \lim_{\substack{h \to 0 \\ h \, \in \, \R}}{\int_{0}^{1}{f(z_0 + th) dt}} \\
+						&= f(z_0) \\
+						&= u(x_0 , y_0) + i v(x_0 , y_0)
+					\end{align}
+					
+					\item \textcolor{red}{$U_{y}(x_0 , y_0) = -v(x_0 , y_0) \,\, , \,\, V_{y}(x_0 , y_0) = u(x_0 , y_0)$}\\
+					Similarly.
+				\end{itemize}
+			\end{enumerate}
+		\end{proof}
+	\end{enumerate}
+\end{thm}
+
+\newpage
+\section{课堂例题$2024-03-18$}
+\begin{enumerate}
+	\item Let $f(x + iy) = x$. Consider two paths $\gamma_1 , \gamma_2$ joining 0 to 1.
+	\begin{align}
+		z_{1}(t) &= t , \,\, 0 \leq t \leq 1 \\
+		z_{2}(t) &= 
+		\begin{cases}
+			t + 2t i , \,\, 0 \leq t \leq \frac{1}{2} \\
+			t + 2(1 - t)i , \,\, \frac{1}{2} \leq t \leq 1
+		\end{cases}
+	\end{align}
+	Evaluate
+	\begin{align}
+		\int_{\gamma_1}{f(z) dz} &, \,\, \int_{\gamma_2}{f(z) dz} \\
+		( = \frac{1}{2} &, \,\, = \frac{1 - i}{2})
+	\end{align}
+	
+	\vspace{2em}
+	\item Let $f(z) = \frac{1}{z}$, $z \in \C \backslash \{ 0 \}$. Let $\gamma : z(t) = R e^{it}$, $R > 0$, $0 \leq t \leq 2\pi$.\\
+	Evaluate
+	\begin{align}
+		\int_{\gamma}{f(z) dz} \,\, (= 2\pi i)
+	\end{align}
+	
+	\vspace{2em}
+	\item Let $f(z) = z^3$ and let $\sigma$ be any path joining 1 to $2 + i$. Evaluate
+	\begin{align}
+		\int_{\gamma}{f(z) dz}
+	\end{align}
+	
+	\vspace{2em}
+	\item 课本第一章练习$T26$.
+\end{enumerate}
+
+\newpage
+\section{$Cauchy's \,\, Theorem$}
+\begin{center}
+	这节我们来介绍一个重要的定理——\textbf{Cauchy's Theorem}.
+\end{center}
+
+\paragraph{单连通}
+下面先给出一个定理并借此给出曲线的\textbf{内部}和\textbf{外部}的定义.
+\begin{thm}\label{thm 4.3.1}
+	\underline{\textbf{Jordan Curve Therom}}.\\
+	Let $\gamma$ be a simple closed curve on $\C$. Then $\C \backslash \gamma$ has two connected components. The bounded component is called the \underline{\textcolor{blue}{\textbf{interior of $\gamma$}}} and the unbounded component is called the \underline{\textcolor{blue}{\textbf{exterior of $\gamma$}}}.\\
+	
+	If the simple closed path $\gamma$ is positively oriented, then Interior($\gamma$) is to the \textbf{left} while traversing $\gamma$.
+	
+	\vspace{2em}
+	\begin{proof}
+		证明见书\footnote{课堂教材：\textbf{《$Complex \,\, Analysis$》---  $Elias \,\, M. \,\, Stein$}}$Page \,\, 351$
+	\end{proof}
+\end{thm}
+
+\vspace{2em}
+下面给出\textbf{单连通集}的定义.
+\begin{defn}\label{def 4.3.1}
+	A region $\Omega \subset \C$ is \underline{\textcolor{blue}{\textbf{simply connected}}} if for every closed path $\gamma \subset \Omega$, $Interior(\gamma) \subset \Omega$.
+\end{defn}
+
+\vspace{2em}
+\begin{example}\label{ex 4.3.1}
+	下面给出几个常见的单连通集 / 非单连通集的例子.
+	\begin{itemize}
+		\item $\C$, $D_{r}(z_0)$, $r > 0 , z_0 \in \C$ are simply connected.
+		
+		\item $\C \backslash \{ 0 \}$, $D_{r}^{*}(z_0)$ are not simply connected.
+		
+		\item $\C \backslash \R_{\leq 0}$ is simply connected.
+	\end{itemize}
+\end{example}
+
+\newpage
+\paragraph{Cauchy's Theorem}
+下面介绍\textbf{Cauchy's Theorem}.
+\begin{thm}\label{thm 4.3.2}
+	Let $\Omega \subset \C$ be \textcolor{red}{\textbf{simply connected}}, $f : \Omega \longrightarrow \C$ be holomorphic. Then for any closed path $\gamma$,
+	\begin{align}
+		\int_{\gamma}{f(z) dz} = 0
+	\end{align}
+	
+	\vspace{1em}
+	\begin{rmk}
+		条件中$\Omega$ 单连通\textcolor{red}{\textbf{不可省略}}. 下面给出反例.
+		\begin{example}\label{ex 4.3.2}
+			Let $\Omega = \C \backslash \{ 0 \}$, $f(z) = \frac{1}{z}$. Then $f$ is holomorphic on $\Omega$ and ($C_{1}(0)$ 表示单位圆周)
+			\begin{align}
+				\int_{C_{1}(0)}{f(z) dz} = 2\pi i \neq 0
+			\end{align}
+		\end{example}
+	\end{rmk}
+	
+	\vspace{2em}
+	\begin{proof}
+		The result would follow if \uwave{$f$ has a primitive on $\Omega$}. \\
+		By Thm \ref{thm 4.1.3}, thus it suffices to show that for any two zig-zag paths $\gamma_1 , \gamma_2$ having the same starting points and ending points,
+		\begin{align}
+			&\int_{\gamma_1}{f(z) dz} = \int_{\gamma_2}{f(z) dz} \\
+			&i.e. \,\, \int_{\gamma_{1} \circ \gamma_{2}^{-1}}{f(z) dz} = 0
+		\end{align}
+		Equivalently, we have to show $\int_{\gamma}{f(z) dz} = 0$ for any closed zig-zag path $\gamma$.\\
+		By concatecnating some horizontal or vertical paths, any closed zig-zag path is the union of rectangle paths.\\
+		Thus we are done if we can show $\int_{R}{f(z) dz} = 0$, where $R$ is a rectangle path.\\
+		Note that 
+		\begin{align}
+			\int_{R}{f(z) dz} = \int_{T_1}{f(z) dz} + \int_{T_2}{f(z) dz}
+		\end{align}
+		Then the theorem boils down to showing $\int_{T}{f(z) dz} = 0$ for any triangle path $T$ in $\Omega$.
+		\begin{center}
+			(This is Coursat Theorem on P34.)
+		\end{center}
+	\end{proof}
+\end{thm}
+
+\newpage
+下面给出\textbf{Cauchy's Theorem} 的另一种叙述，\textcolor{red}{\textbf{这里并不对$f$ 的定义域$\Omega$ 做单连通要求}}.
+\begin{thm}\label{thm 4.3.3}
+	Let $\gamma$ be a simple closed path. If $f$ is holomorphic in Interior($\gamma$) and continuous on $\gamma$, then
+	\begin{align}
+		\int_{\gamma}{f(z) dz} = 0
+	\end{align}
+\end{thm}
+
+\newpage
+\section{课堂例题$2024-03-22$}
+\begin{enumerate}
+	\item 课本第一章练习$T25$.
+	
+	\vspace{2em}
+	
+	\item 课本第二章练习$T5 , T6$.
+\end{enumerate}
+
+
+
+
+
+
+	%  ############################
+	\ifx\allfiles\undefined
+\end{document}
+\fi

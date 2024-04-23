@@ -1,0 +1,402 @@
+\ifx\allfiles\undefined
+\input{../config/config}
+\begin{document}
+	% \input{../config/cover} 
+	\else
+	\fi
+	%  ############################ 正文部分
+
+\chapter{$Week \,\, 3$}
+\section{幂级数，解析函数，复对数}
+与数学分析中的概念一致，下面相当于来复习一下有关\textbf{幂级数}的概念.
+\begin{itemize}
+	\item 幂级数$\overset{\infty}{\underset{n = 0}{\sum}}{z_n}$ converges $\Leftrightarrow$ 部分和$\{ S_N = \overset{N}{\underset{n = 0}{\sum}}{z_n} \}$ converges.
+	
+	\item $\overset{\infty}{\underset{n = 0}{\sum}}{\left| z_n \right|}$ converges $\Rightarrow$ The series converges absolutely(绝对收敛).
+	
+	\item \textbf{Absolutely convergent} $\Rightarrow$ \textbf{convergent}
+	
+	\item If $\overset{\infty}{\underset{n = 0}{\sum}}{z_n}$ converges, then $\underset{n \to \infty}{\lim}{z_n} = 0$.
+\end{itemize}
+
+\vspace{2em}
+A power series (with center 0) is an expansion of the form $\overset{\infty}{\underset{n = 0}{\sum}}{a_n z^n}$, where $a_n \in \C$ are fixed and $z$ varies in $\C$.(下面通常讨论形式为$\overset{\infty}{\underset{n = 0}{\sum}}{a_n z^n}$ 的幂级数)
+
+\vspace{2em}
+下面给出复幂级数的\textbf{收敛半径}的定义及\textbf{收敛圆盘}.
+\begin{thm}\label{thm 3.1.1}
+	Given a power series $\overset{\infty}{\underset{n = 0}{\sum}}{a_n z^n}$, define
+	\begin{align}
+		R = \varliminf_{n \to \infty}{\left| a_n \right|^{-\frac{1}{n}}} = \frac{1}{\underset{n \to \infty}{\varlimsup}{\left| a_n \right|^{\frac{1}{n}}}} 
+		\,\,\,\, (\textbf{Hardamard's Formula})
+	\end{align}
+	(Here we use the convertion $\frac{1}{\infty} = 0$, $\frac{1}{0} = \infty$.) Then
+	\begin{enumerate}
+		\item[(1)]If $\left| z \right| < R$, the series converges absolutely.
+		
+		\item[(2)]If $\left| z \right| > R$, the series diverges.
+	\end{enumerate}
+	
+	\begin{rmk}
+		The number $R$ is called the \underline{\textcolor{blue}{\textbf{radius of convergence}}} of the power series, \\
+		and the region $\left| z \right| < R$ is called the \underline{\textcolor{blue}{\textbf{disc of convergence}}}.
+	\end{rmk}
+\end{thm}
+
+\newpage
+\begin{example}\label{ex 3.1.1}
+	下面给出一些用\uwave{幂级数定义}的常见函数的例子.
+	\begin{itemize}
+		\item Exponential function
+		\begin{align}
+			e^z \coloneqq \sum_{n = 0}^{\infty}{\frac{z^n}{n!}} , \,\, z \in \C
+		\end{align}
+		
+		\item Trigonometric function
+		\begin{align}
+			\cos{z} \coloneqq \sum_{n = 0}^{\infty}{(-1)^{n} \frac{z^{2n}}{(2n)!}} \,\, , \,\, \sin{z} \coloneqq \sum_{n = 0}^{\infty}{(-1)^{n} \frac{z^{2n + 1}}{(2n + 1)!}}
+		\end{align}
+		
+		\item 双曲余弦、正弦
+		\begin{align}
+			\cosh{z} \coloneqq \sum_{n = 0}^{\infty}{\frac{z^{2n}}{(2n)!}} \,\, , \,\, \sinh{z} \coloneqq \sum_{n = 0}^{\infty}{\frac{z^{2n + 1}}{(2n + 1)!}}
+		\end{align}
+	\end{itemize}
+	
+	\begin{rmk}
+		由定义容易得到，$e^{iz} = \cos{z} + i\sin{z}$ $\Rightarrow$ 将$z$ 限制到$\R$ 上则有：$e^{i\vartheta} = \cos{\vartheta} + i\sin{\vartheta}$.
+		\begin{align}
+			\cos{z} = \frac{e^{iz} + e^{-iz}}{2} , \,\, \sin{z} = \frac{e^{iz} - e^{-iz}}{2}
+		\end{align}
+	\end{rmk}
+\end{example}
+
+\vspace{2em}
+下面这个定理说明了幂级数在收敛圆盘内解析. 并给出了幂级数的导数.
+\begin{thm}\label{thm 3.1.2}
+	The power series $f(z) = \overset{\infty}{\underset{n = 0}{\sum}}{a_n z^n}$ defines a holomorphic function in its disc of convergence. Moreover, $f^{'}(z) = \overset{\infty}{\underset{n = 0}{\sum}}{n a_n z^{n - 1}}$, which has the same radius of convergence.
+	
+	\vspace{2em}
+	\begin{proof}
+		\textbf{Hadamard's formula} tells $\overset{\infty}{\underset{n = 0}{\sum}}{a_n z^n}$ and $\overset{\infty}{\underset{n = 0}{\sum}}{n a_n z^{n - 1}}$ have the same $R$.\\
+		Let $g(z) = \overset{\infty}{\underset{n = 0}{\sum}}{n a_n z^{n - 1}}$, $\forall z$ with $\left| z \right| < R$, we can find $r$, $\st \left| z \right| < r < R$.\\
+		For $\forall h \in \C$ $\st \left| h \right| < r - \left| z \right|$, we estimate
+		\begin{align}
+			\left| f(z + h) - f(z) - hg(z) \right| 
+			&= \left| \sum_{n = 0}^{\infty}{a_n \left( (z + h)^n - z^n - nhz^{n - 1} \right)} \right| \\
+			&= \left| \sum_{n = 2}^{\infty}{\left( a_n \sum_{k = 2}^{n}{\tbinom{n}{k} h^k z^{n - k}} \right)} \right| \\
+			&\leq \left| h \right|^2 \sum_{n = 2}^{\infty}{\left| a_n \right|} \sum_{k = 0}^{n - 2}{\tbinom{n}{k + 2} \left| h^k z^{n - 2 - k} \right|}
+		\end{align}
+		\newpage
+		Since $\tbinom{n}{k + 2} \leq n(n - 1)\tbinom{n - 2}{k}$, then
+		\begin{align}
+			\left| f(z + h) - f(z) - hg(z) \right| 
+			&\leq \left| h \right|^2 \sum_{n = 2}^{\infty}{\left| a_n \right| n(n - 1)} \sum_{k = 0}^{n - 2}{\tbinom{n - 2}{k} \left| h \right|^k \left| z \right|^{n - 2 - k}} \\
+			&= \left| h \right|^2 \sum_{n = 2}^{\infty}{\left| a_n \right| n(n - 1) \left( \left| z \right| + \left| h \right| \right)^{n - 2}} \\
+			&< \left| h \right|^2 \sum_{n = 2}^{\infty}{\left| a_n \right| n(n - 1) r^{n - 2}} = \left| h \right|^2 \cdot c 
+		\end{align}
+		Thus
+		\begin{align}
+			\left| \frac{f(z + h) - f(z)}{h} - g(z) \right| < \left| h \right| \cdot c
+		\end{align}
+		Therefore, the result follows.
+	\end{proof}
+\end{thm}
+
+\begin{corollary}\label{cor 3.1.3}
+	A power series is infinitely differentiable in its disc of convergence.
+	
+	\begin{rmk}
+		Thm \ref{thm 3.1.2} 即说明了幂级数在收敛圆盘内解析.
+	\end{rmk}
+\end{corollary}
+
+\vspace{2em}
+下面给出推广到更一般的幂级数的导数，即中心不一定在原点的情形.\\
+A power series centered at $z_0 \in \C$ is an expression of the form
+\begin{align}
+	f(z) = \sum_{n = 0}^{\infty}{(z - z_0)^n}
+\end{align}
+Let $g(z) = \overset{\infty}{\underset{n = 0}{\sum}}{a_n z^n}$, then $f(z) = g(w)$, where $w = z - z_0$.\\
+According to the \textbf{Chain Rule}(链式法则), $f^{'}(z) = \overset{\infty}{\underset{n = 0}{\sum}}{n a_n (z - z_0)^{n - 1}}$
+
+\vspace{2em}
+下面严格地给出\textbf{解析}的定义.
+\begin{defn}\label{def 3.1.1}
+	A function $f$ defined on an open set $\Omega$ is said to be \underline{\textcolor{blue}{\textbf{analytic}}} at $z_0 \in \C$ if there is a power series $\overset{\infty}{\underset{n = 0}{\sum}}{a_n (z - z_0)^n}$ with positive radius of convergence, $\st$
+	\begin{align}
+		f(z) = \sum_{n = 0}^{\infty}{a_n (z - z_0)^n} \,\, &for \,\, all \,\, z \,\, in \,\, a \,\, neighbourhood \,\, of \,\, z_0 \\
+		&(i.e. \,\, \forall z \in D_{r}(z_0) , \,\, for \,\, some \,\, r > 0)
+	\end{align}
+	If $f$ is analytic at every point of $\Omega$, then we say f is \underline{\textcolor{blue}{\textbf{analytic on $\Omega$}}}.
+\end{defn}
+
+\newpage
+下面给出有关指数函数$e^z$ 的一些等式(命题).\\
+在此之前，先给出\textbf{Cauchy Multiplication Theorem}.
+\begin{lemma}\label{lemma 3.1.4}
+	If $\sum{a_n}$, $\sum{b_n}$ are absolutely convergent, then
+	\begin{align}
+		\sum_{n = 0}^{\infty}{\left( \sum_{k = 0}^{n}{a_k b_{n - k}} \right)} = \left( \sum{a_n} \right) \left( \sum{b_n} \right)
+	\end{align}
+\end{lemma}
+
+\vspace{2em}
+\begin{proposition}\label{prop 3.1.1}
+	For $z_1 , z_2 \in \C$, $e^{(z_1 + z_2)} = e^{z_1} \cdot e^{z_2}$.
+\end{proposition}
+
+\vspace{2em}
+\begin{corollary}\label{cor 3.1.5}
+	If $z = x + iy$, $x , y \in \R$, then
+	\begin{align}
+		e^z = e^x (\cos{y} + i\sin{y})
+	\end{align}
+\end{corollary}
+
+\vspace{2em}
+\begin{corollary}\label{cor 3.1.6}
+	\textbf{De Moire's Formula}.\\
+	For $\vartheta \in \R$,
+	\begin{align}
+		(\cos{\vartheta} + i\sin{\vartheta})^n = \cos{n\vartheta} + i\sin{n\vartheta}
+	\end{align}
+\end{corollary}
+
+\vspace{2em}
+下面来引入复数域上的\textbf{对数函数(Complex Logarithm)}.\\
+$\forall z \in \C \backslash \{ 0 \}$, write $z = r e^{i\vartheta}$. Then $e^w = z$ can be solved.\\
+If $w = u + iv$, $u , v \in \R$, then
+\begin{align}
+	e^u \cdot e^{iv} = r e^{i\vartheta} \,\, \Rightarrow \,\, u = \log{r} , \,\, v = \vartheta + 2k\pi , k \in \Z
+\end{align}
+
+Let $Log(z)$ be the set of above, then we get Complex Logarithm.
+
+\begin{defn}\label{def 3.1.2}
+	$\forall z \in \C \backslash \{ 0 \}$. Define
+	\begin{align}
+		Log(z) \coloneqq \log{\left| z \right|} + i(\arg{z} + 2k\pi) , k \in \Z
+	\end{align}
+	Here $\arg{z}$ is an argument of $z$ satisfying $-\pi < \arg{z} \leq \pi$.
+	\begin{center}
+		(We call $\arg{z}$ the \textcolor{blue}{\textbf{principal argument}} of $z$.) 
+	\end{center}
+\end{defn}
+
+\newpage
+下面介绍复对数的\textbf{主值支}的概念.
+\begin{defn}\label{def 3.1.3}
+	Define the \underline{\textcolor{blue}{\textbf{principal branch}}} of the logarithm on a "cut plane"
+	\begin{align}
+		\log : \C \backslash \R_{\leq 0} &\longrightarrow \C \\
+		z &\longmapsto \log{\left| z \right|} + i\arg{z} , \,\, -\pi < \arg{z} < \pi
+	\end{align}
+\end{defn}
+
+\vspace{2em}
+\begin{example}\label{ex 3.1.2}
+	\begin{align}
+		Log(-1) &= (2k + 1)\pi i \\
+		Log(i) &= (2k + \frac{1}{2})\pi i \\
+		\log{i} &= \frac{\pi}{2}i \\
+		\log{(1 + i)} &= \frac{1}{2}\log{2} + \frac{\pi}{4}i
+	\end{align}
+\end{example}
+
+\vspace{2em}
+\begin{proposition}
+	\begin{align}
+		e^{Log(z)} &= z , \,\, z \neq 0 \\
+		Log(z_1 z_2) &= Log(z_1) + Log(z_2) \\
+		\log{z_1 z_2} &\neq \log{z_1} + \log{z_2} \,\, in \,\, general
+	\end{align}
+\end{proposition}
+
+\newpage
+\section{课堂例题$2024-03-11$}
+\begin{enumerate}
+	\item Let $z \neq 0$. Then $\exists n$ different $z_0 , \cdots , z_{n - 1}$, $\st$
+	\begin{align}
+		z_{k}^{n} = z , \,\, k = 0 , \cdots , n - 1
+	\end{align}
+	
+	\vspace{2em}
+	\begin{solution}
+		Let $z = \left| z \right| e^{i\vartheta}$, $w = r e^{it}$, $r > 0$, $t \in \R$. Then
+		\begin{align}
+			w^n = z \,\, \Rightarrow \,\, r^n e^{int} = \left| z \right| e^{i\vartheta} \,\, \Rightarrow \,\, 
+			\begin{cases}
+				r = \left| z \right|^{\frac{1}{n}} \\
+				nt = \vartheta + 2k\pi , k \in \Z
+			\end{cases}
+		\end{align}
+	\end{solution}
+	
+	\vspace{2em}
+	
+	\item Proof
+	\begin{align}
+		\left| \sum_{k = 0}^{n}{e^{ikx}}  \right| \leq \left| \frac{1}{\sin{\frac{x}{2}}} \right| , \,\, \forall x \in \R \backslash \{ 2k\pi \mid k \in \Z \}
+	\end{align}
+	
+	\vspace{2em}
+	
+	\item 课本第一章练习$T16 , T19$
+\end{enumerate}
+
+\newpage
+\section{复对数的性质}
+Let $\alpha \in \C$. We may define
+\begin{align}
+	z^\alpha = e^{\alpha \log{z}} , \,\, z \neq 0
+\end{align}
+
+\vspace{2em}
+\begin{proposition}\label{prop 3.3.1}
+	The function $f(z) = \log{z}$, $z \in \C \backslash \R_{\leq 0}$ is holomorphic.
+	
+	\vspace{2em}
+	\begin{proof}
+		$\forall z_0 \in \C \backslash \R_{\leq 0}$, let $w = \log{z}$, $w_0 = \log{z_0}$. Then
+		\begin{align}
+			\lim_{z \to z_0}{\frac{\log{z} - \log{z_0}}{z - z_0}} = \lim_{w \to w_0}{\frac{w - w_0}{e^w - e^{w_0}}} = \frac{1}{e^{w_0}} = \frac{1}{z_0}
+		\end{align}
+		Therefore, $(\log{z})^{'} = \frac{1}{z}$.
+	\end{proof}
+\end{proposition}
+
+\vspace{2em}
+\begin{proposition}\label{prop 3.3.2}
+	Show
+	\begin{align}
+		\log{(1 + z)} = \sum_{n = 1}^{\infty}{(-1)^{n - 1}\frac{z^n}{n}} \,\, on \,\, \mathcal{D}
+	\end{align}
+	
+	\vspace{2em}
+	\begin{proof}
+		Let $f(z) = \log{(1 + z)}$, $g(z) = \overset{\infty}{\underset{n = 1}{\sum}}{(-1)^n \frac{z^{n - 1}}{n}}$. Both are holomorphic on $\mathcal{D}$ and
+		\begin{align}
+			f^{'}(z) = \frac{1}{1 + z} \,\, , \,\, g^{'}(z) = \sum_{n = 1}^{\infty}{(-1)^n z^{n - 1}} = \frac{1}{1 + z}
+		\end{align}
+		And so $(f - g)^{'} = 0$ on $\mathcal{D}$. Therefore, $f - g = c$. Taking $z = 0$, $f(0) = g(0)$ $\Rightarrow$ $c = 0$.
+	\end{proof}
+\end{proposition}
+
+\newpage
+\section{道路}
+先给出\textbf{道路(path)} 的定义.
+\begin{defn}\label{def 3.4.1}
+	A continuous function $z(t) = x(t) + i y(t)$ from $[a , b] \subset \R$ to $\C$ is called a \underline{\textcolor{blue}{\textbf{path}}} (or a parametric curve) connecting $z(a)$ and $z(b)$.($z(a)$ is called the starting point, $z(b)$ the end point)\\
+	The path is \underline{\textcolor{blue}{\textbf{closed}}} if $z(a) = z(b)$.\\
+	The path is \underline{\textcolor{blue}{\textbf{simple}}} if $z(t) \neq z(s)$ unless 
+	$\begin{cases}
+		(1) t = s\\
+		(2) t = a , s = b
+	\end{cases}$
+\end{defn}
+
+\vspace{2em}
+下面给出道路\textbf{光滑性}的描述.
+\begin{defn}\label{def 3.4.2}
+	We say that a path $z(t) = x(t) + i y(t)$, $t \in [a , b]$ is \underline{\textcolor{blue}{\textbf{smooth}}} if $x(t) , y(t)$ are continuously differentiable and $z^{'}(t) = x^{'}(t) + i y^{'}(t) \neq 0$, $t \in [a , b]$. Here $z^{'}(a) , z^{'}(b)$ are understood as one-sided derivative.
+\end{defn}
+
+\vspace{2em}
+下面给出两条道路\textbf{等价}的定义.
+\begin{defn}
+	Two paths $z : [a , b] \longrightarrow \C$, $\widetilde{z} : [c, d] \longrightarrow \C$ are \underline{\textcolor{blue}{\textbf{equivalent}}} if $\exists$ bijection and differential
+	\begin{align}
+		t : [c , d] &\longrightarrow [a , b] \\
+		s &\longmapsto t(s)
+	\end{align}
+	$\st \widetilde{z}(s) = z(t(s))$ and $t^{'}(s) > 0$.
+\end{defn}
+
+\vspace{2em}
+下面给出\textbf{道路反向}的定义.
+\begin{defn}\label{def 3.4.4}
+	Given a path $z$, we can define a path $\widetilde{z}$ obtained from $z$ by reversing the orietation
+	\begin{align}
+		z(t) &: [a , b] \longrightarrow \C \\
+		\widetilde{z}(t) = z(a + b - t) &: [a , b] \longrightarrow \C
+	\end{align}
+\end{defn}
+
+\newpage
+这里我们规定一下道路的\textbf{正向 / 逆向}(逆时针为正向).
+\begin{defn}\label{def 3.4.5}
+	A path has \underline{\textcolor{blue}{\textbf{positive orientation}}} if it travels counterclockwisely.\\
+	($\cdots$ \underline{\textcolor{blue}{\textbf{negative orientation}}} $\cdots$ clockwisely.)
+\end{defn}
+
+\vspace{2em}
+下面我们给出\textbf{分段光滑}的定义.
+\begin{defn}\label{def 3.4.6}
+	A path $z(t) : [a , b] \longrightarrow \C$ is \underline{\textcolor{blue}{\textbf{piecewise smooth}}} if $\exists$ a partion $a = a_0 < a_1 < \cdots < a_n = b$, $\st$ $z(t)$ is smooth in each $[a_k , a_{k + 1}]$, $k = 0 , \cdots , n - 1$.
+\end{defn}
+
+\vspace{2em}
+下面说明两条道路的\textbf{连接}.\\
+Paths can be concatenated. If $z : [a , b] \longrightarrow \C$, $\widetilde{z} : [b , c] \longrightarrow \C$ and $z(b) = \widetilde{z}(b)$, we can define $w : [a , c] \longrightarrow \C$ as $w(t) = 
+\begin{cases}
+	z(t) , a \leq t \leq b\\
+	\widetilde{z}(t) , b \leq t \leq c
+\end{cases}$.
+\underline{\textcolor{blue}{\textbf{Concatenation}}} of $z , \widetilde{z}$ is denoted as \textcolor{blue}{$z \circ \widetilde{z}$}.\\
+
+\vspace{2em}
+下面给出\textbf{zig-zag道路}的定义.
+\begin{defn}\label{def 3.4.7}
+	A path is \underline{\textcolor{blue}{\textbf{zig-zag}}} if it consists of finitely many horizontal or vertical line seqments.
+\end{defn}
+
+\vspace{2em}
+下面的命题说明区域内的任两点可由一条zig-zag道路连接.
+\begin{proposition}\label{prop 3.4.1}
+	Let $\Omega \subset \C$ be a region. Then any two points in $\Omega$ can be joined by a zig-zag path.
+	
+	\vspace{2em}
+	\begin{proof}
+		\begin{itemize}
+			\item Case when $\Omega = D_{R}(z_0)$, where $z_0 \in \C$, $R > 0$.\\
+			$\forall \alpha , \beta \in \Omega$, we can join them to the horiziontal diameter via a vertical line seqment.
+			
+			\item Now let $\Omega$ be an arbitrary region. $\forall \alpha \in \Omega$. Let
+			\begin{align}
+				A \coloneqq \{ \beta \in \Omega \mid \exists \,\, zig-zag \,\, path \,\, \gamma \,\, connecting \,\, \beta \,\, and \,\, \alpha \}
+			\end{align}
+			Then 容易证$\alpha \in A \neq \varnothing$ 既开又闭，从而$A = \Omega$.
+		\end{itemize}
+	\end{proof}
+\end{proposition}
+
+\newpage
+\section{课堂例题$2024-03-15$}
+\begin{enumerate}
+	\item Calculate $2^i$, $i^i$.
+	
+	\vspace{2em}
+	
+	\item Find all possible values of $(1 + \sqrt{3}i)^{\frac{1}{8}}$.
+	
+	\vspace{2em}
+	
+	\item Let $z_n \in \C$, $Rez_n \geq 0$, $n = 1 , 2 , \cdots$. If $\overset{\infty}{\underset{n = 1}{\sum}}{z_n}$ and $\overset{\infty}{\underset{n = 1}{\sum}}{z_{n}^2}$ both converge, show that $\overset{\infty}{\underset{n = 1}{\sum}}{\left| z_n \right|^2}$ converges.
+	
+	\vspace{2em}
+	
+	\item Let $f(z) = \overset{\infty}{\underset{n = 1}{\sum}}{a_n z^n}$ be holomorphic on $\mathcal{D}$. Assume $\left| f(z) \right| \leq 1$, $\forall z \in \mathcal{D}$. Show $\left| a_n \right| \leq 1$, $n = 1 , 2 , \cdots$.
+	
+	\vspace{2em}
+\end{enumerate}
+
+
+
+
+
+
+	%  ############################
+	\ifx\allfiles\undefined
+\end{document}
+\fi
