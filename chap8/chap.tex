@@ -53,7 +53,7 @@
 	\end{defn}
 
 \vspace{2em}
-\subsection{\textbf{Classification of isolated singularities}}
+\subsection{$Classification \,\, of \,\, isolated \,\, singularities$}
 	下面我们对\textbf{奇点}进行分类.
 	\begin{defn}\label{def 8.2.2}
 		Let $f : D_{r}^{*}(z_0) \rightarrow \C$ where $r > 0 , z_0 \in \C$ be holomorphic with the Laurent expansion
@@ -91,7 +91,7 @@
 		下面主要研究\textbf{孤立奇点}附近的性态，并给出各类孤立奇点的等价刻画.
 	\end{center}
 
-\subsection{\textbf{Removable Singularity}}
+\subsection{$Removable \,\, Singularity$}
 	首先，介于\textbf{可去奇点}的良好性质，我们可在简单的操作后令函数\textbf{全纯}，即：
 	\begin{rmk}
 		If $z_0$ is a removable singularity of $f : D_{r}^{*}(z_0) \rightarrow \C$, then we define $f(z_0) = a_0$ so that $f$ is holomorphic in $D_{r}(z_0)$, where
@@ -166,7 +166,7 @@
 	\end{corollary}
 
 \newpage
-\subsection{\textbf{Pole}}
+\subsection{$Pole$}
 	作为\textbf{定理 \ref{thm 8.3.1}}的推论，下面我们给出\textbf{极点}的\textbf{等价刻画}.
 	\begin{corollary}\label{cor 8.3.3}\footnote{对应课本P85 Cor 3.2}
 		If $z_0$ is a singularity of $f$, then
@@ -197,7 +197,7 @@
 	\end{corollary}
 
 \vspace{2em}
-\subsection{\textbf{Essential Singularity}}
+\subsection{$Essential \,\, Singularity$}
 	在排除了\textbf{定理 \ref{thm 8.3.1}}和\textbf{Cor \textbf{cor 8.3.3}}的情况后，下面我们给出\textbf{本性奇点}的\textbf{等价刻画}.
 	\begin{corollary}\label{cor 8.3.4}
 		If $z_0$ is a singularity of $f$, then
@@ -214,14 +214,6 @@
 		\end{align}
 		Therefore $0$ is an essential singularity of $f$.
 	\end{example}
-
-
-
-
-
-
-
-
 
 \newpage
 \section{课堂例题$2024-04-15$}
@@ -260,6 +252,209 @@
 	\item 课本第三章练习$T13$.
 \end{enumerate}
 
+\newpage
+\section{本性奇点附近的不稳定性}
+	由\textbf{定理 \ref{thm 8.3.1}}和\textbf{推论 \ref{cor 8.3.3}}可知，函数在\textbf{可去奇点}和\textbf{极点}附近的性态是\textbf{``稳定的"}，是\textbf{``有迹可循的"}. 但接下来我们将说明，全纯函数在\textbf{本性奇点}附近的性态是\textbf{``不稳定的" (erratically)}，是\textbf{``无迹可寻的"}.
+
+\vspace{2em}
+\subsection{$Casorati-Weierstrass$ 定理}
+	下面的定理说明了，全纯函数在\textbf{本性奇点}附近的值域是整个复数域$\C$ 的\textbf{稠密子集}.
+	\begin{thm}\label{thm 8.5.1}\footnote{\textbf{《$Complex \,\, Analysis$》---  $Elias \,\, M. \,\, Stein$} P86 Thm 3.3}
+		\textbf{Casorati-Weierstrass}. \\
+		Let $f : D_{r}^{*}(z_0) \rightarrow \C$ be holomorphic and $z_0$ be an essential singularity of $f$. Then the image of $f$ is dense in $\C$, that is,
+		\begin{center}
+			$\forall w \in \C$, $\forall \epsilon > 0$, $\exists z \in D_{r}^{*}(z_0)$, $\st \left| f(z) - w \right| < \epsilon$.
+		\end{center}
+	
+		\vspace{4em}
+		\begin{proof}
+			反证法. Assume $\exists w \in \C$, $\delta > 0$, $\st \forall z \in D_{r}^{*}(z_0)$, $\left| f(z) - w \right| \geq \delta$. \\
+			Define $g(z) = \frac{1}{f(z) - w}$ on $D_{r}^{*}(z_0)$. Then $g(z)$ is holomorphic and bounded on $D_{r}^{*}(z_0)$. \\
+			By \textbf{Thm \ref{thm 8.3.1}}, $z_0$ is a removable singularity of $g$. \\
+			Define $g(z_0)$ $\st$ $g(z)$ is holomorphic on $D_{r}(z_0)$.
+			
+			\vspace{1em}
+			
+			\begin{itemize}
+				\item If $g(z_0) \neq 0$, since
+				\begin{align}
+					f(z) = \frac{1}{g(z)} + w
+				\end{align}
+				Then $z_0$ is a removable singularity of $f$, which is a contradiction.
+				
+				\vspace{2em}
+				
+				\item If $g(z_0) = 0$, then $z_0$ is a pole of $f(z) - w$. \\
+				By \textbf{Cor \ref{cor 8.3.3}}, $z_0$ is also a pole of $f(z)$, which is also a contradiction.
+			\end{itemize}
+		
+			\vspace{1em}
+			
+			Therefore, the proof is complete.
+		\end{proof}
+	\end{thm}
+
+\newpage
+\subsection{$Picard$ 定理}
+	下面给出一个有关\textbf{本性奇点附近性态}更强的结论，即\textbf{Picard定理}. 它说明了在至多除去一个点后，全纯函数在\textbf{本性奇点}附近能将复数域上每个点取无穷多次.
+	
+	\begin{thm}\label{thm 8.5.2}
+		\textbf{Picard}. \\
+		If $z_0$ is an essential singularity of $f$, then $f(z)$ can take any complex number infinitely many times with at most one exception.
+	\end{thm}
+
+\newpage
+\section{亚纯函数，扩充复平面，无穷远处孤立奇点}
+\subsection{亚纯函数}
+	在给出了\textbf{孤立奇点}的定义和刻画后，下面来讨论一类比\textbf{全纯}条件稍弱的\textbf{亚纯函数}.
+	\begin{defn}\label{def 8.6.1}
+		A function $f$ on an open set $\Omega$ is \underline{\textcolor{blue}{\textbf{meromorphic}}} if $f$ is holomorphic on $\Omega$ except for a sequence of poles in $\Omega$ and the sequence has no limit in $\Omega$.
+		
+		\vspace{1em}
+		\begin{rmk}
+			\begin{itemize}
+				\item 条件\textbf{``a sequence of poles"}既可为\textbf{有限序列}也可为\textbf{无穷序列}.
+				
+				\item 条件\textbf{``the sequence has no limit in $\Omega$"}说明极点序列在$\Omega$ 中\textbf{无聚点}.
+			\end{itemize}
+		\end{rmk}
+	\end{defn}
+
+	\vspace{2em}
+	
+	\begin{example}\label{ex 8.6.1}
+		下面给出几个\textbf{亚纯函数}的例子.
+		\begin{itemize}
+			\item $f(z) = \frac{1}{\sin{z}}$ is a meromorphic function on $\C$.
+			
+			\vspace{2em}
+			\begin{proof}
+				$\sin{z} = 0 \,\, \Leftrightarrow \,\, z = k \pi , k \in \Z$
+			\end{proof}
+			
+			\vspace{2em}
+			
+			\item \begin{align}
+				g(z) = \frac{1}{\sin{\frac{1}{1 - z}}}
+			\end{align}
+			is a meromorphic function on $\mathbb{D}$. However, $\forall \epsilon > 0$, $g(z)$ is not meromorphic on $\mathbb{D}_{1 + \epsilon}(0)$.
+			
+			\vspace{2em}
+			\begin{proof}
+				Poles of $g(z)$ are $1 - \frac{1}{k\pi}$, $k = 1 , 2 , \cdots$.
+			\end{proof}
+		\end{itemize}
+	\end{example}
+
+\newpage
+\subsection{扩充复平面}
+	与扩充实数系概念类似，下面给出\textbf{扩充复平面}的定义.
+	\begin{defn}\label{def 8.6.2}
+		The \underline{\textcolor{blue}{\textbf{extended complex plane}}}
+		\begin{center}
+			$\hat{\C} \coloneqq \C \cup \{ \infty \}$
+		\end{center}
+	
+		\vspace{1em}
+		
+		\begin{rmk}
+			由拓扑知识可知，对$\C$ 添加元素$\infty$ 后进行\textbf{单点紧致化}\footnote{可参考书籍\textbf{《基础拓扑学讲义》--- 尤承业} P60 习题18、19}后，可得到新的拓扑空间与球面$S^2$ 同胚，即
+			\begin{center}
+				$\hat{\C} \cong S^2$
+			\end{center}
+			此时可将\textbf{扩充复平面$\hat{\C}$} 视作一个\textbf{球面}，其中北极点为无穷远点$\infty$.
+		\end{rmk}
+	\end{defn}
+	
+\vspace{4em}
+\subsection{无穷远处孤立奇点}
+\paragraph{定义}
+	首先给出\textbf{无穷远处孤立奇点}的定义.
+	\begin{defn}\label{def 8.6.3}
+		Suppose $f : \hat{\C} \rightarrow \hat{\C}$ be a function on $\hat{\C}$. We say $\infty$ is an \underline{\textcolor{blue}{\textbf{isolated singularity}}} of $f$ if $\exists R > 0$, $\st$ 
+		\begin{center}
+			f is holomorphic on $\{ w \in \C \mid \left| w \right| > R \}$.
+		\end{center}
+		The set $\{ w \in \C \mid \left| w \right| > R \}$ for some $R > 0$ is called a \underline{\textcolor{blue}{\textbf{deleted neighbourhood}}} of $\infty$.
+		
+		\vspace{2em}
+		
+		\begin{rmk}
+			\begin{itemize}
+				\item 此处若将\textbf{扩充复平面$\hat{\C}$} 视作球面，则有关\textbf{无穷远处去心邻域}的定义是自然的.
+				
+				\vspace{1em}
+				
+				\item 与数学分析处理方法类似，$f$ 在$\infty$ 附近的性质与函数$F(z) = f(\frac{1}{z})$ 在$z = 0$ 处性质等价.
+			\end{itemize}
+		\end{rmk}
+	\end{defn}
+
+	\newpage
+	下面利用$F(z) = f(\frac{1}{z})$ 的转化，我们给出\textbf{无穷远处可去奇点、极点、本性奇点}的定义.
+	\begin{defn}\label{def 8.6.4}
+		Suppose $f : \C \rightarrow \hat{\C}$ be a function on $\hat{\C}$. We say that 
+		\begin{itemize}
+			\item $f$ has a \underline{\textcolor{blue}{\textbf{removable singularity}}} at $\infty$ if $F$ has a removable singularity at $0$.
+			
+			\item $f$ has a \underline{\textcolor{blue}{\textbf{pole}}} at $\infty$ if $F$ has a pole at $0$.
+			
+			\item $f$ has an \underline{\textcolor{blue}{\textbf{essential singularity}}} at $\infty$ if $F$ has an essential singularity at $0$.
+		\end{itemize}
+	\end{defn}
+
+	\vspace{2em}
+	\begin{example}\label{ex 8.6.2}
+		下面给出几个\textbf{无穷远处孤立奇点}的例子.
+		\begin{itemize}
+			\item $p(z) = z^n + a_1 z^{n - 1} + \cdots + a_{n - 1}z + a_n$, where $a_k \in \C$, has a pole of order $n$ at $\infty$.
+			
+			\vspace{1em}
+			\begin{proof}
+				Consider $F(z) = p(\frac{1}{z}) = \frac{1}{z^n} + \cdots + \frac{a_{n - 1}}{z} + a_n$. Then $F(z)$ has a pole of order $n$ at $0$.
+			\end{proof}
+		
+			\vspace{2em}
+			
+			\item $e^z , \sin{z} , \cos{z}$ all have essential singularities at $\infty$.
+		\end{itemize}
+	\end{example}
+
+\vspace{2em}
+\paragraph{无穷远处孤立奇点的等价刻画}
+	下面给出\textbf{无穷远处孤立奇点的等价刻画}.
+	\begin{proposition}\label{prop 8.6.1}
+		Suppose $f : \C \rightarrow \C$ is an entire function. Then
+		\begin{enumerate}
+			\item[(1)]$f$ has a pole at $\infty$ iff $f$ is a nonconstant polynomial.
+			
+			\item[(2)]$f$ has a removable singularity at $\infty$ iff $f$ is a constant.
+		\end{enumerate}
+	
+		\vspace{2em}
+		\begin{proof}
+			Since $f$ is entire, its Taylor Expansion $f(z) = \overset{\infty}{\underset{n = 0}{\sum}}{a_n z^n}$ converges for all $z \in \C$. \\
+			By definition,
+			\begin{enumerate}
+				\item[(1)]$f$ has a pole at $\infty$ iff $F(z) = f(\frac{1}{z}) = \overset{\infty}{\underset{n = 0}{\sum}}{a_n z^{-n}}$ has a pole at $0$,  \\
+				which is equivalent to the existence of a positive integer $N$ $\st$ $a_{N} \neq 0 , a_{N + k} = 0 , k = 1 , 2 , \cdots$. \\
+				Then $f(z) = F(\frac{1}{z}) = \overset{N}{\underset{n = 0}{\sum}}{a_n z^n}$ is a nonconstant polynomial.
+				
+				\vspace{1em}
+				
+				\item[(2)]$f$ has a removable singularity at $\infty$ iff $F(z) = f(\frac{1}{z}) = \overset{\infty}{\underset{n = 0}{\sum}}{a_n z^{-n}}$ has a removable singularity at $0$, \\
+				which is equivalent to $a_k = 0$, $k = 1 , 2 , \cdots$. \\
+				Then $f(z) = F(\frac{1}{z}) = a_0$ is constant.
+			\end{enumerate}
+		\end{proof}
+	\end{proposition}
+
+\newpage
+\section{课堂例题$2024-04-19$}
+	\begin{enumerate}
+		\item 课本第三章练习$T14$、$T15$.
+	\end{enumerate}
+	
 
 
 

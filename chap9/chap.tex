@@ -1,0 +1,254 @@
+\ifx\allfiles\undefined
+\input{../config/config}
+\begin{document}
+	% \input{../config/cover} 
+	\else
+	\fi
+	%  ############################ 正文部分
+
+\chapter{$Week \,\, 9$}
+\section{扩充复平面$\hat{\C}$ 上亚纯函数的刻画}
+	下面我们将说明，定义在\textbf{扩充复平面$\hat{\C}$} 上的\textbf{亚纯函数}都是\textbf{有理函数}. 在此之前，先来回顾一下\textbf{有理函数}的定义.
+	\begin{defn}\label{def 9.1.1}
+		A \underline{\textcolor{blue}{\textbf{rational function}}} in $z$ is a quotient of polynomials in $z$.
+	\end{defn}
+
+	\vspace{2em}
+	这里再来补充一下\textbf{扩充复平面$\C$} 上\textbf{亚纯函数}的定义. (书\footnote{\textbf{《$Complex \,\, Analysis$》---  $Elias \,\, M. \,\, Stein$}}P87，牢林这里又漏了定义！)
+	\begin{defn}\label{def 9.1.2}
+		A meromorphic function in the complex plane that is either holomorphic at $\infty$ or has a pole at $\infty$ is said to be \underline{\textcolor{blue}{\textbf{meromorphic in the extended complex plane}}}.
+	\end{defn}
+
+	\vspace{2em}
+	下面给出\textbf{亚纯函数}在\textbf{扩充复平面$\hat{\C}$} 上的刻画.
+	\begin{thm}\label{thm 9.1.1}
+		The meromorphic functions on $\hat{\C}$ are the rational functions.
+		
+		\vspace{4em}
+		\begin{proof}
+			Let $f : \hat{\C} \rightarrow \C$ be a meromorphic function on $\hat{\C}$. Whether $f$ has a pole or removable singularity at $\infty$, $f$ is holomorphic in the set $\{ z \in \C \mid \left| z \right| > R \}$ for some $R$. 
+			
+			\vspace{1em}
+			
+			Thus all other possible poles in $\C$ lie in the compact $\{ z \in \C \mid \left| z \right| \leq R \}$, and so $f$ can have only finitely many poles in $\C$, say $z_1 , \cdots , z_k$.\footnote{By \textbf{Bolzano-Weierstrass Theorem}, 任一有界数列必有收敛子列 (高维仍成立), 若poles infinite, 则在紧集$\{ z \in \C \mid \left| z \right| \leq R \}$ 中有聚点, 与meromorphic矛盾.}
+			
+			\newpage
+			
+			Hence there are positive numbers $n_1 , \cdots , n_k$, $\st$
+			\begin{center}
+				$G(z) = (z - z_1)^{n_1} \cdots (z - z_k)^{n_k} f(z)$ has only removable singularities in $\C$.
+			\end{center}
+		
+			\vspace{1em}
+			
+			After filling the definition of $G$ at $z_1 , \cdots , z_k$, we may assume $G(z)$ is entire. Observe that 
+			\begin{center}
+				$G(z)$ is rational \hspace*{1em} iff \hspace*{1em} $f(z)$ is rational.
+			\end{center}
+			For $G(z)$ at $\infty$, there are 3 possibilities:
+			
+			\vspace{1em}
+			
+			\begin{enumerate}
+				\item[(1)]If $G(z)$ has a pole at $\infty$, then by \textbf{Prop \ref{prop 8.6.1}}, $G(z)$ is a nonconstant polynomial.
+				
+				\vspace{1em}
+				
+				\item[(2)]If $G(z)$ has a removable singularity at $\infty$, then $G(z)$ is a constant.
+				
+				\vspace{1em}
+				
+				\item[(3)]Assume $\infty$ is an essential singularity of $G(z)$. This is impossible for the Laurent expansion of 
+				\begin{align}
+					\widetilde{G}(z) \coloneqq G(\frac{1}{z}) = (\frac{1}{z} - z_1)^{n_1} \cdots (\frac{1}{z} - z_k)^{n_k} f(\frac{1}{z}) \,\, \text{near the origin}
+				\end{align}
+				has only finitely negative powers. Thus $\infty$ is not an essential singularity of $G(z)$.
+			\end{enumerate}
+		
+			\vspace{1em}
+			
+			Therefore, $G(z)$ is rational, then $f(z)$ is rational.
+		\end{proof}
+	\end{thm}
+
+\newpage
+\section{辐角原理，Rouch\'{e}'s Theorem}
+\subsection{$The \,\, Argument \,\, Principle$}
+	下面给出\textbf{辐角原理}的叙述.
+	\begin{thm}\label{thm 9.2.1}
+		\textbf{Argument Principle}. \\
+		Suppose $f$ is meromorphic in an open set containing a contour $\gamma$ and its interior. If $f$ has no poles and never vanishes on $\gamma$, then
+		\begin{align}
+			\frac{1}{2 \pi i} \int_{\gamma}{\frac{f^{'}(z)}{f(z)} dz}
+			= \# \left( \text{zeros of $f$ in Interior($\gamma$)} \right) - \# \left( \text{poles of $f$ in Interior($\gamma$)} \right)
+		\end{align}
+		where the zeros and poles are counted with their multiplicaties (i.e. orders).
+		
+		\vspace{2em}
+		
+		\begin{rmk}
+			可从\textbf{几何视角}来看待\textbf{辐角原理}. \\
+			函数$f$ 实际上引导了一个复平面$z-plane$ 到另一个复平面$w-plane$ 的变换，即
+			\begin{center}
+				The mapping $w = f(z)$ maps the contour $\gamma$ to a closed path $\Gamma$ in $w-plane$.
+			\end{center}
+			
+			\begin{figure}[htbp]  %h此处，t页顶，b页底，p独立一页，浮动体出现的位置
+				\centering  %图表居中
+				\includegraphics[width=0.5\textwidth]{figure/9.2.1-1} %图片的名称或者路径之中有空格会出问题 
+				\caption{mapping $w = f(z)$} % 图片标题
+				\label{pic 9.2.1-1}
+			\end{figure}
+			
+			Let $\Gamma(t) = (f \circ \gamma)(t) = f(\gamma(t))$, $t \in [0 , 1]$. Then
+			\begin{align}
+				\frac{1}{2 \pi i} \int_{\gamma}{\frac{f^{'}}{f} dz}
+				= \frac{1}{2 \pi i} \int_{\Gamma}{\frac{dw}{w}}
+			\end{align}
+			闭曲线$\Gamma$可拆为若干简单闭曲线，即
+			\begin{center}
+				$\Gamma = \Gamma_1 + \cdots + \Gamma_k$
+			\end{center}
+			\begin{itemize}
+				\item 若$\Gamma_i$ 内部无原点，则$\frac{1}{w}$ holomorphic，$\int_{\Gamma_i}{\frac{dw}{w}} = 0$.
+				
+				\item 若$\Gamma_i$ 内部有原点，则$\int_{\Gamma_i}{\frac{dw}{w}} = 2 \pi i$.
+			\end{itemize}
+			从而
+			\begin{align}
+				\frac{1}{2 \pi i} \int_{\gamma}{\frac{f^{'}}{f} dz}
+				= \frac{1}{2 \pi i} \int_{\Gamma}{\frac{dw}{w}}
+				= \text{$\Gamma$ 绕原点圈数}
+			\end{align}
+		\end{rmk}
+	
+		\newpage
+		
+		\begin{proof}
+			Let $f \not\equiv 0$ (不恒为0) be a meromorphic function on an open set $\Omega$. 
+			
+			\vspace{2em}
+			
+			\begin{itemize}
+				\item If $f$ has a pole of order $n$ at $\alpha \in \Omega$, then by \textbf{Thm \ref{thm 7.1.2}}, $\exists$ a nonvanishing (恒不为0) holomorphic function $h(z)$ in a neighbourhood of $\alpha$, $\st$
+				\begin{center}
+					$f(z) = (z - \alpha)^{-n} h(z)$
+				\end{center}
+				Then
+				\begin{align}
+					\frac{f^{'}(z)}{f(z)} &= -\frac{n}{z - \alpha} + \frac{h^{'}(z)}{h(z)} \\
+					Res_{\alpha}\frac{f^{'}}{f} &= -n = - \,\, \text{the order of the pole $\alpha$ of $f$}
+				\end{align}
+				
+				\vspace{2em}
+				
+				\item If $\beta \in \Omega$ is a zero of order $m$ of $f$, then by \textbf{Thm \ref{thm 7.1.1}}, $\exists$ a nonvanishing holomorphic function $g(z)$ in a neighbourhood of $\beta$, $\st$
+				\begin{center}
+					$f(z) = (z - \beta)^{m} g(z)$
+				\end{center}
+				Then
+				\begin{align}
+					\frac{f^{'}(z)}{f(z)} &= \frac{m}{z - \beta} + \frac{g^{'}(z)}{g(z)} \\
+					Res_{\beta}\frac{f^{'}}{f} &= m = \text{the order of the zero $\beta$ of $f$}
+				\end{align}
+			\end{itemize}
+			
+			\vspace{2em}
+			
+			Therefore, $\frac{f^{'}}{f}$ has simple poles at the zeros and poles of $f$, and
+			\begin{align}
+				\frac{1}{2 \pi i} \int_{\gamma}{\frac{f^{'}(z)}{f(z)} dz}
+				= \# \left( \text{zeros of $f$ in Interior($\gamma$)} \right) - \# \left( \text{poles of $f$ in Interior($\gamma$)} \right)
+			\end{align}
+			where the zeros and poles are counted with their multiplicaties (i.e. orders).
+		\end{proof}
+	\end{thm}
+
+\newpage
+\subsection{Rouch\'{e}'s Theorem}
+	作为\textbf{辐角原理}的推论，下面给出这个强有力的工具\textbf{Rouch\'{e}'s Theorem}.
+	\begin{thm}\label{thm 9.2.2}
+		\textbf{Rouch\'{e}'s Theorem}. \\
+		Suppose $f , g$ are holomorphic in an open set containing a contour $\gamma$ and its interior. If $\left| f(z) \right| > \left| g(z) \right|$ for all $z \in \gamma$, then
+		\begin{center}
+			$f$ and $f \pm g$ have the same number of zeros in Interior($\gamma$).
+		\end{center}
+	
+		\vspace{2em}
+		\begin{proof}
+			详细证明可见书\footnote{\textbf{《$Complex \,\, Analysis$》---  $Elias \,\, M. \,\, Stein$}}P91 Thm 4.3.
+		\end{proof}
+	\end{thm}
+
+	\vspace{2em}
+	利用\textbf{Rouch\'{e}'s Theorem}，我们可以证明许多结论，比如\textbf{代数基本定理 (FTA, $\S$9.3 题2)}.
+	
+	
+
+\newpage
+\section{课堂例题$2024-04-22$}
+	\begin{enumerate}
+		\item Determine the number of zeros of
+		\begin{center}
+			$p(z) = z^7 + 5z^3 - z - 2$ in $\mathbb{D}$
+		\end{center}
+	
+		\vspace{2em}
+		\begin{solution}
+			Let $f(z) = 5z^3$, $g(z) = z^7 - z - 2$. Then $\left| f(z) \right| = 5 > 4 \geq \left| g(z) \right|$ on $z \in \partial \mathbb{D}$. \\
+			Therefore, by \textbf{Rouch\'{e}'s Theorem (Thm \ref{thm 9.2.2})},
+			\begin{center}
+				$p(z) = f(z) + g(z)$ has the same number of zeros as $f$ in $\mathbb{D}$, which is 3.
+			\end{center}
+		\end{solution}
+	
+		\vspace{6em}
+		
+		\item \textbf{(代数基本定理, FTA)} \\
+		Let $p(z) = z^n + a_1 z^{n - 1} + \cdots + a_{n - 1}z + a_n$, where $a_1 , \cdots , a_n \in \C$. Then
+		\begin{center}
+			$p(z)$ has $n$ zeros in $\C$.
+		\end{center}
+	
+		\vspace{2em}
+		\begin{solution}
+			Let $f(z) = z^n$, $g(z) = a_1 z^{n - 1} + \cdots + a_{n - 1} z + a_n$. \\
+			If $R$ is sufficiently large, say $R > \max{\left\{ 1 , n \cdot \max_{1 \leq k \leq n}{\left| a_k \right|} \right\}}$, then
+			\begin{center}
+				$\left| f(z) \right| > \left| g(z) \right|$ for all $z \in C_{R}(0)$
+			\end{center}
+			Therefore, by \textbf{Rouch\'{e}'s Theorem (Thm \ref{thm 9.2.2})},
+			\begin{center}
+				$p(z) = f(z) + g(z)$ has the same number of zeros as $f$ in $\C$, which is $n$.
+			\end{center}
+		\end{solution}
+	
+		\newpage
+		
+		\item \textbf{(书P26 题7)} \\
+		Suppose $\left| a_k \right| < 1$, $k = 1 , 2 , \cdots , n$.
+		\begin{align}
+			f(z) = \prod_{k = 1}^{n}{\frac{z - a_k}{1 - \overline{a_k}z}}
+		\end{align}
+		If $\left| b \right| < 1$, then $f(z) = b$ has $n$ roots in $\mathbb{D}$.
+		
+		\vspace{2em}
+		\begin{proof}
+			Let $g(z) = b$. Then $\left| g(z) \right| = \left| b \right| < \left| f(z) \right| = 1$ for all $z \in \partial \mathbb{D}$. \\
+			Then by \textbf{Rouch\'{e}'s Theorem (Thm \ref{thm 9.2.2})},
+			\begin{center}
+				$f(z) - b = f(z) - g(z)$ has the same number of zeros as $g$ in $\mathbb{D}$, which is 0.
+			\end{center}
+		\end{proof}
+	\end{enumerate}
+	
+
+
+
+
+
+
+	%  ############################
+	\ifx\allfiles\undefined
+\end{document}
+\fi

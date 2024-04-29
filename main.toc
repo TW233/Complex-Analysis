@@ -77,11 +77,27 @@
 \contentsline {chapter}{\numberline {第八章\hspace {.3em}}$Week \,\, 8$}{73}{chapter.8}%
 \contentsline {section}{\numberline {8.1}均值定理}{73}{section.8.1}%
 \contentsline {section}{\numberline {8.2}奇点}{74}{section.8.2}%
-\contentsline {subsection}{\numberline {8.2.1}\textbf {Classification of isolated singularities}}{74}{subsection.8.2.1}%
+\contentsline {subsection}{\numberline {8.2.1}$Classification \,\, of \,\, isolated \,\, singularities$}{74}{subsection.8.2.1}%
 \contentsline {section}{\numberline {8.3}孤立奇点的等价刻画}{75}{section.8.3}%
-\contentsline {subsection}{\numberline {8.3.1}\textbf {Removable Singularity}}{75}{subsection.8.3.1}%
-\contentsline {subsection}{\numberline {8.3.2}\textbf {Pole}}{77}{subsection.8.3.2}%
-\contentsline {subsection}{\numberline {8.3.3}\textbf {Essential Singularity}}{77}{subsection.8.3.3}%
+\contentsline {subsection}{\numberline {8.3.1}$Removable \,\, Singularity$}{75}{subsection.8.3.1}%
+\contentsline {subsection}{\numberline {8.3.2}$Pole$}{77}{subsection.8.3.2}%
+\contentsline {subsection}{\numberline {8.3.3}$Essential \,\, Singularity$}{77}{subsection.8.3.3}%
 \contentsline {section}{\numberline {8.4}课堂例题$2024-04-15$}{78}{section.8.4}%
-\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}$L'H\hat {o}spital's \,\, Rule$}{79}{appendix.A}%
-\contentsline {section}{\numberline {A.1}弱化版本}{79}{section.A.1}%
+\contentsline {section}{\numberline {8.5}本性奇点附近的不稳定性}{79}{section.8.5}%
+\contentsline {subsection}{\numberline {8.5.1}$Casorati-Weierstrass$ 定理}{79}{subsection.8.5.1}%
+\contentsline {subsection}{\numberline {8.5.2}$Picard$ 定理}{80}{subsection.8.5.2}%
+\contentsline {section}{\numberline {8.6}亚纯函数，扩充复平面，无穷远处孤立奇点}{81}{section.8.6}%
+\contentsline {subsection}{\numberline {8.6.1}亚纯函数}{81}{subsection.8.6.1}%
+\contentsline {subsection}{\numberline {8.6.2}扩充复平面}{82}{subsection.8.6.2}%
+\contentsline {subsection}{\numberline {8.6.3}无穷远处孤立奇点}{82}{subsection.8.6.3}%
+\contentsline {paragraph}{定义}{82}{paragraph*.35}%
+\contentsline {paragraph}{无穷远处孤立奇点的等价刻画}{83}{paragraph*.36}%
+\contentsline {section}{\numberline {8.7}课堂例题$2024-04-19$}{84}{section.8.7}%
+\contentsline {chapter}{\numberline {第九章\hspace {.3em}}$Week \,\, 9$}{85}{chapter.9}%
+\contentsline {section}{\numberline {9.1}扩充复平面$\hat {\mathbb {C}}$ 上亚纯函数的刻画}{85}{section.9.1}%
+\contentsline {section}{\numberline {9.2}辐角原理，Rouch\'{e}'s Theorem}{87}{section.9.2}%
+\contentsline {subsection}{\numberline {9.2.1}$The \,\, Argument \,\, Principle$}{87}{subsection.9.2.1}%
+\contentsline {subsection}{\numberline {9.2.2}Rouch\'{e}'s Theorem}{89}{subsection.9.2.2}%
+\contentsline {section}{\numberline {9.3}课堂例题$2024-04-22$}{90}{section.9.3}%
+\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}$L'H\hat {o}spital's \,\, Rule$}{92}{appendix.A}%
+\contentsline {section}{\numberline {A.1}弱化版本}{92}{section.A.1}%
