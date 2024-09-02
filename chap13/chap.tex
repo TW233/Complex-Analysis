@@ -1,0 +1,81 @@
+\ifx\allfiles\undefined
+\input{../config/config}
+\begin{document}
+	% \input{../config/cover} 
+	\else
+	\fi
+	%  ############################ 正文部分
+
+\chapter{$Week \,\, 13$}
+\section{Automorphisms of $\mathbb{D} , \,\, \C , \,\, \mathbb{H}$}
+	下面我们来研究复平面上三种特殊区域的\textbf{自同构群 (Automorphism)}. 
+	
+	\vspace*{1em}
+	首先给出\textbf{自同构 (Automorphism)}的概念.
+	\begin{defn}\label{def 13.1.1}
+		A conformal map from an open set $\Omega$ to itself is called an \underline{\textcolor{blue}{\textbf{automorphism of $\Omega$}}}. The set of all automorphisms of $\Omega$ is denoted by \underline{\textcolor{blue}{\textbf{$Aut(\Omega)$}}}.
+	\end{defn}
+	
+	\vspace*{6em}
+	下面我们分别对开圆盘$\mathbb{D}$, 复平面$\C$, 及上半平面$\mathbb{H}$(下一周) 上的\textbf{自同构群 (Automorphisms)}的结构进行研究和讨论.
+	
+\newpage
+\section{Automorphisms of $\mathbb{D}$}
+\subsection{$The \,\, Blaschke \,\, Factors$}
+	首先先来介绍一类特殊的，同时也是$\mathbb{D}$ 上最重要的一类\textbf{自同构}——\textbf{Blaschke Factors}:
+	\begin{align}
+		\varphi_{\alpha}(z) = \frac{\alpha - z}{1 - \overline{\alpha} z} \in Aut(\mathbb{D}), \,\, where \,\, \alpha \in \C \,\, with \,\, \left| \alpha \right| < 1
+	\end{align}
+	\begin{center}
+		(可用\textbf{Maximum Modulus Principle (Thm \ref{thm 11.2.2})} 证明$\varphi_\alpha (\mathbb{D}) \subset \mathbb{D}$)
+	\end{center}
+	同时容易得到
+	\begin{align}
+		\varphi_\alpha \circ \varphi_\alpha (z) = z , \,\, \forall z \in \mathbb{D}
+	\end{align}
+
+\vspace*{6em}
+\subsection{Automorphisms of $\mathbb{D}$}
+	在介绍完\textbf{Blaschke Factors}后，下面我们给出$\mathbb{D}$ 上自同构的一般的刻画.
+	\begin{thm}\label{thm 13.2.1}
+		\textbf{Automorphisms of $\mathbb{D}$}. \\
+		If $f \in Aut(\mathbb{D})$, then $\exists \vartheta \in \R , \,\, \alpha \in \mathbb{D}$, $\st$
+		\begin{align}
+			f(z) = e^{i\vartheta} \cdot \varphi_\alpha(z), \,\, where \,\, \varphi_\alpha(z) = \frac{\alpha - z}{1 - \overline{\alpha} z}
+		\end{align}
+	\end{thm}
+	
+	\vspace*{2em}
+	\begin{corollary}\label{cor 13.2.2}
+		The only automorphism of $\mathbb{D}$ that fixes the origin are the rotations.
+	\end{corollary}
+
+\newpage
+\section{Automorphisms of $\C$}
+	复平面$\C$ 上的自同构非常的简单，这里要用到书中\textbf{第三章练习15}的结论(习题证明可见我另一篇知乎文章).
+	\begin{thm}\label{thm 13.3.1}
+		\textbf{Automorphisms of $\C$}. \\
+		If $f \in Aut(\Omega)$, then
+		\begin{align}
+			f(z) = az + b \,\, for \,\, some \,\, a , b \in \C , \,\, a \neq 0
+		\end{align}
+	\end{thm}
+
+\newpage
+\section{Exercise 2024-05-20}
+	\begin{enumerate}
+		\item P209-212 Examples. 
+		
+		\vspace*{2em}
+		
+		\item P248 T1-7
+	\end{enumerate}
+
+
+
+
+
+	%  ############################
+	\ifx\allfiles\undefined
+\end{document}
+\fi

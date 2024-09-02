@@ -1,0 +1,104 @@
+\ifx\allfiles\undefined
+\input{../config/config}
+\begin{document}
+	% \input{../config/cover} 
+	\else
+	\fi
+	%  ############################ 正文部分
+
+\chapter{$Week \,\, 14$}
+\section{Automorphisms of $\mathbb{H}$}
+\begin{center}
+	最后一周的内容让我们来研究上半平面$\mathbb{H}$ 上自同构的结构.
+\end{center}
+
+\subsection{M\"{o}bius Transforms / Fractional Linear Transforms (分式线性变换)}
+	先来给出\textbf{M\"{o}bius Transform} 的概念.
+	\begin{defn}\label{def 14.1.1}
+		Given $a , b , c , d \in \C$, $\st ad - bc \neq 0$, then
+		\begin{align}
+			z \mapsto \frac{az + b}{cz + d} \,\, \text{is called a \underline{\textcolor{blue}{\textbf{M\"{o}bius Transform}}}.}
+		\end{align}
+		
+		\vspace*{2em}
+		
+		\begin{rmk}
+			M\"{o}bius Transform is a composition of 3 elementary ones:
+			\begin{align}
+				\begin{cases}
+					1.\text{\textcolor{red}{scaling}:} \sigma_{p}(z) = pz , \,\, p \in \C , p \neq 0 \\
+					2.\text{\textcolor{red}{translation}:} \tau_{q}(z) = z + q , \,\, q \in \C \\
+					3.\text{\textcolor{red}{inversion}:} I(z) = \frac{1}{z} (\text{反演})
+				\end{cases}
+			\end{align}
+		\end{rmk}
+	\end{defn}
+	
+	\vspace*{4em}
+	下面给出一些记号：
+	\begin{itemize}
+		\item Let $A = \begin{pmatrix}
+			a \,\, &b \\
+			c \,\, &d
+		\end{pmatrix}$ with $det(A) \neq 0$.
+		\begin{align}
+			M_{A}(z) = \frac{az + b}{cz + d}
+		\end{align}
+		
+		\vspace*{2em}
+		
+		\item (\textbf{实2阶特殊线性群})
+		\begin{align}
+			SL_2(\R) = \left\{ A = \begin{pmatrix}
+				a \,\, &b \\
+				c \,\, &d
+			\end{pmatrix} \,\, \Big| \,\, a , b , c , d \in \R , \,\, det(A) = 1 \right\}
+		\end{align}
+	\end{itemize}
+	
+	\vspace*{6em}
+	关于\textbf{M\"{o}bius Transform}，不难证明有以下事实：
+	\begin{enumerate}
+		\item \textbf{Fact 1}: Let $A_1 , A_2$ be 2 invertible metrics, then
+		\begin{align}
+			M_{A_1 A_2}(z) = M_{A_1} \circ M_{A_2}(z)
+		\end{align}
+		
+		\vspace*{2em}
+		
+		\item \textbf{Fact 2}: M\"{o}bius Transform preserves lines $\&$ circles.
+		\begin{rmk}
+			此处指的是
+			\begin{center}
+				直线$\longrightarrow$ 直线 / 圆 \\
+				$\&$ \\
+				圆$\longrightarrow$ 直线 / 圆
+			\end{center}
+		\end{rmk}
+		
+		\vspace*{2em}
+		
+		\item \textbf{Fact 3}: Any circle can be preserved by the equation
+		\begin{align}
+			b \left| z \right|^2 - 2 Re(\overline{a}z) + c = 0 , \,\, where \,\, a \in \C , b , c \in \R , bc < \left| a \right|^2
+		\end{align}
+	\end{enumerate}
+
+\newpage
+\subsection{Automorphisms of $\mathbb{H}$}
+	有了以上概念的铺垫，上半平面$\mathbb{H}$ 上的自同构的描述就显得十分轻松.
+	\begin{thm}\label{thm 14.1.1}
+		\textbf{Automorphisms of $\mathbb{H}$}. \\
+		If $f \in Aut(\mathbb{H})$, then $\exists A \in SL_2(\R)$, $\st$
+		\begin{align}
+			f(z) = M_{A}(z)
+		\end{align}
+	\end{thm}
+
+
+
+
+	%  ############################
+	\ifx\allfiles\undefined
+\end{document}
+\fi

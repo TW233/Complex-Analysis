@@ -1,0 +1,121 @@
+\ifx\allfiles\undefined
+\input{../config/config}
+\begin{document}
+	% \input{../config/cover} 
+	\else
+	\fi
+	%  ############################ 正文部分
+
+\setcounter{chapter}{10}
+\chapter{$Week \,\, 11$}
+\section{Rouch\'{e}'s Theorem 的更强推论}
+	首先先来回顾一下\textbf{Rouch\'{e}'s Theorem (Thm \ref{thm 9.2.2})}.
+	\begin{thm}\label{thm 11.1.1}
+		\textbf{Rouch\'{e}'s Theorem}. \\
+		Suppose $f , g$ are holomorphic in an open set containing a contour $\gamma$ and its interior. If $\left| f(z) \right| > \left| g(z) \right|$ for all $z \in \gamma$, then
+		\begin{center}
+			$f$ and $f \pm g$ have the same number of zeros in Interior($\gamma$).
+		\end{center}
+	
+		\vspace{2em}
+		\begin{rmk}
+			可以容易得到其等价命题为: 
+			\begin{itemize}
+				\item $\Leftrightarrow$ If $\left| f \right| > \left| f - g \right|$ for all $z \in \gamma$, then
+				\begin{center}
+					$f$ and $g$ have the same number of zeros in Interior($\gamma$).
+				\end{center}
+				
+				\vspace*{2em}
+				
+				\item 而事实上，我们可以给出比\textbf{Rouch\'{e}'s Theorem (Thm \ref{thm 11.1.1})}更强的结论 (条件减弱). \\
+				$\Leftrightarrow$ If $\left| f \right| + \left| g \right| > \left| f - g \right|$ for all $z \in \gamma$, then
+				\begin{center}
+					$f$ and $g$ have the same number of zeros in Interior($\gamma$).
+				\end{center}
+			\end{itemize}
+		\end{rmk}
+	\end{thm}
+
+\newpage
+
+\section{$Open \,\, Mapping \,\, Theorem \,\, \&\& \,\, Maximum \,\, Modulus \,\, Principle$}
+	下面分别给出\textbf{开映射定理}和\textbf{最大模原理}，它们反映了\textbf{非常值}全纯函数的\textbf{逆天性质}.
+
+\vspace*{2em}
+\subsection{开映射定理}
+	\begin{thm}\label{thm 11.2.1}
+		\textbf{Open Mapping Theorem}. 
+		\begin{center}
+			If $f$ is holomorphic and \textbf{nonconstant} in an open set $\Omega$, then $f$ is open.
+		\end{center}
+	\end{thm}
+
+\vspace*{6em}
+\subsection{最大模原理}
+	\begin{thm}\label{thm 11.2.2}
+		\textbf{Maximum Modulus Principle}. \\
+		If $f$ is a \textbf{nonconstant} holomorphic function in a region $\Omega$, then
+		\begin{center}
+			$f$ cannot attain its maximum in $\Omega$.
+		\end{center}
+		
+		\vspace*{2em}
+		\begin{rmk}
+			条件中的\textbf{holomorphic} 不可减弱为\textbf{continuous}. 反例：
+			\begin{center}
+				$g(z) = 1 - \left| z \right|^2$, $z \in \mathbb{D}$ attains its maximum at $z = 0$.
+			\end{center}
+		\end{rmk}
+	\end{thm}
+	
+	\vspace*{2em}
+	
+	\begin{corollary}\label{cor 11.2.3}
+		Suppose $\Omega$ is a region with compact closure $\overline{\Omega}$. If $f$ is holomorphic in $\Omega$, and continuous on $\overline{\Omega}$, then
+		\begin{align}
+			\sup_{z \in \Omega}{\left| f(z) \right|} = \sup_{z \in \overline{\Omega} - \Omega}{\left| f(z) \right|}
+		\end{align}
+	\end{corollary}
+
+\newpage
+\section{$Schwartz \,\, Lemma$}
+	下面来介绍\textbf{Schwartz Lemma}, 它是我们后面所要讲的\textbf{共形映射(Conformal Map)}的基础.
+	\begin{thm}\label{thm 11.3.1}
+		\textbf{Schwartz Lemma}. \\
+		Let $f : \mathbb{D} \rightarrow \mathbb{D}$ be holomorphic with $f(0) = 0$. Then
+		
+		\vspace*{1em}
+		
+		\begin{enumerate}
+			\item[(\rmnum{1})] $\left| f(z) \right| = \left| z \right|$ for all $z \in \mathbb{D}$. \\
+			If for some $0 \neq z_0 \in \mathbb{D}$, $\left| f(z_0) \right| = \left| z_0 \right|$, then $\exists$ unit complex number $c$, $\st$
+			\begin{center}
+				$f(z) = cz$ \\
+				(i.e. $f(z)$ is a rotation)
+			\end{center}
+			
+			\vspace*{2em}
+			
+			\item[(\rmnum{2})] $\left| f^{'}(0) \right| \leq 1$ and if equality holds, then $f$ is a rotation.
+		\end{enumerate}
+	\end{thm}
+
+\newpage
+\section{Exercise 2024-05-06}
+	\begin{enumerate}
+		\item 书 P105 T13-19 , 21-22
+		
+		\item 书P109 Problem 2-3
+	\end{enumerate}
+	
+
+
+
+
+
+
+	%  ############################
+	\ifx\allfiles\undefined
+\end{document}
+\fi

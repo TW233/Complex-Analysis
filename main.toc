@@ -99,5 +99,28 @@
 \contentsline {subsection}{\numberline {9.2.1}$The \,\, Argument \,\, Principle$}{87}{subsection.9.2.1}%
 \contentsline {subsection}{\numberline {9.2.2}Rouch\'{e}'s Theorem}{89}{subsection.9.2.2}%
 \contentsline {section}{\numberline {9.3}课堂例题$2024-04-22$}{90}{section.9.3}%
-\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}$L'H\hat {o}spital's \,\, Rule$}{92}{appendix.A}%
-\contentsline {section}{\numberline {A.1}弱化版本}{92}{section.A.1}%
+\contentsline {chapter}{\numberline {第十一章\hspace {.3em}}$Week \,\, 11$}{92}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Rouch\'{e}'s Theorem 的更强推论}{92}{section.11.1}%
+\contentsline {section}{\numberline {11.2}$Open \,\, Mapping \,\, Theorem \,\, \&\& \,\, Maximum \,\, Modulus \,\, Principle$}{93}{section.11.2}%
+\contentsline {subsection}{\numberline {11.2.1}开映射定理}{93}{subsection.11.2.1}%
+\contentsline {subsection}{\numberline {11.2.2}最大模原理}{93}{subsection.11.2.2}%
+\contentsline {section}{\numberline {11.3}$Schwartz \,\, Lemma$}{94}{section.11.3}%
+\contentsline {section}{\numberline {11.4}Exercise 2024-05-06}{95}{section.11.4}%
+\contentsline {chapter}{\numberline {第十二章\hspace {.3em}}$Week \,\, 12$}{96}{chapter.12}%
+\contentsline {section}{\numberline {12.1}复对数}{96}{section.12.1}%
+\contentsline {section}{\numberline {12.2}$Conformal \,\, Mappings$}{97}{section.12.2}%
+\contentsline {section}{\numberline {12.3}上半平面$\mathbb {H}$ 到$\mathbb {D}$ 的共形映射}{98}{section.12.3}%
+\contentsline {section}{\numberline {12.4}Exercise 2024-05-13}{99}{section.12.4}%
+\contentsline {chapter}{\numberline {第十三章\hspace {.3em}}$Week \,\, 13$}{100}{chapter.13}%
+\contentsline {section}{\numberline {13.1}Automorphisms of $\mathbb {D} , \,\, \mathbb {C}, \,\, \mathbb {H}$}{100}{section.13.1}%
+\contentsline {section}{\numberline {13.2}Automorphisms of $\mathbb {D}$}{101}{section.13.2}%
+\contentsline {subsection}{\numberline {13.2.1}$The \,\, Blaschke \,\, Factors$}{101}{subsection.13.2.1}%
+\contentsline {subsection}{\numberline {13.2.2}Automorphisms of $\mathbb {D}$}{101}{subsection.13.2.2}%
+\contentsline {section}{\numberline {13.3}Automorphisms of $\mathbb {C}$}{102}{section.13.3}%
+\contentsline {section}{\numberline {13.4}Exercise 2024-05-20}{103}{section.13.4}%
+\contentsline {chapter}{\numberline {第十四章\hspace {.3em}}$Week \,\, 14$}{104}{chapter.14}%
+\contentsline {section}{\numberline {14.1}Automorphisms of $\mathbb {H}$}{104}{section.14.1}%
+\contentsline {subsection}{\numberline {14.1.1}M\"{o}bius Transforms / Fractional Linear Transforms (分式线性变换)}{104}{subsection.14.1.1}%
+\contentsline {subsection}{\numberline {14.1.2}Automorphisms of $\mathbb {H}$}{106}{subsection.14.1.2}%
+\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}$L'H\hat {o}spital's \,\, Rule$}{107}{appendix.A}%
+\contentsline {section}{\numberline {A.1}弱化版本}{107}{section.A.1}%
